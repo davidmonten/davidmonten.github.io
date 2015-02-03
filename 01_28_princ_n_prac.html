@@ -36,7 +36,45 @@ The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab A
 
 <p>For a long time I postponed to learn to make web pages because of different issues but this is the right time that I’ll make a web page on my own.</p>
 
-<p>What I need to do that is:</p>
+<p>What I need is:</p>
+
+<p>1.make a dual-boot with Linux Mint or Ubuntu (or whatever UNIX) alongside Windows 7 (and I now some of you are thinkin’ I’m an asshole :grin:)
+1.download <a href="https://www.ruby-lang.org/it/">Ruby</a>
+1.install <a href="http://jekyllrb.com/">Jekyll</a> (a Ruby gem)
+1.download/fork a theme for Jekyll
+1.design the site structure and run it locally
+1.write the content
+1.upload the site to the local archive</p>
+
+<h2 id="make-a-dual-boot-with-linux-mint-or-ubuntu">Make a dual-boot with Linux Mint or Ubuntu</h2>
+<p>I’ve simply followed <a href="https://sites.google.com/site/easylinuxtipsproject/mint-install">this</a> tutorial.
+You can find a lot of tutorial like that simply googling “dualboot Linux”. 
+Ensure to download a stable version of Linux from the <a href="http://www.linuxmint.com/download.php">official website</a>.  </p>
+
+<h2 id="download-ruby">Download Ruby</h2>
+<p>C’mon…it’s <a href="https://www.ruby-lang.org">Ruby</a> ;)  </p>
+
+<h2 id="install-jekyll">Install Jekyll</h2>
+<p>Install Jekyll is very easy.<br />
+You’ve just to open your shell and type
+    ~ $ gem install jekyll
+Now you can run jekyll on your system.  </p>
+
+<p>Now type
+    ~ $ jekyll new thenameofyourstaticwebsite
+Doing so Jekyll create a standard folder system to start building your website, but I’ve used a different strategy: <strong>I’ve downloaded a theme for Jekyll</strong>  </p>
+
+<h2 id="downloadfork-a-theme-for-jekyll">Download/fork a theme for Jekyll</h2>
+<p>I’ve searched online and I’ve found <a href="http://solo.chibi.io/">Solo</a>, an easy and minimal theme for Jekill <a href="https://github.com/chibicode/solo">hosted on Github</a>.<br />
+I’ve forked Solo on my own Github repository to have a copy, than I’ve downloaded the zip.</p>
+
+<p>Inside I’ve found
+*_include     inside this folder you can put the “bricks” of your website and refer them from the layout files
+*_layout      inside this folder you can put the different layout schemes of your webpages and refer them from the markdown (.md) files
+*css          inside this folder you can find all the css files
+*_config.yml  in this file you can store the instruction that Jekyll has to follow to build the site; simply type the title of your website to display it in every page.
+*index.md     this is the future .html file; copy and modify this file to make other pages. Remember to follow the <a href="http://daringfireball.net/projects/markdown/syntax">markdown syntax</a>
+*some other stuff like credits and references of the author.</p>
 
 <p>*** W O R K   I N   P R O G R E S S ***\
 <!---
