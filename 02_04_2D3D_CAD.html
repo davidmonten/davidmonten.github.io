@@ -60,7 +60,7 @@ In this tumblr I’ve found a lot of OpenSCAD experiments really inspiring. On <
   </li>
 </ol>
 
-<p>I’ve folloved some <a href="https://www.youtube.com/watch?v=vM1W0IjVrJo#t=18">Patrik Conner’s tutorials</a> and <a href="http://www.openscad.org/cheatsheet/index.html">Wikibooks</a> and I’ve realized the potencial of OpenSCAD: it works well for mechanical part, maybe heavy computation tasks, but to design something like what I’m keeping in mind I need something more interactive to define the correct shape.<br />
+<p>I’ve followed some <a href="https://www.youtube.com/watch?v=vM1W0IjVrJo#t=18">Patrik Conner’s tutorials</a> and <a href="http://www.openscad.org/cheatsheet/index.html">Wikibooks</a> and I’ve realized the potencial of OpenSCAD: it works well for mechanical part, maybe heavy computation tasks, but to design something like what I’m keeping in mind I need something more interactive to define the correct shape.<br />
 To <a href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Primitive_Solids#polyhedron">draw a poligon</a> it requires to enter manually the coordinates of every single point and set the order to define the normal direction.  </p>
 
 <p><img src=".\img\02_04_2D3D_CAD\openscad01.png" alt="openscad01" />  </p>
@@ -69,7 +69,7 @@ To <a href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Primitive_Solids#
 
 <p><a href=".\files\02_04_2D3D_CAD\strange_pyr_faceflipped.scad">strange_pyr_faceflipped</a></p>
 
-<p>This kind of workflow let you perfectly understand how meshes work, but it seems to not be proper to produce a parametric and generative model to allow game developers and players to easly self produce different models of planets.</p>
+<p>This kind of aproach let you perfectly understand how meshes work, but it seems to not be proper to produce a parametric and generative model to allow game developers and players to easly self produce different models of planets.</p>
 
 <p>I tried also <a href="http://www.grasshopper3d.com/"><strong>Grasshopper</strong></a>, a free plugin for Rhinoceros. This tool is based on a visual programming GUI that let you manage complex data geometries faster. I’ve found <a href="http://www.giuliopiacentino.com/weaverbird/">Wavebird</a>, a topological modeler that contains many of the known subdivision and transformation operators. Instead of doing the work repeatedly, or sometimes using complicated scripts, this plug-in reconstructs the shape, subdivides any mesh, even made by polylines, and helps preparing for fabrication.   </p>
 
@@ -86,12 +86,18 @@ I’ve setted four geometries: icosahedron, dodecahedron, double pyramid and ant
 I think it depends by the shape of its faces: meshes can be triangular or quadrangular, but not pentagonal, so probably, due to a lack of informations, it’s impossible to compute the faces.  </p>
 
 <p>To correctly place the pillars over the faces I’ve to find relative planes and set the origin on the center of every faces. This step is not so intuitive as it can seems at first sight.<br />
-I’ve to remember that I’m working with polihedra with <em>nf</em> number of <em>faces</em>, <em>np</em> number of different <em>polygons</em> andeach of <em>ne</em> number of <em>edges</em>, so I’ve to set at least three basic parameters.<br />
-At this stage I prefer to magage single cases to produce a prototype, but in the concept</p>
+I’ve to remember that I’m working with polyhedra with <em>nf</em> number of <em>faces</em>, <em>np</em> number of different <em>polygons</em> and each of <em>ne</em> number of <em>edges</em>, so I’ve to set at least three basic parameters.<br />
+At this stage I prefer to manage single cases to produce a prototype, but in the concept</p>
 
-<p>The next step is to draw a sort of simple pillars to physically scale the planets phisically maintaining always the same structure and use diferent material to customize every single planet.  </p>
+<p>The next step is to draw a sort of simple pillars to physically scale the planets phisically maintaining always the same structure and use difFerent material to customize every single planet.  </p>
 
 <!---
+
+**** GRASSHOPPER ****
+**** BLENDER ****
+**** INKSCAPE ****
+**** UNITY ****
+**** GRASSHOPPER ****
 
 AGGIUNGERE QUI ULTERIORI AVANZAMENTI
 
