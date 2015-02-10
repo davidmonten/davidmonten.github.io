@@ -34,8 +34,13 @@ The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab A
 
 <h2 id="set-up">Set up</h2>
 
-<p>My final project is phisically composed by a set of devices that I’ll realize using different tools and techniques:
-* Planets: probably they will be represented as regular polihedrons; inside they have a printed case to embed eletronics easly, and a light structure of pillars to stand aside the external faces that can be customized. This module has some parameters like number of faces, diameter and so on, bounded togheter in precise relationships that I’ve to define by functions to allow the parametric generation af new and customizable modules.  </p>
+<p>My final project is phisically composed by a set of devices that I’ll realize using different tools and techniques:  </p>
+
+<ul>
+  <li>Planets: probably they will be represented as regular polihedrons; inside they have a printed case to embed eletronics easly, and a light structure of pillars to stand aside the external faces that can be customized. This module has some parameters like number of faces, diameter and so on, bounded togheter in precise relationships that I’ve to define by functions to allow the parametric generation af new and customizable modules.  </li>
+</ul>
+
+<p><img src="./img/02_04_2D3D_CAD/dodecscaled01.jpg" alt="dodecscaled01" /></p>
 
 <ul>
   <li>
@@ -70,23 +75,23 @@ In this tumblr I’ve found a lot of OpenSCAD experiments really inspiring. On <
 <p>I’ve followed some <a href="https://www.youtube.com/watch?v=vM1W0IjVrJo#t=18">Patrik Conner’s tutorials</a> and <a href="http://www.openscad.org/cheatsheet/index.html">Wikibooks</a> and I’ve realized the potencial of OpenSCAD: it works well for mechanical part, maybe heavy computation tasks, but to design something like what I’m keeping in mind I need something more interactive to define the correct shape.<br />
 To <a href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Primitive_Solids#polyhedron">draw a poligon</a> it requires to enter manually the coordinates of every single point and set the order to define the normal direction.  </p>
 
-<p><img src="./img/02_04_2D3D_CAD/openscad01.png" alt="openscad01" />  </p>
+<p><img src="/img/02_04_2D3D_CAD/openscad01.png" alt="openscad01" />  </p>
 
-<p><img src="./img/02_04_2D3D_CAD/openscad02.png" alt="openscad02" />  </p>
+<p><img src="/img/02_04_2D3D_CAD/openscad02.png" alt="openscad02" />  </p>
 
-<p><a href="./files/02_04_2D3D_CAD/strange_pyr_faceflipped.scad">strange_pyr_faceflipped</a></p>
+<p><a href="/files/02_04_2D3D_CAD/strange_pyr_faceflipped.scad">strange_pyr_faceflipped</a></p>
 
 <p>This kind of aproach let you perfectly understand how meshes work, but it seems to not be proper to produce a parametric and generative model to allow game developers and players to easly self produce different models of planets.</p>
 
 <p>I tried also <a href="http://www.grasshopper3d.com/"><strong>Grasshopper</strong></a>, a free plugin for Rhinoceros. This tool is based on a visual programming GUI that let you manage complex data geometries faster. I’ve found <a href="http://www.giuliopiacentino.com/weaverbird/">Wavebird</a>, a topological modeler that contains many of the known subdivision and transformation operators. Instead of doing the work repeatedly, or sometimes using complicated scripts, this plug-in reconstructs the shape, subdivides any mesh, even made by polylines, and helps preparing for fabrication.   </p>
 
-<p><img src="./img/01_28_prin&amp;prac/gh01.png" alt="gh01" />  </p>
+<p><img src="/img/01_28_prin&amp;prac/gh01.png" alt="gh01" />  </p>
 
-<p><img src="./img/01_28_prin&amp;prac/rh01.png" alt="rh01" />  </p>
+<p><img src="/img/01_28_prin&amp;prac/rh01.png" alt="rh01" />  </p>
 
-<p><img src="./img/01_28_prin&amp;prac/rh02.png" alt="rh02" />  </p>
+<p><img src="/img/01_28_prin&amp;prac/rh02.png" alt="rh02" />  </p>
 
-<p><a href="./files/02_04_2D_3D_CAD/planet_v1.gh">planet_v1</a></p>
+<p><a href="/files/02_04_2D_3D_CAD/planet_v1.gh">planet_v1</a></p>
 
 <p>Polyhedra are just the base of the model and with this tool is fairy easy to manage theyr properties dinamically trough native sliders.
 I’ve setted four geometries: icosahedron, dodecahedron, double pyramid and antiprism; unexpectedly the dodecahedron has just edges and not the meshes as output.
