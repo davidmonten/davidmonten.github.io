@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Documentation produced by David Montenegro for Fab Academy 2015">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DM's Fab Academy 2015</title>
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,400italic,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/syntax.css">
+  <link rel="stylesheet" href="css/solo.css">
+
+</head>
+<body>
+  <div class="container">
+    <h2>David Montenegro</h2>
+    <h1><a href="./">FAB ACADEMY 2015</a></h1>
+    <div>
+      <p><a href="./assignment.html"><b>Assignments<b/></a> | <a href="./final_project.html"><b>Final Project<b/></a> | <a href="./about.html"><b>About<b/></a> | <a href="./contacts.html"><b>Contact<b/></a></p>
+     </div>
+     <h2 id="computer-aided-design">02_04 Computer-aided Design</h2>
+
+<p>On wednesday 04.02.2015 we’ve got the <a href="https://vimeo.com/118721496">second online lesson</a> with Neil Gershenfeld.<br />
+The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab Academy account on Vimeo</a>.</p>
+
+<p>All the documentation can be found <a href="http://academy.cba.mit.edu/classes/computer_design/index.html">here</a></p>
+
+<p>For this week the assignment was  </p>
+
+<blockquote>
+  <p>**model (draw, render, animate, simulate, …) a possible final project, and post it on your class page **  </p>
+</blockquote>
+
+<h2 id="set-up">Set up</h2>
+
+<p>My final project is phisically composed by a set of devices that I’ll realize using different tools and techniques:
+- Planets: probably they will be represented as regular polihedrons; inside they have a printed case to embed eletronics easly, and a light structure of pillars to stand aside the external faces that can be customized. This module has some parameters like number of faces, diameter and so on, bounded togheter in precise relationships that I’ve to define by functions to allow the parametric generation af new and customizable modules.
+- Pieces: ships and buildings will be made as 2d shapes; they have to be very light in order to stick magetically over the planet and they have also to be recognizable by the planet to know the 
+- Frame: it’s the frame to use if you don’t have a structure to use to hang up the planets: it will be made as 2D shapes to joint together.  </p>
+
+<h2 id="what-ive-done">What I’ve done</h2>
+
+<h3 id="planets">Planets</h3>
+<p>I started exploring online resources about <a href="http://www.openscad.org/"><strong>OpenSCAD</strong></a>. 
+It is not an interactive modeller. Instead it is something like a 3D-compiler that reads in a script file that describes the object and renders the 3D model from this script file. This gives you (the designer) full control over the modelling process and enables you to easily change any step in the modelling process or make designs that are defined by configurable parameters.  </p>
+
+<p>I started googling “polyhedra openscad”.
+I report just the most interesting records  </p>
+
+<ol>
+  <li>
+    <p><a href="https://www.youtube.com/watch?v=E8kUJL04ELA#t=394">The Conway’s Game of Life</a>
+In this video John Conway explain the rules of the classical Game of Life.
+It wont be usefull using OpenSCAD but I liked it and I think I’ll eventually take inspiration from it for further developments of rules set.  </p>
+  </li>
+  <li>
+    <p><a href="http://kitwallace.tumblr.com/page/2">The Wallace Line</a>
+In this tumblr I’ve found a lot of OpenSCAD experiments really inspiring. On <a href="http://kitwallace.co.uk/">his website</a> I’ve found something interesting to start like <a href="http://kitwallace.co.uk/3d/solid-index.xq">scripts</a> for OpenSCAD to generate polyhedra.  </p>
+  </li>
+</ol>
+
+<p>I’ve folloved some <a href="https://www.youtube.com/watch?v=vM1W0IjVrJo#t=18">Patrik Conner’s tutorials</a> and <a href="http://www.openscad.org/cheatsheet/index.html">Wikibooks</a> and I’ve realized the potencial of OpenSCAD: it works well for mechanical part, maybe heavy computation tasks, but to design something like what I’m keeping in mind I need something more interactive to define the correct shape.<br />
+To <a href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Primitive_Solids#polyhedron">draw a poligon</a> it requires to enter manually the coordinates of every single point and set the order to define the normal direction.  </p>
+
+<p><img src=".\img\02_04_2D3D_CAD\openscad01.png" alt="openscad01" />  </p>
+
+<p><img src=".\img\02_04_2D3D_CAD\openscad02.png" alt="openscad02" />  </p>
+
+<p><a href=".\files\02_04_2D3D_CAD\strange_pyr_faceflipped.scad">strange_pyr_faceflipped</a></p>
+
+<p>This kind of workflow let you perfectly understand how meshes work, but it seems to not be proper to produce a parametric and generative model to allow game developers and players to easly self produce different models of planets.</p>
+
+<p>I tried also <a href="http://www.grasshopper3d.com/"><strong>Grasshopper</strong></a>, a free plugin for Rhinoceros. This tool is based on a visual programming GUI that let you manage complex data geometries faster. I’ve found <a href="http://www.giuliopiacentino.com/weaverbird/">Wavebird</a>, a topological modeler that contains many of the known subdivision and transformation operators. Instead of doing the work repeatedly, or sometimes using complicated scripts, this plug-in reconstructs the shape, subdivides any mesh, even made by polylines, and helps preparing for fabrication.   </p>
+
+<p><img src=".\img\01_28_prin&amp;prac\gh01.png" alt="gh01" />  </p>
+
+<p><img src=".\img\01_28_prin&amp;prac\rh01.png" alt="rh01" />  </p>
+
+<p><img src=".\img\01_28_prin&amp;prac\rh02.png" alt="rh02" />  </p>
+
+<p><a href=".\files\02_04 2D 3D CAD\planet_v1.gh">planet_v1</a></p>
+
+<p>Polyhedra are just the base of the model and with this tool is fairy easy to manage theyr properties dinamically trough native sliders.
+I’ve setted four geometries: icosahedron, dodecahedron, double pyramid and antiprism; unexpectedly the dodecahedron has just edges and not the meshes as output.
+I think it depends by the shape of its faces: meshes can be triangular or quadrangular, but not pentagonal, so probably, due to a lack of informations, it’s impossible to compute the faces.  </p>
+
+<p>To correctly place the pillars over the faces I’ve to find relative planes and set the origin on the center of every faces. This step is not so intuitive as it can seems at first sight.<br />
+I’ve to remember that I’m working with polihedra with <em>nf</em> number of <em>faces</em>, <em>np</em> number of different <em>polygons</em> andeach of <em>ne</em> number of <em>edges</em>, so I’ve to set at least three basic parameters.<br />
+At this stage I prefer to magage single cases to produce a prototype, but in the concept</p>
+
+<p>The next step is to draw a sort of simple pillars to physically scale the planets phisically maintaining always the same structure and use diferent material to customize every single planet.  </p>
+
+<!---
+
+AGGIUNGERE QUI ULTERIORI AVANZAMENTI
+
+-->
+
+
+     
+     
+
+</body>
+</html>
