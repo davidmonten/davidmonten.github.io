@@ -58,9 +58,9 @@ The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab A
 
 <p>I used <a href="https://www.behance.net/gallery/10861433/Canter-free-fonts">Canter</a>, a contemporary free font designed by <a href="https://www.behance.net/christopherjhlee">Christopher J. Lee</a>.  </p>
 
-<p><img src="./img/02_11_cutting/vinyl/Canter_map.jpg" alt="Canter_map" />  </p>
+<p><img src="./img/02_11_cutting/vinyl/canter_map.jpg" alt="Canter_map" />  </p>
 
-<p>Than I saved it in png and using<a href="http://fabmodules.org/">FabModules</a> I made the path to cut with a Roland Camm-1.  </p>
+<p>Than I saved it in png and using <a href="http://fabmodules.org/">FabModules</a> I made the path to cut with a Roland Camm-1.  </p>
 
 <p><img src="./img/02_11_cutting/screen/FabM_lb.jpg" alt="FabM_lb" />  </p>
 
@@ -85,7 +85,7 @@ The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab A
 
 <p><img src="./img/02_11_cutting/vinyl/lb_apptapepeel.jpg" alt="lb_apptapepeel" />  </p>
 
-<p>Once cutted the vinyl I peeled the unused plastic having care to not remove some small part and than using the application tape I’ve applied to the support. To avoid to lose some smaller piece it would be better to modify the shape during the design process to join all toghether; another trick is to smooth slisghtly all the vertxes, so the cut wont have discontinuity and as the cutting as well as the peeling will be far more easy and quik.  </p>
+<p>Once cut the vinyl I peeled the unused plastic having care to not remove some small part and than using the application tape I’ve applied to the support. To avoid to lose some smaller piece it would be better to modify the shape during the design process to join all together; another trick is to smooth slightly all the vertices, so the cut wont have discontinuity and as the cutting as well as the peeling will be far more easy and quick.  </p>
 
 <p><img src="./img/02_11_cutting/vinyl/lb_chair.jpg" alt="lb_chair" />  </p>
 
@@ -95,41 +95,40 @@ The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab A
 
 <h3 id="lasercut">Lasercut</h3>
 
-<p>I’ve used lasercut in the past, but every lasercutter is different from each other, so I started testing the tool.  </p>
+<p>I’ve used lasercutter in the past, but every machine is different from each other, so I started testing the tool.  </p>
 
-<p>I started making some pressfit joint with some slight width difference to measure how much matter has been lost by the burning.</p>
+<p>I started making some press-fit joint with some slight width difference to measure how much matter has been lost by the burning.</p>
 
-<p>I made a single 50mm peg and some slot with decremental width (&amp;Delta: 0.1). This test was cutted on different materials (doublewave cardboard and plywood 3mm) and with different settings (see at the image below).</p>
+<p>I made a single 50mm peg and some slot with decremental width (Δ: 0.1). This test was cut on different materials (double-wave cardboard and plywood 3mm) and with different settings (see at the image below).</p>
 
 <p><img src="./img/02_11_cutting/laser/test/mosaic01.jpg" alt="mosaic01" />  </p>
 
-<pre><code> *cardboard*
+<pre><code> **CARDBOARD**
  speed	100		speed	100		speed	100		speed	20
  power	100		power	20		power	100		power	1
  passes	1		passes	1		passes	1		passes	1
    	 
- *plywood*
+ **PLYWOOD**
  speed	100		speed	100		speed	100		speed	100
  power	80		power	60		power	40		power	20
  passes	1		passes	1		passes	1		passes	2
 </code></pre>
 
-<p>&lt;
-It seems that the laser burn 0.25mm on cardboard and 0.20mm on plywood.<br />
+<p>It seems that the laser burns 0.25mm on cardboard and 0.20mm on plywood.<br />
 A 50mm (drawn, not measured) plywood peg fits well tight in a 49.6mm (drawn, not measured) slot.<br />
 These are useful informations for (all) the next step to produce a “strange spaceship”.</p>
 
 <h4 id="sketch">Sketch</h4>
 
-<p>I know that the piece “spaceship” has to be very light, simple and not didascalic in its shape. The idea was quite clear: a simple cube.</p>
+<p>I know that the piece “spaceship” has to be very light, simple and not strictly representative in its shape. The idea was quite clear: a simple cube.</p>
 
-<p>So I’ve made some sketch to figure out how the joints may work togheter and then I started working on Grasshopper to build a tool that allow to set dimensions, material and tolerance and spits out the whole set to make a “cubic spaceship”.  </p>
+<p>So I’ve made some sketch to figure out how the joints may work together and then I started working on Grasshopper to build a tool that allow to set dimensions, material and tolerance and spits out the whole set to make a “cubic spaceship”.  </p>
 
 <p><img src="./img/02_11_cutting/sketches/spship01.jpg" alt="spship01" />  </p>
 
 <h4 id="grasshopper">Grasshopper</h4>
 
-<p>The Grasshopper definition has some minor parts, like ‘base rectangle’ or ‘base slot’ and 4 main branches, one per piece, plus one more to parametricaly define a puzzle joint.</p>
+<p>The Grasshopper definition has some minor parts, like ‘base rectangle’ or ‘base slot’ and 4 main branches, one per piece, plus one more to parametrically define a puzzle joint.</p>
 
 <p><img src="./img/02_11_cutting/screen/gh_def_LR.png" alt="gh_def_LR" />  </p>
 
@@ -144,7 +143,7 @@ These are useful informations for (all) the next step to produce a “strange sp
     <p>At the center the definitions of the different pieces (piece 2 and 3 are the same).  </p>
   </li>
   <li>
-    <p>On the right the filter to show just one piece or the whole kit nested and ready to be cutted.  </p>
+    <p>On the right the filter to show just one piece or the whole kit nested and ready to be cut.  </p>
   </li>
   <li>
     <p>The independent group at the top defines the puzzle joint.  </p>
@@ -157,7 +156,7 @@ These are useful informations for (all) the next step to produce a “strange sp
 
 <h4 id="cutting">Cutting</h4>
 
-<p>I’ve cutted the model using a double wave 7mm cardboard on a FullSpectrum 90W so with the grasshopper definition I produced the following files</p>
+<p>I’ve cut the model using a double wave 7mm cardboard on a FullSpectrum 90W so with the grasshopper definition I produced the following files</p>
 
 <p><img src="./img/02_11_cutting/screen/rhino_nest.jpg" alt="rhino_nest" />    </p>
 
@@ -169,13 +168,13 @@ These are useful informations for (all) the next step to produce a “strange sp
 
 <p><img src="./img/02_11_cutting/laser/pressfit/pf_3.jpg" alt="pf_3" />  </p>
 
-<p>It’s a modular cube with a  puzzle joint <a href="./img/02_11_cutting/laser/over_the_top_movie.jpg">over the top</a> to eventualy add other modules or upgrades.<br />
-It will be made also in plexiglass and plywood, testing som pattern engrave.</p>
+<p>It’s a modular cube with a  puzzle joint <a href="./img/02_11_cutting/laser/over_the_top_movie.jpg">over the top</a> to eventually add other modules or upgrades.<br />
+It will be made also in plexiglass and plywood, testing some pattern engrave.</p>
 
 <p><img src="./img/02_11_cutting/laser/pressfit/pf_4.jpg" alt="pf_4" />  </p>
 
 <h2 id="extra">Extra</h2>
-<p>In this week I made this other “thing”  </p>
+<p>In this week I made this other “thing”  using the modules made by Francesca mereu for her press-kit.</p>
 
 <p><img src="./img/02_11_cutting/laser/pressfit/modular_structure.jpg" alt="modular_structure" /></p>
 
