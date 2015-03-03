@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Documentation produced by David Montenegro for Fab Academy 2015">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DM's Fab Academy 2015</title>
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,400italic,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/syntax.css">
+  <link rel="stylesheet" href="css/solo.css">
+
+</head>
+<body>
+  <div class="container">
+    <h2>David Montenegro</h2>
+    <h1><a href="./">FAB ACADEMY 2015</a></h1>
+    <div>
+      <p><a href="./assignment.html"><b>Assignments<b/></a> | <a href="./final_project.html"><b>Final Project<b/></a> | <a href="./about.html"><b>About<b/></a> | <a href="./contacts.html"><b>Contact<b/></a></p>
+     </div>
+     <h2 id="d-scanning-and-printing">02_18 3D Scanning and printing</h2>
+
+<p>On wednesday 02.23.2015 we’ve got the <a href="https://vimeo.com/120604167">fifth online lesson</a> with Neil Gershenfeld.<br />
+The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab Academy account on Vimeo</a>.</p>
+
+<p>For this week the assignment was  </p>
+
+<blockquote>
+  <p>** * design and 3D print an object (small, few cm) that could not be made subtractively  </p>
+
+  <ul>
+    <li>3D scan an object (and optionally print it) **  </li>
+  </ul>
+</blockquote>
+
+<h2 id="d-printing">3D Printing</h2>
+
+<p>I’ll make a super-light organic structure, possible part of my final project (a pillar module to easily scale every planet). </p>
+
+<p>The structure is something like that: an outer structure that connect two plates; inside a thin parabolic pillar to sustain the upper plate during the printing.  </p>
+
+<p><img src="./img/02_25_3Dprint_scan/pillar_ABC.jpg" alt="pillar_ABC" />  </p>
+
+<p>I wish to obtain a more organic outer grid.<br />
+To achieve that result I made some prints.  </p>
+
+<p><img src="./img/02_25_3Dprint_scan/prints.jpg" alt="prints" />  </p>
+
+<h3 id="section">#1  #2  #3</h3>
+
+<p>I started from a much bigger idea, and first I tried to print just the final part to verify how the print may go with a 100mm bridge between multiple points. (what you can see in this img is the bottom part, with not so cohesive bottom layer).<br />
+At the end I decided to add the central pillar.</p>
+
+<p><img src="./img/02_25_3Dprint_scan/n123.jpg" alt="n123" />  </p>
+
+<p>The second attempt was printed pretty well, but unfortunately the central pillar has broken in the middle during the printing and so the print has been aborted.<br />
+As you can see the structure has to be much more organic, but due to the size of its thin branches it works well on large bases.<br />
+Here you can see a shot of how it may looks like.  </p>
+
+<p><img src="./img/02_25_3Dprint_scan/pillar_D.jpg" alt="pillar_D" /> </p>
+
+<p>For the third attempt I tried to print it hollow but with more perimeters.
+Build so much small branches involve continuous movement of the feed motor in both directions due to the retraction. This behaviour probably has jagged the printer head; it’s wired because the previous attempt has been printed pretty well. 
+I decided to break the print to test how tough can be a 3mm by 100mm diameter token of PLA…and it’s far more sturdy than I’d thought.  </p>
+
+<h3 id="section-1">#4  #5  #6</h3>
+
+<p>I tried one more time printing the same model but with different retraction settings, but nothing has changed.<br />
+Until now I used Cura 15.02.1 for the slicing process.</p>
+
+<p><img src="./img/02_25_3Dprint_scan/n456.jpg" alt="n456" /> </p>
+
+<p>Than I realize that the base was too wide, so I reduced the diameter, in order also to reduce time for printing.<br />
+This time I used <a href="http://craftware3d.com/craftware">CraftWare</a>, a great slicing software with a lot of parameters, tips balloons, really fast algorithm and many other features.<br />
+One of its features is a triangular grid infill, so I used it on the attempt #5 and #6, respectively with 10% and 20%.<br />
+I stopped both for the same reason of the #4: at 4mm height printer stops working.  </p>
+
+<h3 id="section-2">#7  #8  #9  #10</h3>
+
+<p>So I moved to another printer (from a bowden to a direct) to verify if the different kind of feed can sensibly change the output.
+The answer is YES, IT DOES.<br />
+Not just the printer has changed but also the material: XT, an ABS-like material tougher than PLA (250°C/70°C).
+…but due to the small dimension of the branches related to the main diameter the branches sticks together in a messy bunch of plastic.<br />
+I tried some slight change in slicing settings, but nothing has changed at the printing.</p>
+
+<p><img src="./img/02_25_3Dprint_scan/n78910.jpg" alt="n78910" /> </p>
+
+<h3 id="section-3">#11  #12</h3>
+
+<p>I returned to the printer equipped with the bowden to print a different outer structure (the same that you can see in the first screenshot), with wider holes and thicker branches, but also with more severe overhang.<br />
+I printed it without support because of the brittle structure.  </p>
+
+<p><img src="./img/02_25_3Dprint_scan/n1112.jpg" alt="n1112" /> </p>
+
+<p>as you can see the overhang (about 68°) are not printed so well, but the structure has been built. Unfortunately it started making “spaghetti effect”.  </p>
+
+<h3 id="halfsuccess">#13 (half)SUCCESS!</h3>
+
+<p>Branches are stuck together, but in the end the result is fine.  </p>
+
+<p><img src="./img/02_25_3Dprint_scan/n13o.jpg" alt="n13o" /> </p>
+
+<p><img src="./img/02_25_3Dprint_scan/n13v.jpg" alt="n13v" /> </p>
+
+<h2 id="d-scan">3D Scan</h2>
+
+<p>I scanned a real, authentic, Klingon sword using a Kinect and Scanect.<br />
+Setting a good stage can drastically reduce the effort to obtain a good result, so I hanged the model to the legs of a table.  </p>
+
+<p><img src="./img/02_25_3Dprint_scan/scan_stage1.jpg" alt="scan_stage1" /> </p>
+
+<p>However with a Kinect you can obtain just a gross result.   </p>
+
+<p><img src="./img/02_25_3Dprint_scan/screenshot3.jpg" alt="screenshot3" /> </p>
+
+<p>The back is flat and at a first attempt I didn’t scan it. Wen I used the “fill holes” function this was the result</p>
+
+<p><img src="./img/02_25_3Dprint_scan/screenshot6.jpg" alt="screenshot6" /> </p>
+
+<p>so I scanned it again and it comes out fairy well.
+However the edge are not so sharp, so I tried to mark the model with some electrical tape just to give to the software some more texture references.  </p>
+
+<p><img src="./img/02_25_3Dprint_scan/scan_stage2.jpg" alt="scan_stage2" /> </p>
+
+<p>The result was the same; you can appreciate some difference just if you turn in hig-detail mode in the Fusion menu. This way the software interprets the “black” as holes, and the effect is very similar to rubber around a balloon.<br />
+At the end the mesh was too heavy and so I turned back to the mid-res (it’s an euphemism).</p>
+
+<!---
+
+AGGIUNGERE QUI ULTERIORI AVANZAMENTI
+
+-->
+
+
+     
+     
+
+</body>
+</html>
