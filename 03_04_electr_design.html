@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Documentation produced by David Montenegro for Fab Academy 2015">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DM's Fab Academy 2015</title>
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,400italic,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/syntax.css">
+  <link rel="stylesheet" href="css/solo.css">
+
+</head>
+<body>
+  <div class="container">
+    <h2>David Montenegro</h2>
+    <h1><a href="./">FAB ACADEMY 2015</a></h1>
+    <div>
+      <p><a href="./assignment.html"><b>Assignments<b/></a> | <a href="./final_project.html"><b>Final Project<b/></a> | <a href="./about.html"><b>About<b/></a> | <a href="./contacts.html"><b>Contact<b/></a></p>
+     </div>
+     <h2 id="electronic-design">03_04 Electronic Design</h2>
+
+<p>On wednesday 03.04.2015 we’ve got the <a href="https://vimeo.com/121269604">sixth online lesson</a> with Neil Gershenfeld.<br />
+The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab Academy account on Vimeo</a>.</p>
+
+<p>For this week the assignment was  </p>
+
+<blockquote>
+  <p>**
+  - redraw the echo hello-world board    </p>
+
+  <ul>
+    <li>
+      <p>add (at least) a button and LED  </p>
+    </li>
+    <li>
+      <p>check the design rules, and make it **  </p>
+    </li>
+  </ul>
+</blockquote>
+
+<h2 id="set-up">Set Up</h2>
+
+<p>The assignment has tree stages  </p>
+
+<ol>
+  <li>
+    <p>Design the circuit  </p>
+  </li>
+  <li>
+    <p>Hetch and cut the board  </p>
+  </li>
+  <li>
+    <p>Solder the components and verify connections  </p>
+  </li>
+</ol>
+
+<h3 id="design-the-circuit">Design the circuit</h3>
+
+<p>For this stage I need:  </p>
+
+<ul>
+  <li>a cad to design the circuit  </li>
+  <li>some libraries to import the components  </li>
+</ul>
+
+<p>For this assignment I used <a href="www.eaglecad.com">EagleCad</a> to design the board and the libraries <a href="http://fabacademy.org/archives/2015/doc/electronics/fab.lbr">fab.lbr</a> and <a href="https://github.com/sparkfun/SparkFun-Eagle-Libraries">Sparkfun</a> for the components.</p>
+
+<p>At the beginning I’ve had some trouble with fab library because I simply can’t use Eagle and so I’ve experienced some issue loading the correct and revised library.<br />
+At the end I moved away all the libraries that comes with Eagle and I pasted just the libraries in the folder <em>./EAGLE-7.2.0/lbr</em>; than on the schematic window of Eagle, under the menu ‘Library’ I used the command ‘Use’ to find and load the correct libraries to use with the command ‘Add’.  </p>
+
+<p>To design a circuit board you have to design logic connections first, and at the end edit the physical layout. In the schematic you can easily view the logical structure of the circuit, so it’s the perfect environment to design. On the other hand the board window is useful to arrange components, set the path and the width of every vias and doing so determine how the circuit will actually look.  </p>
+
+<p>To accomplish this stage I’ve partially followed this <a href="https://vimeo.com/120501993">tutorial</a> made by Fiore.  </p>
+
+<h3 id="etching">Etching</h3>
+
+<p>For this stage I need:</p>
+
+<ul>
+  <li>
+    <p>a milling machine  </p>
+  </li>
+  <li>
+    <p>a 1/64 inch mill to etch  </p>
+  </li>
+  <li>
+    <p>a 1/32 inch mill to cut</p>
+  </li>
+</ul>
+
+<p>The keyword designing this circuit has been “thight”, just because I like to understand what the extreme for the machine to know what the last dimension I can use next time.  </p>
+
+<p>The first attempt to hetch the board has failed because of a broken mill; the output has edges of vias and pads not so clean.  </p>
+
+<p><img src="./img/03_04_electr_design/hetch01.jpg" alt="hetch01" />  </p>
+
+<p>At the second attempt the etching was pretty good but…well maybe I touched the limit of the machine: as you can see on the image and on the path calculated with fabmodules some path are short-circuited.  </p>
+
+<p><img src="./img/03_04_electr_design/lens.jpg" alt="lens" />  </p>
+
+<p><img src="./img/03_04_electr_design/path_on_screen.jpg" alt="path_on_screen" />  </p>
+
+<p><img src="./img/03_04_electr_design/board_highlight.png" alt="board_highlight" />  </p>
+
+<p><img src="./img/03_04_electr_design/HETCH_helloDavid_012.png" alt="HETCH_helloDavid_012" />  </p>
+
+<p>So I fixed the bug putting some space between the vias.<br />
+If you pay attention at the following image there is another bug: th connection from GND of the FTDI to the ground path… I soled it simply adding some solder.</p>
+
+<p><img src="./img/03_04_electr_design/HETCH_helloDavid_012_02.png" alt="HETCH_helloDavid_012_02" /> </p>
+
+<p><img src="./img/03_04_electr_design/top.jpg" alt="top" />  </p>
+
+<p>At the end what I have in my hands is a very tiny board 22mm by 29.5mm. Fiore says that it’s probably the tiniest helloboard he has ever seen, and I’m very proud of this little goal.</p>
+
+<p><img src="./img/03_04_electr_design/main.jpg" alt="main" /> </p>
+
+<h3 id="soldering">Soldering</h3>
+
+<p>For this stage I need:</p>
+
+<ul>
+  <li>
+    <p>a solder iron  </p>
+  </li>
+  <li>
+    <p>solder  </p>
+  </li>
+  <li>
+    <p>a lens</p>
+  </li>
+  <li>
+    <p>some components: 499 resistor, 10k resistor, 1uf capacitor, 1led, ISP and FTDI pins, and of course an AT tiny44</p>
+  </li>
+  <li>
+    <p>the board just milled</p>
+  </li>
+</ul>
+
+<p>Even with a so tight board it has been fairy easy solder components.
+The only attention I payed was the temperature of the iron: instead of use 400°C I used 320°C to avoid that vias lift up from the base.<br />
+And that’s it.  </p>
+
+<p><img src="./img/03_04_electr_design/connect.jpg" alt="connect" /> </p>
+
+<!---
+
+AGGIUNGERE QUI ULTERIORI AVANZAMENTI
+
+-->
+
+
+     
+     
+
+</body>
+</html>
