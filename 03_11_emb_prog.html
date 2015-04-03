@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Documentation produced by David Montenegro for Fab Academy 2015">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DM's Fab Academy 2015</title>
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,400italic,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/syntax.css">
+  <link rel="stylesheet" href="css/solo.css">
+
+</head>
+<body>
+  <div class="container">
+    <h2>David Montenegro</h2>
+    <h1><a href="./">FAB ACADEMY 2015</a></h1>
+    <div>
+      <p><a href="./assignment.html"><b>Assignments<b/></a> | <a href="./final_project.html"><b>Final Project<b/></a> | <a href="./about.html"><b>About<b/></a> | <a href="./contacts.html"><b>Contact<b/></a></p>
+     </div>
+     <h2 id="embedded-programming">03_11 Embedded Programming</h2>
+
+<p>On wednesday 03.11.2015 we’ve got the <a href="https://vimeo.com/121906120">sixth online lesson</a> with Neil Gershenfeld.<br />
+The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab Academy account on Vimeo</a>.</p>
+
+<p>For this week the assignment was  </p>
+
+<blockquote>
+  <p>**
+  read a microcontroller data sheet
+  program your board to do something, with as many different programming languages and programming environments as possible **  </p>
+</blockquote>
+
+<p><em>This is one of the most important and complex classes, nothing impossible but surely it requires a little bit of effort more for me. Manage properly all the function of a micro controller will allow me to design interactions and program functions. To do so I could use some board like Arduino to make everything easy and fast; by doing so some process will stay behind a curtain.
+Program a micro controller means to know its structure, how it is build inside, how it communicate with the outer world and what I can or can not do with it.<br />
+At the end of this page what I’ll accomplish will be to blink a led, faster, slower, with a fade and other weird and pointless things…but that’s not the point. The real goal is to understand how a micro controller works to use it in my project and how to write code to give instructions to my micro controller.</em>  </p>
+
+<h2 id="how-it-works">How it works</h2>
+
+<h3 id="files">Files</h3>
+
+<p>When you <em>compile</em> a program you pick informations from different sources, merge it together and translate in binary code to let the micro controller to read it.  </p>
+
+<p>In order to be compiled every program in C+ needs:<br />
+a <strong>File.c</strong>:			it contains the informations about the algorithms you want the micro has to do. <br />
+some <strong>Dependencies</strong>:	“pieces” of program your File.c refers to; some of their functions will be embeeded in the compiled file.
+and<br />
+a <strong>File.make</strong>:		it contains the “recepie” to “bake” the file that we want to compile, or the info to retrieve all the files (File.c and dependencies) to compile.  </p>
+
+<p>Keep all the files in the same folder can be a smart choice to start avoiding any sort of issue.  </p>
+
+<h3 id="microcontroller">Microcontroller</h3>
+
+<p>I’ve used an ATtiny44.<br />
+Here you can find the <a href="http://www.atmel.com/Images/doc8006.pdf">datasheet</a>, a detailed document about this device.  </p>
+
+<p>Its main parts are:
+<strong>Memory</strong><br />
+there are three different kind of memory: flash, RAM and EEPROM; they are all subdivided in registers of 8 binary characters.  </p>
+
+<p><strong>Clock</strong>
+It sets the amount of cycle per second; the built-in is works at 8MHz, but you can overide it with an external clock.  </p>
+
+<p><strong>Timers</strong>
+It’s a counter and it counts events; it’s properly a timer when paired up with clock to have a time reference.  </p>
+
+<p><strong>Interrupts</strong>
+They stop the program that is running to do something else, than the main program restarts from where it was stopped; is cames in play, for example, when a button is pressed.   </p>
+
+<p><strong>Input/Output Ports</strong>
+ATtiny44 has group of 8 pins due to its 8bit structure. Every pin can be setted as input, output or none setting to 1 or 0 or floating the relative pin in the proper register.  </p>
+
+<p><strong>Universal Serial Interface (USI)</strong>
+It’s the main way it communicates with other devices.  </p>
+
+<p><strong>Analog comparator</strong></p>
+
+<p>Analog to Digital Converter (ADC)</p>
+
+<p><img src="./img/03_11_emb_prog/imagename.jpg" alt="imagename" /> </p>
+
+<!---
+
+AGGIUNGERE QUI ULTERIORI AVANZAMENTI
+
+-->
+
+
+     
+     
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Documentation produced by David Montenegro for Fab Academy 2015">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DM's Fab Academy 2015</title>
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,400italic,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/syntax.css">
+  <link rel="stylesheet" href="css/solo.css">
+
+</head>
+<body>
+  <div class="container">
+    <h2>David Montenegro</h2>
+    <h1><a href="./">FAB ACADEMY 2015</a></h1>
+    <div>
+      <p><a href="./assignment.html"><b>Assignments<b/></a> | <a href="./final_project.html"><b>Final Project<b/></a> | <a href="./about.html"><b>About<b/></a> | <a href="./contacts.html"><b>Contact<b/></a></p>
+     </div>
+     <h2 id="molding-and-casting">03_25 Molding and Casting</h2>
+
+<p>On wednesday 03.25.2015 we’ve got the <a href="https://vimeo.com/123215414">eight online lesson</a> with Neil Gershenfeld.<br />
+The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab Academy account on Vimeo</a>.</p>
+
+<p>For this week the assignment was  </p>
+
+<blockquote>
+  <p>**
+  design a 3D mold, machine it, and cast parts from it **  </p>
+</blockquote>
+
+<p>The mind setting is:  </p>
+
+<ol>
+  <li>
+    <p>first  thin make the master, a positive to start from; it will be the shape you want to cast + material duct + vent + guides to align the two parts of the mold.  </p>
+  </li>
+  <li>
+    <p>than make the mold using this master; put it in a container and pour the material to make the mold.  </p>
+  </li>
+  <li>
+    <p>cast as many time as you want with the material you prefer.</p>
+  </li>
+</ol>
+
+<p>This is in theory.  </p>
+
+<p>I decided to make the moon surface; <a href="http://fab.cba.mit.edu/classes/863.14/people/sarah_jessop/week-06.html">Sara Jessop</a> has made something similar in 2014.  </p>
+
+<p>Another interesting attempt is the <a href="http://isohedral.ca/moon-shot-espresso-cup/">Craig Kaplan</a> one.  </p>
+
+<p><img src="http://farm3.staticflickr.com/2905/14675824683_bd95dec6a4.jpg" alt="moon_cup" />  </p>
+
+<p>I started searching for some hi-res height map of the lunar soil  </p>
+
+<p><img src="http://ltvt.wikispaces.com/file/view/LALT_GGT_MAP.jpg" alt="lunar_soil_1" />    </p>
+
+<p>Here some interesting link to visit about moon take-over
+<a href="http://ltvt.wikispaces.com/Additional+Textures">Wikispaces</a><br />
+<a href="http://www.unmannedspaceflight.com/index.php?showtopic=6646&amp;pid=169851&amp;st=60&amp;#entry169851">Unnamed Spaceflight</a><br />
+<a href="http://imbrium.mit.edu/EXTRAS/CELESTIA/">LOLA - Lunar Orbiter Laser Altimeter</a></p>
+
+<h2 id="design">Design</h2>
+<p>With Rhino I generated a heigh-map it fit in the dimensions of the wax stock with 2mm of difference between highest and lower point.  </p>
+
+<p><img src="./img/03_25_mold_cast/lunar_soil.jpg" alt="lunar_soil" />  </p>
+
+<p>As engrave it may works well, but for a molding I’d like to make something that involves a 3 dimentional shape, so I asked to <a href="https://www.linkedin.com/pub/aurelio-la-ferla/80/900/764">Aurelio La Ferla</a>, a friend of mine really pro in sculpting, to make a moon for me. The file was 450mb! First of all I reduced it to 50mb with MeshLab, following <a href="https://www.youtube.com/watch?v=w_r-cT2jngk">these steps</a> and I made a mold like this.  </p>
+
+<p><img src="./img/03_25_mold_cast/moon_mold_132k.jpg" alt="moon_mold_132k" /> </p>
+
+<p>50mb was still too much to make the path to mill (the computer has ran out of memory) and so I reduced to 13mb/132kpolygons; in this size it took about 3hrs just to calculate the rough path with Modela Player 4.  </p>
+
+<p>While waiting for the path I wonder about the texture of the moon in the almost vertical zone; I think here it will lost a lot of detail because of the orientation of the surface. Than I ran a second process to make a more complex mold made of 6 piece to better print over all the spheric surface. Here some sketch.  </p>
+
+<p><img src="./img/03_25_mold_cast/sketch_01.jpg" alt="sketch_01" /> </p>
+
+<p><img src="./img/03_25_mold_cast/moon_mold_6pc_scheme_02.jpg" alt="moon_mold_6pc_scheme_02" /> </p>
+
+<p><img src="./img/03_25_mold_cast/moon_mold_6pc_scheme_03.jpg" alt="moon_mold_6pc_scheme_03" /> </p>
+
+<p><img src="./img/03_25_mold_cast/moon_mold_6pc_scheme_04.jpg" alt="moon_mold_6pc_scheme_04" /> </p>
+
+<p><img src="./img/03_25_mold_cast/moon_mold_6pc_scheme_05.jpg" alt="moon_mold_6pc_scheme_05" /> </p>
+
+<p>I hope I’ll have the material and the time to make also this test.<br />
+Step ahead.</p>
+
+<h2 id="making-the-master">Making the master</h2>
+
+<p>Mill the master from the wax has taken several hours (about 5hrs for the rough finish with a 5mm flat mill and some more for the finish with the 0.8mm flat mill).</p>
+
+<p><img src="./img/03_25_mold_cast/rough.jpg" alt="rough" /> </p>
+
+<p><img src="./img/03_25_mold_cast/finish1.jpg" alt="finish1" /> </p>
+
+<p><img src="./img/03_25_mold_cast/finish2.jpg" alt="finish2" /> </p>
+
+<p><img src="./img/03_25_mold_cast/finish3.jpg" alt="finish3" /> </p>
+
+<p>I made one little mistake, but I can’t do differently: I used a too short mill so the shaft touched the vertical walls of the model. It has not produced critical flaws, but the finish was not completed, so the lower part of the wax master was not finished, neither the closure interface. We’ll se later how the model came out and how the mold fits.  </p>
+
+<h2 id="making-the-mold">Making the mold</h2>
+
+<p>For the mold I used MoldMax60, a 60A shore silicon with a 3% in weight catalyst.<br />
+For this work you may need:<br />
+- a sacrificial surface (cardboard in this case)<br />
+- a gram scale<br />
+- 3 containers of about 200ml(plastic cup in this case)<br />
+- a non-plastic stick to mix (the best is glass but I used plywood; don’t look at me as an example, prefer to use straight profile).<br />
+- a release agent with a little brush<br />
+- gloves and mask  </p>
+
+<p><img src="./img/03_25_mold_cast/set_silicon.jpg" alt="set_silicon" /> </p>
+
+<p>This silicon has a pot life of about 10mins at 23°C so it was fairy comfortable to mix it. When mixing pay attention to do it slowly to produce less bubbles. This silicon is quite fluid so bubbles can easily emerge; you can speed up this process by vacuum, or vibrating the container, but the best result with this material was to sting the mass on one side: you can see at naked eye bubbles rise and pop.<br />
+In the meantime is highly recommended to coat the master with some releasing agent using a brush; the releasing agent is your friend, use it, don’t be 
+thrifty.
+After 5-6mins mixing you have an homogeneous highly viscous liquid; you have to pour it into the master-mold very slowly to avoid to include bubbles, expecially between wax and silicon. Pour it starting from the lower point, rising the container at about 30cm to reduce the size of the flow.  </p>
+
+<p>Now you have to wait 24hrs.  </p>
+
+<h2 id="demolding">Demolding</h2>
+
+<p>Using a cutter I demolded easily the silicon from the wax.
+As you can see the last part has remained with a rough finish, but it will work well anyway.  </p>
+
+<p><img src="./img/03_25_mold_cast/extraction1.jpg" alt="extraction1" /> </p>
+
+<p><img src="./img/03_25_mold_cast/extraction2.jpg" alt="extraction2" /> </p>
+
+<p><img src="./img/03_25_mold_cast/master_and_mold.jpg" alt="master_and_mold" /> </p>
+
+<p>As you can see the last part has remained with a rough finish, but it will work well anyway.  </p>
+
+<p><img src="./img/03_25_mold_cast/mold_detail.jpg" alt="mold_detail" /> </p>
+
+<h2 id="casting">Casting</h2>
+
+<p>You may need:
+- three containers (plastic cups)<br />
+- a gram scale<br />
+- a non-plastic stick<br />
+- a cardboard box
+- a chronometer
+- the resin you choose (in this case Smooth on 325)<br />
+- <a href="https://www.youtube.com/watch?v=To09Km0y8ic">Tico Tico</a> by Paco De Lucia
+- gloves and mask  </p>
+
+<p><img src="./img/03_25_mold_cast/set_325.jpg" alt="set_325" /> </p>
+
+<p>First I closed well the mold, using two pieces of PMMA to evenly distribute the pressure. Than I measured the volume empirically filling it with some water and pouring it inside a plastic cup, that way I know how much material I’ve to mix and moreover I test the watertight sealing.  </p>
+
+<p><img src="./img/03_25_mold_cast/water.jpg" alt="water" /> </p>
+
+<p><img src="./img/03_25_mold_cast/bicomp.jpg" alt="bicomp" /> </p>
+
+<p>After dry up the mold and coated with releasing agent I <a href="http://www.dailymotion.com/video/x27wqc_cocktail-di-celentano_music">shaked</a> well and vigorously the jers of the components using Tico Tico as base, than I mixed 1 to 1 in volume of Smooth on 325 resin.  </p>
+
+<p><img src="./img/03_25_mold_cast/shaking.jpg" alt="shaking" /> </p>
+
+<p>This material has a pot life of 2.5 mins so you have to set all quite well to pour in 2 mins.  Ask to a friend to help you, it may be crucial; in my case Carlo Liuzza helped me doing everything well.  </p>
+
+<p><img src="./img/03_25_mold_cast/mold_filled.jpg" alt="mold_filled" /> </p>
+
+<p>It should cure in 10mins, but I waited more.<br />
+Opening the mold the “moon” was stiff and solid, quite heavy.</p>
+
+<p><img src="./img/03_25_mold_cast/opening1.jpg" alt="opening1" /> </p>
+
+<p><img src="./img/03_25_mold_cast/opening2.jpg" alt="opening2" /> </p>
+
+<p><img src="./img/03_25_mold_cast/demold.jpg" alt="demold" /> </p>
+
+<p>On the surface it’s not perfectly cured and in some point is still sticky, while in some others is perfectly dry. I think it depends on the mixing, in such a short time I mixed slowly to avoid bubbles; probably it has to be mixed more before curing.<br />
+On the surface appeared white streaks that remembers cloudy masses; it fits well on this model, but I wonder about what it can depend on.  </p>
+
+<p><img src="./img/03_25_mold_cast/model1.jpg" alt="model1" /> </p>
+
+<p><img src="./img/03_25_mold_cast/model2.jpg" alt="model2" /> </p>
+
+<!---
+
+AGGIUNGERE QUI ULTERIORI AVANZAMENTI
+
+-->
+
+
+     
+     
+
+</body>
+</html>
