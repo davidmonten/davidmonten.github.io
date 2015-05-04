@@ -21,7 +21,7 @@
      </div>
      <h2 id="embedded-programming">03_11 Embedded Programming</h2>
 
-<p>On wednesday 03.11.2015 we’ve got the <a href="https://vimeo.com/121906120">sixth online lesson</a> with Neil Gershenfeld.<br />
+<p>On wednesday 03.11.2015 we’ve got the <a href="https://vimeo.com/121906120">seventh online lesson</a> with Neil Gershenfeld.<br />
 The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab Academy account on Vimeo</a>.</p>
 
 <p>For this week the assignment was  </p>
@@ -42,41 +42,77 @@ At the end of this page what I’ll accomplish will be to blink a led, faster, s
 
 <p>When you <em>compile</em> a program you pick informations from different sources, merge it together and translate in binary code to let the micro controller to read it.  </p>
 
-<p>In order to be compiled every program in C+ needs:<br />
-a <strong>File.c</strong>:			it contains the informations about the algorithms you want the micro has to do. <br />
-some <strong>Dependencies</strong>:	“pieces” of program your File.c refers to; some of their functions will be embeeded in the compiled file.
+<p>In order to be compiled every program in C needs:<br />
+- a <strong>File.c</strong>:				it contains the informations about the algorithms you want the micro has to do. <br />
+- some <strong>Dependencies</strong>:	“pieces” of program your File.c refers to; some of their functions will be embeeded in the compiled file<br />
 and<br />
-a <strong>File.make</strong>:		it contains the “recepie” to “bake” the file that we want to compile, or the info to retrieve all the files (File.c and dependencies) to compile.  </p>
+- a <strong>File.make</strong>:			it contains the “recepie” to “bake” the file that we want to compile, or the info to retrieve all the files (File.c and dependencies) to compile.  </p>
 
 <p>Keep all the files in the same folder can be a smart choice to start avoiding any sort of issue.  </p>
 
-<h3 id="microcontroller">Microcontroller</h3>
+<blockquote>
+  <p>NOTE: Now we will assume that you have correctly wrote the code (and it’s not trivial at all); you may try start learning C from here http://www.learn-c.org .  </p>
+</blockquote>
 
-<p>I’ve used an ATtiny44.<br />
-Here you can find the <a href="http://www.atmel.com/Images/doc8006.pdf">datasheet</a>, a detailed document about this device.  </p>
+<p>Now from the Terminal (or Prompt or Shell) go to the folder with your program files and digit  </p>
 
-<p>Its main parts are:
-<strong>Memory</strong><br />
-there are three different kind of memory: flash, RAM and EEPROM; they are all subdivided in registers of 8 binary characters.  </p>
+<blockquote>
+  <p>make program-usbtiny</p>
+</blockquote>
 
-<p><strong>Clock</strong>
-It sets the amount of cycle per second; the built-in is works at 8MHz, but you can overide it with an external clock.  </p>
+<p>It will pick the main program and the dependencies specified in the .make file to merge them in a .hex file readable by the machine, and than will automatically flash it on the MC.  </p>
 
-<p><strong>Timers</strong>
-It’s a counter and it counts events; it’s properly a timer when paired up with clock to have a time reference.  </p>
+<p>An easier way is to use an Arduino IDE and board as an ISP programmer; it may take more space due to its libraries, but its also more straightforward.
+Here is explained far better than I can.
+http://highlowtech.org/?p=1695<br />
+and here a series of videotutorial realy well explained about WinAVR
+https://www.youtube.com/watch?v=bEfjFJlrGxs<br />
+www.newbiehack.com</p>
 
-<p><strong>Interrupts</strong>
-They stop the program that is running to do something else, than the main program restarts from where it was stopped; is cames in play, for example, when a button is pressed.   </p>
+<p>At the end of the day you have to remember many things, but just few really counts
+1. everything you may ever need search on Google
+1. you may just copy’n’paste code, or strictly follow a tutorial, but at the end you have to deeply understand what you’re doing in order to do it on your own without any support
+1.  </p>
 
-<p><strong>Input/Output Ports</strong>
-ATtiny44 has group of 8 pins due to its 8bit structure. Every pin can be setted as input, output or none setting to 1 or 0 or floating the relative pin in the proper register.  </p>
+<p>I’ve to say that has been very hard and frustrating to afford this assignment.
+It may seems simple and straightforward, and at the very end the toolchain is indeed, but becoming confident with boolean operations, registers, a debug and a lot of issues is not trivial at all. Obviously I’m still not as confident as I wish, but it will came with time and practice. The hardest part is the motivational one: not being able to keep in mind simple concepts, having troubles handling some simple logical relations but nonetheless being able to follow the process when explained exept being unable to repeat it autonomously has make me feel incompetent.
+The truth I came along is that playing something for the first time with a hand tied behind my back (I tried just “the hard way”) is the fastest and surest way to lose sprint, enthusiasm and motivation, mostly if the output is “abstract”.</p>
 
-<p><strong>Universal Serial Interface (USI)</strong>
-It’s the main way it communicates with other devices.  </p>
+<p>Special thanksgiving to Carlo, Francesca and Giulio to help me with their time and explanation skills :)</p>
 
-<p><strong>Analog comparator</strong></p>
+<!---
+### Microcontroller  
 
-<p>Analog to Digital Converter (ADC)</p>
+I've used an ATtiny44.  
+Here you can find the [datasheet](http://www.atmel.com/Images/doc8006.pdf), a detailed document about this device.  
+
+Its main parts are:
+**Memory**  
+there are three different kind of memory: flash, RAM and EEPROM; they are all subdivided in registers of 8 binary characters.  
+
+**Clock**
+It sets the amount of cycle per second; the built-in is works at 8MHz, but you can overide it with an external clock.  
+
+**Timers**
+It's a counter and it counts events; it's properly a timer when paired up with clock to have a time reference.  
+
+**Interrupts**
+They stop the program that is running to do something else, than the main program restarts from where it was stopped; is came in play, for example, when a button is pressed.   
+
+**Input/Output Ports**
+ATtiny44 has group of 8 pins due to its 8bit structure. Every pin can be setted as input, output or none setting to 1 or 0 or floating the relative pin in the proper register.  
+
+**Universal Serial Interface (USI)**
+It's the main way it communicates with other devices.  
+
+**Analog comparator**
+
+Analog to Digital Converter (ADC)
+-->
+
+<p>some good blog (in italian) where I found some useful info
+http://www.leonardomiliani.com
+http://www.danielealberti.it</p>
 
 <p><img src="./img/03_11_emb_prog/imagename.jpg" alt="imagename" /> </p>
 

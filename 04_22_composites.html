@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Documentation produced by David Montenegro for Fab Academy 2015">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DM's Fab Academy 2015</title>
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,400italic,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/syntax.css">
+  <link rel="stylesheet" href="css/solo.css">
+
+</head>
+<body>
+  <div class="container">
+    <h2>David Montenegro</h2>
+    <h1><a href="./">FAB ACADEMY 2015</a></h1>
+    <div>
+      <p><a href="./final_project.html"><b>Final Project<b/></a> | <a href="./assignment.html"><b>Assignments<b/></a> | <a href="./download.html"><b>Download<b/></a> | <a href="./about.html"><b>About<b/></a> | <a href="./contacts.html"><b>Contact<b/></a></p>
+     </div>
+     <h2 id="composites">04_22 Composites</h2>
+
+<p>On wednesday 04.22.2015 we’ve got the <a href="https://vimeo.com/125704530">twelveth online lesson</a> with Neil Gershenfeld.<br />
+The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab Academy account on Vimeo</a>.</p>
+
+<p>For this week the assignment was  </p>
+
+<blockquote>
+  <p>**
+  design and make a 3D mold (~ft2), and produce a fiber composite part in it **  </p>
+</blockquote>
+
+<h2 id="note">NOTE</h2>
+
+<p>This week I run into this <a href="https://www.youtube.com/watch?v=dmKzF_aoXlM">video</a> about George Powell, one of the very few skateboard builders in the world today who still manufactures his products in America under one roof just as he has always done.  </p>
+
+<p>This is a documentary, not just a reel, so the contribute of the author leave his mark.
+Nonetheless through this video we can see how much difficult is to accomplish a fulfilling result, how much care we have to put into the process, even for something not so complex as a skateboard.<br />
+Design matters, shape matters, material matters, every detail matters.
+In some artifacts, like skates, the whole design ha passed through a sort of natural selection, a development process that through a huge amount of mistakes has finally found its best shapes. At the same time it leaves a wide range of easy customizations, both aesthetic and mechanical: each of them brings an important personal value, making just a skateboard “your skate”.<br />
+It’s just a thought about skates, customization, design sedimentation, research, personal values we tend to apply to objects, and so I’ve written this note. It may be longer and deeper, but this wouldn’t be the right place to publish this content, so just step into this week assignment.</p>
+
+<h2 id="materials">Materials</h2>
+
+<p>For this assignment we must use A 30X30cm burlap patch and natural resins.<br />
+To make to mold I’ve used an high densiti polyurethane foam.  </p>
+
+<h2 id="step1-design">Step1: Design</h2>
+
+<p>I used Rhinoceros to design the mold and Grasshopper to design an organic pattern to cut onto the surface. </p>
+
+<p><img src="./img/04_22_composites/mold.jpg" alt="mold" />  </p>
+
+<p><img src="./img/04_22_composites/cutting_mask.jpg" alt="cutting_mask" />  </p>
+
+<h2 id="step2-lasercutting">Step2: Lasercutting</h2>
+
+<p>Than I lasercutted the pattern on the burlap.<br />
+Due to the nature of the holes I can’t make them after the curing.<br />
+To keep the fiber in place after the cutting I used some papertape (with this holes it’s important to support the fiber structure).</p>
+
+<p><img src="./img/04_22_composites/before_cut.jpg" alt="before_cut" />  </p>
+
+<p><img src="./img/04_22_composites/cutting.jpg" alt="cutting" />  </p>
+
+<p>To keep the fiber in place after the cutting I used some papertape (with this holes it’s important to support the fiber structure).  </p>
+
+<p><img src="./img/04_22_composites/tear.jpg" alt="tear" />  </p>
+
+<h2 id="step3-making-the-mold">Step3: Making the mold</h2>
+
+<p>I used Cut3D from Vectrix to produce the *ngc file for Linux CNC. This software is far better than Cambam because it optimize the path for the minimum overall distance to cover and it has a good “wizard-like” interface that guide you through the toolpath generation process.<br />
+At first attempt I used Cambam, but the 3d profile option doesn’t works.</p>
+
+<p><img src="./img/04_22_composites/cambam.jpg" alt="cambam" />  </p>
+
+<p>First time I used a model 50mm high, but I experienced some trouble: too much vibrations of the spindle and not correct position due to the excessive height and weight distribution of the carriage. For this reason it has lost some step at the first and second attempts.<br />
+So I used a 30mm stock instead of a 50mm stock, but I sliced the model in two parts.  </p>
+
+<p><img src="./img/04_22_composites/bottom.jpg" alt="bottom" />  </p>
+
+<p><img src="./img/04_22_composites/top.jpg" alt="top" />  </p>
+
+<p>In general use stocks not too high is better because you simply work a smaller volume of material, so you can waste less time and less material; on the other hand you have to make more files and more jobs.
+Remember to set an adequate plunge speed if you don’t want to waste your time; foam is very soft and wit a 1hp spindle at 16000-18000 rpm it can be close to the feed speed. </p>
+
+<p>The bottom part of the mold was made just by the rouging while the top part just by finishing. I do so just to experiment on foam if is possible work faster the foam with the CNC mill.  </p>
+
+<p><img src="./img/04_22_composites/half_top.jpg" alt="half_top" />  </p>
+
+<p>At the end of this experiment I may say that on 30mm foam, travelling slow but with a medium-high rpm and an adequate mill (6mm endmill with enough rod) I can mill a finish job without the roughing: It’s far more faster, the result it’s fine and the machine doesn’t show any defaiance.  </p>
+
+<p><img src="./img/04_22_composites/complete.jpg" alt="complete" />   </p>
+
+<p>NOTE: if you’re using NEMA17 motors is very important to keep the Shapeoko guides always clean from dust because often they may lose some step, even milling foam, one of the lightest material to mill.  </p>
+
+<p>NOTE2: Always use a mask to stay at the machine: milling polyurethane produces fine particles that may be spread in the air by various air jet (of the spindle for instance) and being inhaled. </p>
+
+<h2 id="step3-mixing-and-laminating">Step3: Mixing and laminating</h2>
+
+<p>Starting from a well organized workspace is always highly recommended, specially if yo’re working with resins or fluids in general that may fall down, spreading all around in a terrible mess. So set up everything you may need before mixing resins.  </p>
+
+<p>You will need a brand new brush (a cheap one), a glass jar, a gram scale, a long stick to mix, a release agent and all the protection gears required by the resin (read the safety documentation).</p>
+
+<p><img src="./img/04_22_composites/soaked1.jpg" alt="soaked1" />  </p>
+
+<p>For my model I’ve to make just one layer of burlap and I mixed 100g of part A and 48g of part B. The correct amount of resin depends on several factors, like numer of layers and surface of the mold, how much resin is soaked by the fiber and so on. Moreover every composite has it’s fiber/matrix ratio; usually a 100/60 in weight works well.<br />
+When you came to “how much resin mix” remember that once you start spreading resin you can’t waste time and put more things on your working space, so I prefer to mix some more resin in excess (not too much).</p>
+
+<p><img src="./img/04_22_composites/soaked2.jpg" alt="soaked2" />  </p>
+
+<p>Spread the resin is quite easy, but remember that you’re not just spreading a layer over the fabric, but you have to soak it, so the better movement is not a linear one but dabbing.<br />
+Spread an even layer and if you’re in doubt put some more resin, but never pour it over the piece.</p>
+
+<h2 id="step4-vacuum-bag">Step4: Vacuum bag</h2>
+
+<p>This part of the process will drain the resin in excess to abtain an even hard surface. It’s simple but not mandatory if you ask me.  </p>
+
+<p>It’s all about a series of sheets with different functions you put over your piece. </p>
+
+<p><img src="./img/04_22_composites/layers_scheme.jpg" alt="layers_scheme" />  </p>
+
+<p>Under the mold goes the first layer of the bag; it’s a simple though plastic layer.<br />
+Than you put your mold with the laminated over.<br />
+Now you put:
+The <strong>peel</strong>, a thin perforated plastic sheet that allows the resin to raise over it under the vacuum pressure.<br />
+The <strong>bleeder</strong> that will soak up the resin in excess.<br />
+The <strong>breather</strong> that allow the air to flow inside the vacuum valve avoiding to block it.
+Now you can put the top layer of the vacuum bag; remember to mount the vacuum valve before to seal it.  </p>
+
+<p><img src="./img/04_22_composites/layers_order.jpg" alt="layers_order" />  </p>
+
+<p><img src="./img/04_22_composites/vacuum1.jpg" alt="vacuum1" />  </p>
+
+<p><img src="./img/04_22_composites/vacuum2.jpg" alt="vacuum2" />  </p>
+
+<p><img src="./img/04_22_composites/vacuum3.jpg" alt="vacuum3" />  </p>
+
+<p><img src="./img/04_22_composites/vacuum4.jpg" alt="vacuum4" />  </p>
+
+<p>Now you can plug the vacuum pump and turn it on.</p>
+
+<p><img src="./img/04_22_composites/vacuum5.jpg" alt="vacuum5" /> </p>
+
+<p>Pay attention to wrinkles and try to keep the surface clear and even while making the vacuum, otherwise it will produce unaesthetic lines on the surface.</p>
+
+<h2 id="step5-opening-the-mold">Step5: Opening the mold</h2>
+
+<p>Read the resin instruction to know its curing time; in this case I’ve waited 3hr before demold it, but it finished curing just 72hr after the mix.  </p>
+
+<p><img src="./img/04_22_composites/open1.jpg" alt="open1" /> </p>
+
+<p><img src="./img/04_22_composites/open2.jpg" alt="open2" /> </p>
+
+<p><img src="./img/04_22_composites/open3.jpg" alt="open3" /> </p>
+
+<p><img src="./img/04_22_composites/open4.jpg" alt="open4" /> </p>
+
+<p>The piece is thin and light, quite flexible and very close to my expectations.  </p>
+
+<p>I made a huge mistake: I put the valve over the piece so it has leaved a large mark on the surface and produced a clot of resin just on it’s edge; moreover it was almost sticking with the resin. The correct way is to put the valve outside the mold, but always over the breather.</p>
+
+<p><img src="./img/04_22_composites/output1.jpg" alt="output1" /> </p>
+
+<p><img src="./img/04_22_composites/output2.jpg" alt="output2" /> </p>
+
+<!---
+
+AGGIUNGERE QUI ULTERIORI AVANZAMENTI
+
+-->
+
+
+     
+     
+
+</body>
+</html>
