@@ -20,139 +20,296 @@
       <p><a href="./final_project.html"><b>Final Project<b/></a> | <a href="./assignment.html"><b>Assignments<b/></a> | <a href="./download.html"><b>Download<b/></a> | <a href="./about.html"><b>About<b/></a> | <a href="./contacts.html"><b>Contact<b/></a></p>
      </div>
      <h2 id="project-description">Project Description</h2>
-<p>A wargame set in outerspace with an interactive and modular scenario.  </p>
 
-<p><img src="/img/home/concept.jpg" alt="concept" />  </p>
+<p>A device to better manage our everyday time to help us to not overcommit our lives.<br />
+A simple way to visualize and manage time from a different point of view.
+A non invasive but strongly communicative device to tink about time as a discrete resource instead of a continuous flow. </p>
 
-<h3 id="subject">Subject</h3>
-<p>Every modules will be sensible to different kind of ships and will provide useful informations for an enhanced gameplay.
-The game will allow to be played as a phisical game, being phisically immersed into the scenario to play the game and moving every piece by hand while the great part of the digital aspects will be “almost-unperceiveble”.  </p>
+<h3 id="what-will-it-do">What will it do?</h3>
 
-<p><img src="/img/home/section.jpg" alt="section" />  </p>
+<p>It count time as a percentage over an amount of time defined by the user instead of a delta between two moments. This way I can commit an amount of time to do something and monitor how much time left I have.  </p>
 
-<h3 id="goals">Goals</h3>
+<p>Thinking about our everyday life we can easily recognize three main classes of tasks: duties, leisure and needs. These three categories are bounded by the following equation:</p>
+
+<pre><code>Duties + Leisure &lt; 24h - Needs  
+</code></pre>
+
+<p>so each of them is a variable that everyone can set.
+The residual amount for each variable is shown by three led bars, going always from 100% to 0% at different rates depending on the amount of time resource committed for each one.<br />
+Two buttons to press simultaneously allow to swap from a variable to another.
+When the current variable reach the 0% automatically the other two will be decreased at half of each rate until you wont choose which one is currently running; when also the second variable has reached the 0% the remaining variable continue to decrease at it’s own rate. </p>
+
+<h4 id="further-developments">Further developments</h4>
+<p>In further development I may integrate:<br />
+- rechargeable lithium battery<br />
+- less energy drain display<br />
+- liquid cristal/oled display<br />
+- subroutine to manage up to 5 tasks per category<br />
+- gather statistics of habits and time commitment<br />
+- make a good package  </p>
+
+<h3 id="whos-done-what-beforehand">Who’s done what beforehand?</h3>
+
+<p>Everything starts from this an article I’ve read online some month ago.
+<a href="https://hbr.org/2015/02/a-formula-to-stop-you-from-overcommitting-your-time">A Formula to Stop You from Overcommitting Your Time</a>  </p>
+
+<p>This device will just show this simple principle overtime.  </p>
+
+<p>Online I’ve found different watches with fancy displays, but the most counts on an hour and minute base, just because they are watches, and they don’t need to be configured but just synchronized with the local area time.  </p>
+
+<p>At the following link I’ve found a great website about data visualization
+<a href="http://flowingdata.com/">Flowing Data</a></p>
+
+<h3 id="projects-modules">Project’s modules</h3>
+
+<p>The whole project can be divided in several parts; every part may be made in one ore more process:  </p>
+
+<p><strong>Electronics</strong><br />
+Milling of a double layer board<br />
+Soldering of the electronics components<br />
+Testing  </p>
+
+<p><strong>Code</strong><br />
+Code to drive the led matrix<br />
+Program of the device<br />
+Configuration interface  </p>
+
+<p><strong>Enclosure</strong><br />
+Frame in casted resin<br />
+Front 3D printed</p>
+
+<p><strong>Watchstrap</strong><br />
+Lasercutted and sewed leather  </p>
+
+<h3 id="materials-and-components-required">Materials and components required</h3>
+
+<p><strong>Electronics</strong>
+<a href="http://it.farnell.com/atmel/attiny44a-ssu/mcu-8bit-attiny-20mhz-soic-14/dp/1699397?CMP=GRHB-OCTOPART-1000082">Atmel ATtiny44</a><br />
+Quantity	1	
+Cost		1.05€  </p>
+
+<p><a href="http://www.digikey.it/product-detail/it/LTST-C230TBKT/160-1889-1-ND/3306146?WT.z_cid=ref_octopart_dkc_buynow&amp;site=it">Led Blue Clear 1206</a><br />
+Quantity	15<br />
+Cost		0.45€  </p>
+
+<p><a href="http://it.farnell.com/yageo/rc1206jr-130rl/thick-film-resistor-0-ohm-250mw/dp/1799535?CMP=GRHB-OCTOPART-1001215">Resistor 0kOhm 1206</a><br />
+Quantity	1<br />
+Cost 		0.004€  </p>
+
+<p><a href="http://it.farnell.com/yageo-phycomp/rc1206jr-0710kl/resistore-rc01-1206-10k/dp/9240640?CMP=GRHB-OCTOPART-1000774">Resistor 10kOhm 1206</a><br />
+Quantity	1<br />
+Cost		0.05€  </p>
+
+<p><a href="http://it.farnell.com/panasonic-electronic-components/erj8enf4990v/resistore-1206-499r-1-0-25w/dp/2057758?CMP=GRHB-OCTOPART-1000755">Resistor 499Ohm 1206</a><br />
+Quantity	5<br />
+Cost		0.03€  </p>
+
+<p><a href="http://it.farnell.com/avx/12063c105kat2a/condensatore-mlcc-x7r-1uf-25v/dp/1327717?CMP=GRHB-OCTOPART-1000089">Capacitor 1uF 1206</a><br />
+Quantity	1<br />
+Cost		0.14€  </p>
+
+<p><a href="http://it.farnell.com/te-connectivity-amp/826926-2/header-diritta-bifase/dp/1248140?CMP=GRHB-OCTOPART-1000056">FTDI pins</a><br />
+Quantity	1<br />
+Cost		0.14€  </p>
+
+<p><a href="http://it.farnell.com/te-connectivity-amp/826632-7/connettore-header-2-54mm-14-vie/dp/2308767?CMP=GRHB-OCTOPART-1000056">ISP pins</a><br />
+Quantity	1<br />
+Cost  		1.86€  </p>
+
+<p><strong>Enclosure</strong><br />
+<a href="http://www.prochima.it/pages/metal.htm">Frame</a>
+Quantity	20g<br />
+Cost  		3€ 
+Process		Casting  </p>
+
+<p><a href="http://www.wasproject.it/w/">Front</a>
+Quantity	5g<br />
+Cost  		0.50€ 
+Process		3D print  </p>
+
+<h3 id="for-this-project-the-following-processes-will-be-used">For this project the following processes will be used:</h3>
+
 <ul>
-  <li>Build the planet modules in an easy, cheap and modular way</li>
+  <li>Project planning			DONE  </li>
+  <li>Electronic design			DONE  </li>
+  <li>Elettronic production		DONE      </li>
+  <li>3D design					21.05.2015  </li>
+  <li>3D milling				22.05.2015  </li>
+  <li>Molding and casting		23.05.2015  </li>
+  <li>Lasercutting				23.05.2015  </li>
+  <li>Input and output			28.05.2015</li>
+  <li>Embeeded programming		02.06.2015    </li>
+  <li>Interface design			05.06.2015  </li>
 </ul>
+
+<h3 id="what-tasks-need-to-be-completed">What tasks need to be completed?</h3>
+<p>Follow the schedule above.</p>
+
+<h3 id="what-questions-need-to-be-answered">What questions need to be answered?</h3>
+
+<p>Will it be a useful device?<br />
+Will help me to better organize my time?<br />
+How can it evolve?<br />
+What function can easily be integrated using the same hardware?<br />
+What functions can be integrated upgrading the hardware?<br />
+How can it be optimized?<br />
+Does people will build it? and why? or why not?  </p>
+
+<h3 id="how-will-it-be-evaluated">How will it be evaluated?</h3>
+
+<p>Step1: the led matrix works									NOT YET<br />
+Step2: the double-button works cycling the counters			NOT YET<br />
+Step3: the configuration via FTDI works  					NOT YET<br />
+Step4: the configuration interface works					NOT YET<br />
+Step5: the case of the device fits properly on my wrist		NOT YET  </p>
+
+<!---
+
+-------------------------------------------------------------------------
+QUELLO CHE SI TROVA ALL'INTERNO DI QUESTO COMMENTO è LA PRIMA PROPOSTA DEL PROGETO FINALE, UN PROGETTO TROPPO COMPLESSO PER ESSERE REALIZZATO IN TEMPO, CON GLI STRUMENTI E LE COMPETENZE FORNITE IN QUESTO CORSO.
+RESTA COMUNQUE UNA PROPOSTA VALIDA, MAGARI DA SVILUPPARE IN SEGUITO
+-------------------------------------------------------------------------
+
+A wargame set in outerspace with an interactive and modular scenario.  
+
+![concept](/img/home/concept.jpg)  
+
+###Subject
+Every modules will be sensible to different kind of ships and will provide useful informations for an enhanced gameplay.
+The game will allow to be played as a phisical game, being phisically immersed into the scenario to play the game and moving every piece by hand while the great part of the digital aspects will be "almost-unperceiveble".  
+
+![section](/img/home/section.jpg)  
+
+  
+###Goals  
+* Build the planet modules in an easy, cheap and modular way
 <pre>    Concept       #++++++++++__________#
     Structure     #____________________#
     Elettronics   #____________________#
-    Programming   #____________________#</pre>
-<ul>
-  <li>Build different kind of ships, buildings and defences</li>
-</ul>
+    Programming   #____________________#</pre>  
+* Build different kind of ships, buildings and defences
 <pre>    Concept       #++++++++++__________#
     Structure     #____________________#
     Elettronics   #____________________#
-    Programming   #____________________#</pre>
-<ul>
-  <li>Allow the planet to recognize every different ship </li>
-</ul>
+    Programming   #____________________#</pre>  
+* Allow the planet to recognize every different ship 
 <pre>    Concept       #++++++++++++++++____#
     Structure     #____________________#
     Elettronics   #____________________#
-    Programming   #____________________#</pre>
-<ul>
-  <li>Allow the planets to regognize them as members of the same party </li>
-</ul>
+    Programming   #____________________#</pre>   
+* Allow the planets to regognize them as members of the same party 
 <pre>    Concept       #+++++_______________#
     Structure     ##
     Elettronics   #____________________#
-    Programming   #____________________#</pre>
-<ul>
-  <li>Allow the planets to communicate their status easly and directly to the player trough light and sound  </li>
-</ul>
+    Programming   #____________________#</pre>    
+* Allow the planets to communicate their status easly and directly to the player trough light and sound  
 <pre>    Concept       #+++++_______________#
     Structure     #____________________#
     Elettronics   #____________________#
-    Programming   #____________________#</pre>
-<ul>
-  <li>Allow the planets to measure the distance between them to enable/disable some actions  </li>
-</ul>
+    Programming   #____________________#</pre>   
+* Allow the planets to measure the distance between them to enable/disable some actions  
 <pre>    Concept       #++__________________#
     Structure     ##
     Elettronics   #____________________#
-    Programming   #____________________#</pre>
-<ul>
-  <li>Manage some functions via web application  </li>
-</ul>
+    Programming   #____________________#</pre>   
+* Manage some functions via web application  
 <pre>    Concept       #++__________________#
     Structure     ##
     Elettronics   #____________________#
-    Programming   #____________________#</pre>
-<ul>
-  <li>Build a large frame (named “known space”) to set the game’s space hanging up the planets</li>
-</ul>
+    Programming   #____________________#</pre>   
+* Build a large frame (named "known space") to set the game's space hanging up the planets
 <pre>    Concept       #++++++++++__________#
     Structure     #____________________#
     Elettronics   ##
-    Programming   ##</pre>
-<ul>
-  <li>Make a web site to collect all the documentation and show the work in progress </li>
-</ul>
+    Programming   ##</pre>   
+* Make a web site to collect all the documentation and show the work in progress 
 <pre>    Concept       #+++++++++++++++_____#
     Structure     #++++++++++__________#
     Elettronics   ##
-    Programming   #+++++_______________#</pre>
+    Programming   #+++++_______________#</pre>   
+  
+###Design considerations  
+* A game is essentially a set of rules that define one or more purposes, some ways to reach it and forbidden behaviours. All that is not inherent with the Fab Academy's purposes and will not be developed. The project will be about a framework of devices to use to write a set of rules.  
 
-<h3 id="design-considerations">Design considerations</h3>
-<ul>
-  <li>
-    <p>A game is essentially a set of rules that define one or more purposes, some ways to reach it and forbidden behaviours. All that is not inherent with the Fab Academy’s purposes and will not be developed. The project will be about a framework of devices to use to write a set of rules.  </p>
-  </li>
-  <li>
-    <p>That kind of game need a great amount of time to set up a match. That imply a great motivation and a long duration of the match to justify the setting time, so virtually this game could be infinite adding new space game, new planets, new fleet and new parties.  </p>
-  </li>
-  <li>
-    <p>The planets will not be spherical but polihedrical to define a number of slot that can host pieces (like ships and buildings). The join between planet and pieces will be made by magnets, so it provides both an easy snap of the pieces and elettrical contact at the same time. The faces can be made in different material to customize the planet and even if the material is not transparent a light feedback will be visible trough not merged edges.  </p>
-  </li>
-  <li>
-    <p>I’d like to have the main input and output information directly trough modules and use the webapp just for specific informations. So probably at least two faces of the polyhedron will be reserved to the main input and output functions.  </p>
-  </li>
-  <li>
-    <p>The frame of the known space will be modular too to expand the space of the game.  </p>
-  </li>
-</ul>
+* That kind of game need a great amount of time to set up a match. That imply a great motivation and a long duration of the match to justify the setting time, so virtually this game could be infinite adding new space game, new planets, new fleet and new parties.  
 
-<h3 id="updates">Updates</h3>
+* The planets will not be spherical but polihedrical to define a number of slot that can host pieces (like ships and buildings). The join between planet and pieces will be made by magnets, so it provides both an easy snap of the pieces and elettrical contact at the same time. The faces can be made in different material to customize the planet and even if the material is not transparent a light feedback will be visible trough not merged edges.  
+ 
+* I'd like to have the main input and output information directly trough modules and use the webapp just for specific informations. So probably at least two faces of the polyhedron will be reserved to the main input and output functions.  
 
-<p>02.19.2015 - Yesterday during the review of Haldin Andres I’ve seen an interesting image about some pattern that I’d use over modules and pattern to customize a set of pieces.
-<img src="http://fabacademy.org/archives/2015/eu/students/haldin.anders/img/week3/living_hinge.jpg" alt="obrary" />
-You can find dxf and pdf on a <a href="https://github.com/Obrary/Living-Hinge-Swatches">github repository</a>.  </p>
+* The frame of the known space will be modular too to expand the space of the game.  
 
-<p>I’ll use also another pattern made by me to customize some piece.
-I’m still working on it.</p>
+###Updates  
 
-<p>continue to read the <a href="01_28_princ_n_prac.html">first assignment</a></p>
+02.19.2015 - Yesterday during the review of Haldin Andres I've seen an interesting image about some pattern that I'd use over modules and pattern to customize a set of pieces.
+![obrary](http://fabacademy.org/archives/2015/eu/students/haldin.anders/img/week3/living_hinge.jpg)
+You can find dxf and pdf on a [github repository](https://github.com/Obrary/Living-Hinge-Swatches).  
 
-<p>04.22.2015 - I’ve watched <a href="https://www.ted.com/talks/eduardo_saenz_de_cabezon_math_is_forever?language=it">this TEDx Talk</a> by Eduardo Saenzde Cabezon about math, and I found the Weaire-Phelan structure so interesting that I decided to add as a resource to this page.
+I'll use also another pattern made by me to customize some piece.
+I'm still working on it.
+  
+continue to read the [first assignment](01_28_princ_n_prac.html)
+
+04.22.2015 - I've watched [this TEDx Talk](https://www.ted.com/talks/eduardo_saenz_de_cabezon_math_is_forever?language=it) by Eduardo Saenzde Cabezon about math, and I found the Weaire-Phelan structure so interesting that I decided to add as a resource to this page.
 This structure define how boubles ideally works filling the an amount of space with clusters with the minimum surface area.
-<a href="http://en.wikipedia.org/wiki/Weaire%E2%80%93Phelan_structure">Weaire-Phelan structure on Wikipedia</a>
-<a href="https://www.youtube.com/watch?v=UUkVMvJqALk">Interview to Weaire and Phelan</a></p>
+[Weaire-Phelan structure on Wikipedia](http://en.wikipedia.org/wiki/Weaire%E2%80%93Phelan_structure)
+[Interview to Weaire and Phelan](https://www.youtube.com/watch?v=UUkVMvJqALk)
 
-<p><img src="https://www.tcd.ie/Physics/Foams/images/weairephelanexperimental.jpg" alt="bubbles" />
-<img src="http://images1.sw-cdn.net/model/picture/674x501_173442_721452_1429670209.jpg?key=" alt="W_P_structure" />
-<img src="http://science.unitn.it/~gabbrielli/javaview/p42a_comparison.html" alt="Cell aggregates and soap films" /></p>
+![bubbles](https://www.tcd.ie/Physics/Foams/images/weairephelanexperimental.jpg)
+![W_P_structure](http://images1.sw-cdn.net/model/picture/674x501_173442_721452_1429670209.jpg?key=)
+![Cell aggregates and soap films](http://science.unitn.it/~gabbrielli/javaview/p42a_comparison.html)
 
-<p>This is a good reading about Weaire-Phelan foam and Kelvin Foam
-http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.83.1014&amp;rep=rep1&amp;type=pdf</p>
+Some good reading about Weaire-Phelan foam and Kelvin Foam
+http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.83.1014&rep=rep1&type=pdf  
+https://jakdrinnan.wordpress.com/2012/07/24/material-designing-complexity/
 
-<p>Here a good tutorial about hot to 3d design a Weaire-Phelan structure in Rhino http://www.designcoding.net/weaire-phelan-structure/
-http://www.grasshopper3d.com/forum/topics/sweeping-structure?page=1&amp;commentId=2985220%3AComment%3A18253&amp;x=1#2985220Comment18253</p>
+Here a good tutorial about how to 3d design a Weaire-Phelan structure in Rhino http://www.designcoding.net/weaire-phelan-structure/
+http://www.grasshopper3d.com/forum/topics/sweeping-structure?page=1&commentId=2985220%3AComment%3A18253&x=1#2985220Comment18253  
 
-<p>and here with Grasshopper using Galapagos
-http://www.grasshopper3d.com/forum/topics/weaire-phelan-using-galapagos</p>
+Other 3D tassellations
+https://jakdrinnan.wordpress.com/2012/07/24/material-designing-complexity/
 
-<p>For some more inspiration try searching (as always) “Weaire Phelan” on Google Images ;)</p>
+Other reference  
+http://www-ljk.imag.fr/membres/Edouard.Oudet/index.php
 
-<p>04.25.2015 - I’ve just watched this video
+Swift-Hohenberg equation about heat transmission pattern  
+http://en.wikipedia.org/wiki/Swift%E2%80%93Hohenberg_equation  
+http://pauli.uni-muenster.de/tp/fileadmin/lehre/NumMethoden/SoSe10/Skript/SH.pdf  
+http://www.scholarpedia.org/article/Swift-Hohenberg_equation  
+http://nile.physics.ncsu.edu/hon292a-f08/topic1/swifthohen.pdf  
+http://wwwf.imperial.ac.uk/~pavl/bloemker.pdf  
+http://www.cmp.caltech.edu/~mcc/Patterns/SwiftHohenberg.html  
+https://plus.maths.org/content/kelvins-bubble-burst-again
+
+Ruggiero Gabrielli  
+http://www.ruggerogabbrielli.com/  
+http://www.grasshopper3d.com/profile/RuggeroGabbrielli  
+
+Reaction/Diffusion  
+http://www.cc.gatech.edu/~turk/reaction_diffusion/reaction_diffusion.html
+
+GeometryGym is a good blog where I found BullAnt, a plugin for Grasshopper and many other resources  
+http://geometrygym.blogspot.it/search/label/BullAnt  
+https://geometrygym.wordpress.com/downloads/  
+
+and here with Grasshopper using Galapagos
+http://www.grasshopper3d.com/forum/topics/weaire-phelan-using-galapagos
+
+
+
+For some more inspiration try searching (as always) "Weaire Phelan" on Google Images ;)
+
+04.25.2015 - I've just watched this video
 https://www.youtube.com/watch?v=HHwXlcHcTHc
-where Stuart Brown, founder of the National Institute for Play (http://www.nifplay.org/) talks about the importance of play. He says that play is not just fun, it’s a natural behaviour we tend to lost ageing, but it let us discover new way and solutions, learn things about the world around us, make social connections with all the animals (humans included) and set our mood in a positive way, letting us overcome easily daily issues (even at work).
+where Stuart Brown, founder of the National Institute for Play (http://www.nifplay.org/) talks about the importance of play. He says that play is not just fun, it's a natural behaviour we tend to lost ageing, but it let us discover new way and solutions, learn things about the world around us, make social connections with all the animals (humans included) and set our mood in a positive way, letting us overcome easily daily issues (even at work).
 All these things are not just fancy subjects, but are supported by nature observation, historical reconstruction and scientific demonstrations.
 Any of us knows how to play and how to set thing like a game, but we just forget it to fit the society expectations of earnestness.
-The most representative sentence (read on the Institute website) is: “the opposite of play is not work, is depression”.
-This source is not so pertinent to the development of this project, but it talks about the importance of playing even after childhood and youth.</p>
+The most representative sentence (read on the Institute website) is: "the opposite of play is not work, is depression".
+This source is not so pertinent to the development of this project, but it talks about the importance of playing even after childhood and youth.
 
+
+
+-->
 
      
      
