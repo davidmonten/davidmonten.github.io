@@ -19,13 +19,15 @@
     <div>
       <p><a href="./final_project.html"><b>Final Project<b/></a> | <a href="./assignment.html"><b>Assignments<b/></a> | <a href="./download.html"><b>Download<b/></a> | <a href="./about.html"><b>About<b/></a> | <a href="./contacts.html"><b>Contact<b/></a></p>
      </div>
-     <h2 id="final-project">Final project</h2>
+     <h2 id="project-description">Project Description</h2>
 
-<p><img src="./img/00_final_project/presentation.png" alt="presentation" />  </p>
+<p><img src="./img/00_final_project/avatar_sketch.jpg" alt="avatar_sketch" />  </p>
 
 <p>A device to better manage our everyday time to help us to not overcommit our lives.<br />
 A simple way to visualize and manage time from a different point of view.
-A non invasive but strongly communicative device to tink about time as a discrete resource instead of a continuous flow.    </p>
+A non invasive but strongly communicative device to tink about time as a discrete resource instead of a continuous flow. </p>
+
+<h3 id="what-will-it-do">What will it do?</h3>
 
 <p>It count time as a percentage over an amount of time defined by the user instead of a delta between two moments. This way I can commit an amount of time to do something and monitor how much time left I have.  </p>
 
@@ -37,17 +39,7 @@ A non invasive but strongly communicative device to tink about time as a discret
 <p>so each of them is a variable that everyone can set.
 The residual amount for each variable is shown by three led bars, going always from 100% to 0% at different rates depending on the amount of time resource committed for each one.<br />
 Two buttons to press simultaneously allow to swap from a variable to another.
-When the current variable reach the 0% automatically the other two will be decreased at half of each rate until you wont choose which one is currently running; when also the second variable has reached the 0% the remaining variable continue to decrease at it’s own rate.   </p>
-
-<h3 id="what-questions-need-to-be-answered">What questions need to be answered?</h3>
-
-<p>Will it be a useful device?<br />
-Will help me to better organize my time?<br />
-How can it evolve?<br />
-What function can easily be integrated using the same hardware?<br />
-What functions can be integrated upgrading the hardware?<br />
-How can it be optimized?<br />
-Does people will build it? and why? or why not? </p>
+When the current variable reach the 0% automatically the other two will be decreased at half of each rate until you wont choose which one is currently running; when also the second variable has reached the 0% the remaining variable continue to decrease at it’s own rate.  </p>
 
 <h3 id="whos-done-what-beforehand">Who’s done what beforehand?</h3>
 
@@ -56,128 +48,34 @@ Does people will build it? and why? or why not? </p>
 
 <p>This device will just show this simple principle overtime.  </p>
 
-<p>Online I’ve found different watches with fancy displays, but the most counts on hours and minutes base, just because they are watches, and they don’t need to be configured but just synchronized with the local area time.<br />
-The closer to my idea is the <a href="http://www.tokyoflash.com/en/watches/kisai/denshoku/">Kisai Denshoku</a> led watch because of its japan style minimalism, but even with a fancy visualization it still counts time as usual.  </p>
+<p>Online I’ve found different watches with fancy displays, but the most counts on an hour and minute base, just because they are watches, and they don’t need to be configured but just synchronized with the local area time.  </p>
 
-<p>Last example of minimal watches is the <a href="http://www.uniquewatchguide.com/worlds-smallest-nixie-watch-the-kopriso-mi-esposita/">Nixie watch</a> using a <a href="http://en.wikipedia.org/wiki/Nixie_tube">nixie tube</a></p>
+<p>A very fancy project is the <a href="http://www.uniquewatchguide.com/worlds-smallest-nixie-watch-the-kopriso-mi-esposita/">Nixie watch</a>.</p>
 
-<p>At the following link I’ve found an interesting website about data visualization
-<a href="http://flowingdata.com/">Flowing Data</a>  </p>
+<p>At the following link I’ve found a great website about data visualization
+<a href="http://flowingdata.com/">Flowing Data</a></p>
 
-<h3 id="for-this-project-the-following-processes-will-be-used">For this project the following processes will be used:</h3>
+<h3 id="projects-modules">Project’s modules</h3>
 
-<ul>
-  <li>Project planning			  </li>
-  <li>Electronic design			  </li>
-  <li>Elettronic production		      </li>
-  <li>3D design					  </li>
-  <li>3D milling				  </li>
-  <li>Molding and casting		  </li>
-  <li>Lasercutting				  </li>
-  <li>Input and output			</li>
-  <li>Embeeded programming		    </li>
-  <li>Interface design</li>
-</ul>
+<p>The whole project can be divided in several parts; every part may be made in one ore more process:  </p>
 
-<h2 id="projects-modules">Project’s modules</h2>
+<p><strong>Electronics</strong><br />
+- Milling of a double layer board<br />
+- Soldering of the electronics components<br />
+- Testing  </p>
 
-<h3 id="project-planning">Project planning</h3>
+<p><strong>Code</strong><br />
+- Code to drive the led matrix<br />
+- Program of the device<br />
+- Configuration interface  </p>
 
-<p>The whole project consist in several modules; every module may be made in one ore more process. 
-I simply divided the processes by pertinence and developed one by one.  <br />
-The modules shares a common development path, so the development can be resumed in the following scheme.  </p>
+<p><strong>Enclosure</strong><br />
+- Frame in casted resin or 3D printed. I’d like to have a sturdy frame and a customizable front panel, but in the end everything can change.</p>
 
-<p><img src="./img/00_final_project/planning_scheme.png" alt="planning_scheme" />  </p>
+<p><strong>Watchstrap</strong><br />
+- It’s lasercutted and assembled without any sort of glue or even sewing, but just using hinges and .  </p>
 
-<p>The numbers means the number of iteration per process. I won’t explain every single iteration but this scheme is a good way to keep an eye on the whole development process, like a map for a journey.<br />
-More details can be found at <a href="./05_13_applic_implic.html">Applications and Implications page</a></p>
-
-<h3 id="board">Board</h3>
-
-<p><img src="./img/00_final_project/board.jpg" alt="board" />  </p>
-
-<p><img src="./img/00_final_project/board2.jpg" alt="board2" />  </p>
-
-<p>First of all I started designing the board because it will define the minimum space needed for the components.<br />
-I started from a board made during the Output assignment and than I milled a more compact double layer board that measures 29.36x52.23x1.65 with 1mm round corners. At first attempt some traces where not well defined and the overall size of the battery case exceeded the edge of the board. </p>
-
-<p><img src="./img/00_final_project/oldboard_front.jpg" alt="oldboard_front" />  </p>
-
-<p><img src="./img/00_final_project/oldboard_back.jpg" alt="oldboard_back" />  </p>
-
-<p><img src="./img/00_final_project/boards_front.jpg" alt="boards_front" />  </p>
-
-<p><img src="./img/00_final_project/boards_rear.jpg" alt="boards_rear" />  </p>
-
-<p>To avoid accidental pressures of the button I made an hardware double-button so the actual pressure is read just if both the physic buttons are pressed simultaneously.<br />
-On the back side there are two pads to power the board with external power source because the energy issue is one of the main field for further developments.  </p>
-
-<p><img src="./img/00_final_project/schematic.png" alt="schematic" />  </p>
-
-<p><img src="./img/00_final_project/board_full_info.png" alt="board_full_info" />  </p>
-
-<p><img src="./img/00_final_project/top.jpg" alt="top" />  </p>
-
-<p><img src="./img/00_final_project/bottom.jpg" alt="bottom" />    </p>
-
-<p><a href="./files/00_final_proj/board.7z">Board.7z</a>  </p>
-
-<p>When I first mounted the FTDI slot it was parallel with the board, but goes outside the silhouette  of the board so I decided to bend it, paying attention to not touch the traces nearby, and direct the slot the bottom of the frame.<br />
-Before to mount the buttons on the side of the board I manually removed the copper on the edge, otherwise the button would be constantly “pressed”.  </p>
-
-<h3 id="frame">Frame</h3>
-<p>The frame has to be sturdy, reliable, simple. This part can be made in two different ways and I tried both: 3D print and casting.  </p>
-
-<p>First I designed the shape with 3D software starting from the overall size of the board components.</p>
-
-<p><img src="./img/00_final_project/case_wip1.jpg" alt="case_wip1" />  </p>
-
-<p><img src="./img/00_final_project/case_wip3.jpg" alt="case_wip3" />  </p>
-
-<p>On the right side it has a slot for the button, on the left side a slot for the button and a slot for a microUSB plug for further implementation of lipo battery and easier connections.  </p>
-
-<p><img src="./img/00_final_project/case_right_side.jpg" alt="case_right_side" />  </p>
-
-<p><img src="./img/00_final_project/case_left_side.jpg" alt="case_left_side" />  </p>
-
-<p>I made it first with 3D printer to verify shapes and dimensions and fix tolerances to fit properly; after the first test I’ ve loosened the fit by 0.2mm.  </p>
-
-<p><img src="./img/00_final_project/case_left_side.jpg" alt="case_3d_prints" />  </p>
-
-<p>The upper shell has to be transparent, or in any case has to let the light pass through. For this reason I 3D printed this piece in Taulman T-glasse, the only material 3d-pintable that lets light pass trough itself.<br />
-Otherwise I can make a double mold to cast a see-through resin.
-To do so I made two different master to make the mold, milled in wax and 3D printed.<br />
-The wax master needs much more attention because of the two shell and the long time needed to mill it. I first used a 3mm endmill to the rough finish and a 1.54 endmill for the fine finish.</p>
-
-<p><img src="./img/00_final_project/mold_01.png" alt="mold_01" />  </p>
-
-<p><img src="./img/00_final_project/mold_02.jpg" alt="mold_02" />  </p>
-
-<p><img src="./img/00_final_project/mold_03.jpg" alt="mold_03" />  </p>
-
-<p><img src="./img/00_final_project/mold_04.jpg" alt="mold_04" />  </p>
-
-<p>The lower shell doesn’t need to be transparent and so I decided to use a metal filled resin, but first I made a simple test to verify how a steel thread works on resin and how large the hole has to be. For an M3 screw a 2.4mm holes works well but a little bit tight while a 2.8mm holes can be threaded anyway, but it works smoother. I simply don’t know on the long run what’s the best but to avoid to overstress the resin matrix I’ll go with a 2.8mm and if the screw will loosen I’l put some teflon.  </p>
-
-<p><img src="./img/00_final_project/whitemetal_thread_test.jpg" alt="whitemetal_thread_test" />  </p>
-
-<p>The 3d-printed version of the lower shell has been made with different materials: with bronze filled PLA for a metallic warm finish and a good weight-feel, and carbon filled PLA for a light and strong structure.</p>
-
-<p><strong>Add link to download files HERE: upper_shell, lower_shell, uppershell_mold_up, uppershell_mold_down, lowershell_mold</strong>  </p>
-
-<h3 id="watchstrap">Watchstrap</h3>
-<ul>
-  <li>It’s lasercutted and assembled without any sort of glue or even sewing, but just using hinges.</li>
-</ul>
-
-<h3 id="code">Code</h3>
-<ul>
-  <li>Code to drive the led matrix  </li>
-  <li>Program of the device  </li>
-  <li>Configuration interface  </li>
-</ul>
-
-<h2 id="materials-and-components-required">Materials and components required</h2>
+<h3 id="materials-and-components-required">Materials and components required</h3>
 
 <p><strong>Electronics</strong>
 <a href="http://it.farnell.com/atmel/attiny44a-ssu/mcu-8bit-attiny-20mhz-soic-14/dp/1699397?CMP=GRHB-OCTOPART-1000082">Atmel ATtiny44</a><br />
@@ -222,6 +120,56 @@ Process		Casting  </p>
 Quantity	5g<br />
 Cost  		0.50€ 
 Process		3D print  </p>
+
+<h3 id="for-this-project-the-following-processes-will-be-used">For this project the following processes will be used:</h3>
+
+<ul>
+  <li>Project planning			DONE  </li>
+  <li>Electronic design			DONE  </li>
+  <li>Elettronic production		DONE      </li>
+  <li>3D design					DONE  </li>
+  <li>3D milling				DONE  </li>
+  <li>Molding and casting		DONE  </li>
+  <li>Lasercutting				DONE  </li>
+  <li>Input and output			28.05.2015</li>
+  <li>Embeeded programming		02.06.2015    </li>
+  <li>Interface design			05.06.2015  </li>
+</ul>
+
+<h3 id="what-tasks-need-to-be-completed">What tasks need to be completed?</h3>
+<p>Follow the schedule above.</p>
+
+<h3 id="what-questions-need-to-be-answered">What questions need to be answered?</h3>
+
+<ul>
+  <li>Will it be a useful device?  </li>
+  <li>Will help me to better organize my time?  </li>
+  <li>How can it evolve?  </li>
+  <li>What function can easily be integrated using the same hardware?  </li>
+  <li>What functions can be integrated upgrading the hardware?  </li>
+  <li>How can it be optimized?  </li>
+  <li>Does people will build it? and why? or why not?   </li>
+</ul>
+
+<h3 id="how-will-it-be-evaluated">How will it be evaluated?</h3>
+
+<p>It has to meet 3/5 of these requirement:</p>
+
+<p>Step1: the board (led matrix and buttons) works				NOT YET<br />
+Step2: the code for the counters works						NOT YET<br />
+Step3: the configuration via FTDI works  					NOT YET<br />
+Step4: the configuration interface works					NOT YET<br />
+Step5: the parts of the case fits properly among them		CHECKED  </p>
+
+<h3 id="further-developments">Further developments</h3>
+
+<p>In further development I may integrate:<br />
+- rechargeable lithium battery<br />
+- less energy drain system<br />
+- liquid cristal/oled display<br />
+- subroutine to manage up to 5 tasks per category<br />
+- gather statistics of habits and time commitment<br />
+- make a good package  </p>
 
 <!---
 
