@@ -29,19 +29,20 @@ The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab A
 <p>For this week the assignment was  </p>
 
 <blockquote>
-  <p><strong>Make a website to house all your Fab Academy documentation</strong></p>
+  <p>Make a website to house all your Fab Academy documentation  </p>
 
-  <p>It should describe:
-*who you are 
-*your potential final project.   </p>
+  <p>It should describe:<br />
+- who you are<br />
+- your potential final project.   </p>
 </blockquote>
 
 <p>For a long time I postponed to learn to make web pages because of different issues but this is the right time that I’ll make a web page on my own.</p>
 
 <p>What I need is:</p>
 
-<p>1.make a dual-boot with Linux Mint or Ubuntu (or whatever UNIX) alongside Windows 7 (and I now some of you are thinkin’ I’m an asshole :grin:)
-1.download <a href="https://www.ruby-lang.org/it/">Ruby</a>
+<p>1.make a dual-boot with Linux Mint or Ubuntu (or whatever UNIX) alongside Windows 7</p>
+
+<p>1.download <a href="https://www.ruby-lang.org/it/">Ruby</a>
 1.install <a href="http://jekyllrb.com/">Jekyll</a> (a Ruby gem)
 1.download/fork a theme for Jekyll
 1.design the site structure
@@ -89,7 +90,7 @@ this is the future .html file; copy and modify this file to make other pages. Re
 <p>*some other stuff like credits and references of the author.  </p>
 
 <h2 id="design-the-site-structure-and-run-it-locally">Design the site structure and run it locally</h2>
-<p>After get confident with the folders and theyr file I started organizing my ideas as content structured for a website, so I made different sections: Assignments, Project description, About and Contacts.
+<p>After get confident with the folders and their file I started organizing my ideas as content structured for a website, so I made different sections: Assignments, Project description, About and Contacts.
 To see how it looks I just type in the shell
     jekyll serve
 Doing so Jekyll runs a local server; all you have to do now is open your web browser and type
@@ -100,6 +101,29 @@ and the browser will show you your site.</p>
 
 <p>If you want to use Bootstrap you can follow this tutorial
 http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/</p>
+
+<p>Probably the most important feature of the website is its weight: it has to be as light as possible and so organize properly the folder is a crucial strategic step.<br />
+To do so I have a 1st level main folder, several 2nd level folders (one per assignment) and inside the first folder I made the website. Doing so I have all the documentations (images and files) on my computer and can choose, compress and move just the content I’m going to use in the website.</p>
+
+<h2 id="git-and-mercurial">Git and Mercurial</h2>
+<p>Develop a project implies many incremental steps, but not all of them will be implemented in the final version of the project.<br />
+For this reason can be useful think about the development as a main stream that collect all the validated progresses and <em>n</em> side stream where develop side features; when these features are ready they can be merged with the main stream, otherwise they stops as side stream.  </p>
+
+<p>This process is named <em>version control</em> and can involve a lot of contributors; to manage this issue it’s recommended to use version control software like Git or Mercurial.<br />
+To become familiar with these software I followed this <a href="http://fabacademy.fablabcascina.org/classes/pre-01/">tutorial</a>.<br />
+They are shared online repository (or “repo”) where you can upload your progress and merge with others or start from someone else point “branching” his stream.
+The main difference between Git and Mercurial are shown in the images below</p>
+
+<p><img src="http://fabacademy.fablabcascina.org/classes/pre-01/version-control-fig2.png" alt="CentralizedVC" /><br />
+<img src="http://fabacademy.fablabcascina.org/classes/pre-01/version-control-fig3.png" alt="DistributedVC" />  </p>
+
+<p>Git is a <strong>centralized version control</strong> software and so all the contributors commit (or update) to the same repo while Mercurial is a <strong>distributed version control</strong> software, so every contributor commit or update) to its own repo and then can push (or pull) to (or from) the <a href="https://bitbucket.org/">online server repo</a>.<br />
+Sometimes some conflict may occur, especially with very large repos, so it’s a good practice to pull the whole repo, merge, fix the conflicts and than commit and push again. It’s a thug life.  </p>
+
+<p>I learned using these two software during the <a href="http://fabacademy.fablabcascina.org/classes/pre-01/">pre-courses</a> held by Fiore before the Fab Academy started.  </p>
+
+<p>I made my GitHub repository where I updated my site during these months. You can find it <a href="https://github.com/davidmonten">here</a>.
+I also made a <a href="https://davidmonten@bitbucket.org/davidmonten/test-for-faba15.git">BitBucket profile</a> to train with Mercurial during the pre-courses.</p>
 
 <!---
 

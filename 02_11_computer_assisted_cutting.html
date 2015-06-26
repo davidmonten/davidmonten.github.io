@@ -48,6 +48,12 @@ The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab A
 
 <p><img src="./img/02_11_cutting/laser/pressfit/pf_4.jpg" alt="pf_4" /> </p>
 
+<h3 id="leather">Leather</h3>
+
+<p>I made the wristband for a watch using just flexibility, hinges and joints with the leather.  </p>
+
+<p><img src="./img/02_11_cutting/laser/wristband/cover.jpg" alt="cover" /> </p>
+
 <h2 id="what-ive-done">What I’ve done</h2>
 
 <h3 id="vinyls-1">Vinyls</h3>
@@ -81,9 +87,13 @@ The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab A
   </li>
 </ol>
 
-<p>I made also some stripe to use as background.  </p>
+<p>I made also some stripe to use as background, and graphically speaking it’s a very bad choice.   </p>
 
 <p><img src="./img/02_11_cutting/vinyl/lb_apptapepeel.jpg" alt="lb_apptapepeel" />  </p>
+
+<p>With the Roland machines you can choose two mode to feed it: edge if you are using a roll of vinyl or piece if you have already cutted your patch. I used Piece.  </p>
+
+<p><img src="./img/02_11_cutting/vinyl/me_vinyl.jpg" alt="me_vinyl" /> </p>
 
 <p>Once cut the vinyl I peeled the unused plastic having care to not remove some small part and than using the application tape I’ve applied to the support. To avoid to lose some smaller piece it would be better to modify the shape during the design process to join all together; another trick is to smooth slightly all the vertices, so the cut wont have discontinuity and as the cutting as well as the peeling will be far more easy and quick.  </p>
 
@@ -103,78 +113,108 @@ The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab A
 <p><img src="./img/02_11_cutting/laser/test/mosaic01.jpg" alt="mosaic01" />  </p>
 
 <pre><code> **CARDBOARD**
- speed	100		speed	100		speed	100		speed	20
- power	100		power	20		power	100		power	1
- passes	1		passes	1		passes	1		passes	1
+ speed	100  	
+ power	100  
+ passes	1  
+ 
+ speed	100  
+ power	20  
+ passes	1  
+ 
+ speed	20  
+ power	1  
+ passes	1  
+ 
    	 
  **PLYWOOD**
- speed	100		speed	100		speed	100		speed	100
- power	80		power	60		power	40		power	20
- passes	1		passes	1		passes	1		passes	2
+ speed	100  				
+ power	80  				
+ passes	1  				
+ 
+ speed	100  
+ power	60  
+ passes	1  
+ 
+ speed	100  
+ power	40  
+ passes	1  
+ 
+ speed	100  
+ power	20  
+ passes	2  
 </code></pre>
 
 <p>It seems that the laser burns 0.25mm on cardboard and 0.20mm on plywood.<br />
 A 50mm (drawn, not measured) plywood peg fits well tight in a 49.6mm (drawn, not measured) slot.<br />
 These are useful informations for (all) the next step to produce a “strange spaceship”.</p>
 
-<h4 id="sketch">Sketch</h4>
+<h4 id="design">Design</h4>
+<p>Refer to the <a href="./02_04_2D3D_CAD.html">previous assignment</a> for the design part. </p>
 
-<p>I know that the piece “spaceship” has to be very light, simple and not strictly representative in its shape. The idea was quite clear: a simple cube.</p>
+<h4 id="cutting-cardboard">Cutting cardboard</h4>
 
-<p>So I’ve made some sketch to figure out how the joints may work together and then I started working on Grasshopper to build a tool that allow to set dimensions, material and tolerance and spits out the whole set to make a “cubic spaceship”.  </p>
+<p><img src="./img/02_11_cutting/laser/pressfit/pf_1.jpg" alt="pf_1" /> </p>
 
-<p><img src="./img/02_11_cutting/sketches/spship01.jpg" alt="spship01" />  </p>
-
-<h4 id="grasshopper">Grasshopper</h4>
-
-<p>The Grasshopper definition has some minor parts, like ‘base rectangle’ or ‘base slot’ and 4 main branches, one per piece, plus one more to parametrically define a puzzle joint.</p>
-
-<p><img src="./img/02_11_cutting/screen/gh_def_LR.png" alt="gh_def_LR" />  </p>
-
-<ul>
-  <li>On the left side you can find all the parameters that defines the joints; grouped this way they allow to manage all the definition from just one site.  </li>
-</ul>
-
-<p><img src="./img/02_11_cutting/screen/gh_controlpanel.jpg" alt="gh_controlpanel" />  </p>
-
-<ul>
-  <li>
-    <p>At the center the definitions of the different pieces (piece 2 and 3 are the same).  </p>
-  </li>
-  <li>
-    <p>On the right the filter to show just one piece or the whole kit nested and ready to be cut.  </p>
-  </li>
-  <li>
-    <p>The independent group at the top defines the puzzle joint.  </p>
-  </li>
-</ul>
-
-<p><em>DOWNLOAD</em><br />
-<a href="https://drive.google.com/?utm_source=it&amp;utm_medium=button&amp;utm_campaign=web&amp;utm_content=gotodrive&amp;usp=gtd&amp;ltmpl=drive&amp;pli=1#folders/0B0rUICZu8UH-UGEwTG9QTkJGVjQ">gh_def_HR</a>  </p>
-
-<h4 id="cutting">Cutting</h4>
-
-<p>I’ve cut the model using a double wave 7mm cardboard on a FullSpectrum 90W so with the grasshopper definition I produced the following files</p>
+<p>I’ve cut the model using a double wave 7mm cardboard on a FullSpectrum 90W so with the Grasshopper definition I produced the following files</p>
 
 <p><img src="./img/02_11_cutting/screen/rhino_nest.jpg" alt="rhino_nest" />    </p>
 
+<p><img src="./img/02_11_cutting/vinyl/me_laser.jpg" alt="me_laser" /> </p>
+
 <p><a href="./img/02_11_cutting/screen/SpaShi_CB_6.7mm_k0.1.7z">SpaShi_CB_6.7mm_k0.1</a>  </p>
 
-<p>At the end what I’ve achieved is what you can see here below.</p>
+<p>Make this construction kit is very easy:<br />
+start with the round part (signed with a C in picture) and the piece number 1 (see the picture) and snap them together across the crosses plugging the tooth inside the central cross; the other two crosses have to remain totally uncovered.  </p>
 
 <p><img src="./img/02_11_cutting/laser/pressfit/pf_2.jpg" alt="pf_2" />  </p>
 
+<p>Now pic the piece number 4 (with 3 slots) and embed its middle slot wuth the sentral slot of piece number 1; at the end of its slide it has ti fit also with the circular base.  </p>
+
 <p><img src="./img/02_11_cutting/laser/pressfit/pf_3.jpg" alt="pf_3" />  </p>
 
-<p>It’s a modular cube with a  puzzle joint <a href="./img/02_11_cutting/laser/over_the_top_movie.jpg">over the top</a> to eventually add other modules or upgrades.<br />
-It will be made also in plexiglass and plywood, testing some pattern engrave.</p>
+<p>Now pic the piece number 2 and fit on the the piece number 4 and on the circular base; do the same with the piece number 3.</p>
 
 <p><img src="./img/02_11_cutting/laser/pressfit/pf_4.jpg" alt="pf_4" />  </p>
 
-<h2 id="extra">Extra</h2>
-<p>In this week I made this other “thing”  using the modules made by Francesca Mereu for her press-kit.</p>
+<p>Note that these two pieces ends over tiny circular holes, and it’s not a fortuity: if equipped with electrical parts this components may be used as upgrades for the spaceship and the system can read it through the contacts.
+<strong>NOTE</strong>: Because the final project has changed this feature has no more been implemented.  </p>
 
-<p><img src="./img/02_11_cutting/laser/pressfit/modular_structure.jpg" alt="modular_structure" /></p>
+<p>A typical feature of cardboard is that it works like a spring because of its hollow structure and paper waves.
+It has been cutted a little bit tight (kerf 0.1mm instead of 0.2) so it fits tight.  </p>
+
+<h3 id="cutting-leather">Cutting leather</h3>
+
+<p>I made also some piece in leather for my final project.<br />
+Cutting leather with a lasercutter produces a disgusting stink even with a good exhaust pump, but it’s not a good reason to stop.</p>
+
+<p>I made a wrist band in two pieces; it has to be folded and its hinges doesn’t use any sawing line or glue.
+A crucial part is the bending radius, so you have to consider the thickness of the leather as well as you do with plywood or other materials.<br />
+Bending and joining together two strips in a narrow space avoid that it unlace.<br />
+For the cut remember to use some circle at the end of the segments to let it widen a little more.</p>
+
+<p>To cut them out of a 1.8mm piece of leather I used a 90W laser with the following settings:
+	speed 100, power 40, passes 1</p>
+
+<pre><code>and it has came out nice, with no burns on the edges (just on the sides).
+</code></pre>
+
+<p><img src="./img/02_11_cutting/laser/wristband/wrist1.jpg" alt="wristband1" />  </p>
+
+<p>This kit is made of just one piece, like an origami.<br />
+First bend the upper part of the “T” (the direction of this bend decides what the inside and what the outside, but it works well anyway).
+Than slip a stripe trough the closer vertical slot and push also the two side pads through it; do the same with the other stripe and, with some patience, lock them together using the remaining slots. At the end the stripes will make a little hollow just inside the main bend (about 3mm) that can be used to join to the case of the watch while the “knot” is hidden and no glue or sawing line has been used.  </p>
+
+<p><img src="./img/02_11_cutting/laser/wristband/wrist2.jpg" alt="wristband2" />  </p>
+
+<p>There is another fit, much easier, that allow to close and customize the length of the wrist band. It works like a spear: it goes in but doesn’t came out because of its shape; it’s quite intuitive and I think that it doesn’t need more explanation.  </p>
+
+<p>Note how it changes in just two versions: length, shape, inner radius, etc.
+Note also the mark: at first attempt it was made by outlines, but they was so close that the leather has bun twice and so the result was rough. To avoid this I edited the mark to reproduce also in very small dimension with a lasercutter: now it has just one central line, and as you can see in pictures it’s enough to obtain a fine result.</p>
+
+<p><strong>Download</strong><br />
+<a href="./files/02_11_cutting/vinyl/lb/lb.7z">Lazy Bastard</a><br />
+<a href="./files/02_11_cutting/laser/lb.7z">PressFit</a><br />
+<a href="./files/02_11_cutting/wristband/wristband_01_02 v2.pdf">wristband2</a>  </p>
 
 <!---
 

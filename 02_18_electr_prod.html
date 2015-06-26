@@ -30,7 +30,7 @@ The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab A
 <p>For this week the assignment was  </p>
 
 <blockquote>
-  <p>** make the FabISP in-circuit programmer **  </p>
+  <p>make the FabISP in-circuit programmer   </p>
 </blockquote>
 
 <p>(more informations can be found at the bottom of <a href="http://academy.cba.mit.edu/classes/electronics_production/index.html">this page</a>)</p>
@@ -60,6 +60,16 @@ Every single step is quite simple, but requires a lot of attention because of th
 
 <p><img src="./img/02_18_elect_prod/endmills.jpg" alt="endmills" />  </p>
 
+<p>The milling process is divided at least in 3 parts: etching, drilling and cutting.<br />
+The Fab Modules uses a hi-res (1000dpi) monochrome image to generate the path; the first thing you have to keep in mind is that IT WORKS JUST ON THE BLACK AREAS, so for example if you want to drill a hole the hole has to be black on a white background.<br />
+To make the etching of the traces you have to use a 1/64inch (0.4mm) end mill while for the cut and the drill you need a 1/32inch (0.8mm) one.
+To generate the path (nevermind if its an etching, cutting or drilling) you have to define some parameters:
+- the dimention of the mill (and so the process you’re going to do)
+- the XY origin
+- the number of external offset you want to make; put -1 to remove all the copper and leave just the traces.<br />
+- the Z origin, but you have to set it manually: before to start milling lower the mill pushing the button “down” on the machine and stop at some mm over the board, than loosen the grain, let the end mill touches the copper and than tighten the grain again.
+For a good and safe work you don’t have to modify default settings for speed, plunge rate or anything.</p>
+
 <p>Taking my time for the set up this has been the result at the first attempt.
 Not bad.  </p>
 
@@ -73,14 +83,13 @@ Instead of search for the correct component from the blister every time I search
 
 <p><img src="./img/02_18_elect_prod/setup01.jpg" alt="setup01" />  </p>
 
-<p><img src="./img/02_18_elect_prod/setup02.jpg" alt="setup02" />  </p>
+<p><img src="./img/02_18_elect_prod/setup02.jpg" alt="setup02" />   </p>
 
-<p>To optimize the operations I tied to my index a piece of solder to have it always ready, and it has revealed fairy comfortable.
-That’s the quintessence of wearable device!! :D  </p>
-
-<p><img src="./img/02_18_elect_prod/setup03.jpg" alt="setup03" />  </p>
+<p>This method may be useful if you have a lot of board to solder and you don’t want to search every single component each time, but it doesn’t make much sense to make just one single and simple board.</p>
 
 <p><img src="./img/02_18_elect_prod/magnifier.jpg" alt="magnifier" />  </p>
+
+<p>The bare solder of 1206 component is quite simple: first put a droplet of solder on one of the pads of the element; that, using the tweezers, put the compinent over the solder, adjust its position and use the solder iron to melt the solder to hold the component in position; now solder all the pins taking care that the solder surface is bright, otherwise you have a “cold soldering”: it doesn’t conduct and he component sooner o later will detach and probably will be lost.</p>
 
 <h3 id="upload-the-firmware">Upload the firmware</h3>
 
@@ -90,8 +99,6 @@ I used the firmware used by Andy.</p>
 <h2 id="what-ive-done">What I’ve done</h2>
 
 <p>This  </p>
-
-<p><img src="./img/02_18_elect_prod/magnifier.jpg" alt="magnifier" />  </p>
 
 <p><img src="./img/02_18_elect_prod/fabispDM.jpg" alt="fabispDM" />  </p>
 

@@ -27,20 +27,48 @@ The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab A
 <p>For this week the assignment was  </p>
 
 <blockquote>
-  <p>**
-  read a microcontroller data sheet
-  program your board to do something, with as many different programming languages and programming environments as possible **  </p>
+  <p>read a microcontroller data sheet
+  program your board to do something, with as many different programming languages and programming environments as possible  </p>
 </blockquote>
 
 <p><em>This is one of the most important and complex classes, nothing impossible but surely it requires a little bit of effort more for me. Manage properly all the function of a micro controller will allow me to design interactions and program functions. To do so I could use some board like Arduino to make everything easy and fast; by doing so some process will stay behind a curtain.
 Program a micro controller means to know its structure, how it is build inside, how it communicate with the outer world and what I can or can not do with it.<br />
-At the end of this page what I’ll accomplish will be to blink a led, faster, slower, with a fade and other weird and pointless things…but that’s not the point. The real goal is to understand how a micro controller works to use it in my project and how to write code to give instructions to my micro controller.</em>  </p>
+At the end of this page what I’ll accomplish will be to blink a led, faster, slower, with a fade and other weird and pointless things…but that’s not the point. The real goal is to understand how a micro controller works to use it in my project</em>  </p>
 
-<h2 id="how-it-works">How it works</h2>
+<h3 id="lets-do-this">Let’s do this</h3>
 
-<h3 id="files">Files</h3>
+<h4 id="the-datasheet">The Datasheet</h4>
 
-<p>When you <em>compile</em> a program you pick informations from different sources, merge it together and translate in binary code to let the micro controller to read it.  </p>
+<p>Here is the AT tiny44 <a href="http://www.atmel.com/Images/doc8006.pdf">datasheet</a><br />
+It contains all the informations related to the micro…I mean ALL.<br />
+First I have to know what every pin is connected to.</p>
+
+<p><img src="http://www.wvshare.com/img/pinout/ATtiny44_l.jpg" alt="tiny44_pinout" />  </p>
+
+<p>Of course for this assignment I need to know what pin can make what and how it does.  Many of the information inside the datasheet is too technical for me so I can read and understand just about 5-10%; for the rest of info I think it will be an incremental process lead by the need of the single information.<br />
+I’ve learned what a register is and how it works, that is at the base of every use of a microcontroller.<br />
+Registers, in my imagination, are sets of 8 switch (ON and OFF) labeled with weird acronyms; every switch (or group of switches) manages some internal hardware and as a matter of fact they are the most direct interface to drive the micro.<br />
+To identify what switch turn on/off we we need two information to refer to: the laber of the register and the index (0-7) of the switch.  </p>
+
+<p><img src="https://www.cs.auckland.ac.nz/historydisplays/FifthFloor/LogicAndSwitching/RelayArray.jpg" alt="registers_in_my_mind" />  </p>
+
+<p>All this info can be found in the datasheet, with scheme and explanation of what it exactly does. Anyway it’s not so trivial to read a datasheet and focus, motivation and strong electronic bases are recommended.  </p>
+
+<h4 id="programming">Programming</h4>
+
+<p><strong>Fuses</strong>
+First you have to set the fuses; they defines how the micro works. You can find all the informations on the datasheet but online there are many fuses wizard: set the options you want to activate and they gives the hexadecimal code to put in the micro. Try with <a href="http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny44">Fuse Calculator</a></p>
+
+<p>To put this information inside the micro just type</p>
+
+<blockquote>
+  <p>avrdude -p t44 -P usb -c usbtiny -U lfuse:w:0x5E:m  </p>
+</blockquote>
+
+<p>Pay attention: with this string your ATtiny44 will work at 20MHz, but without a resonator it cant, so it would be “bricked” (or locked). If you want to program your micro once and for all than put a flag on the option ‘Reset disabled’ and your micro wil work at the same way FOREVER.</p>
+
+<p><strong>Compiling and flashing</strong>
+When you <em>compile</em> a program you pick informations from different sources, merge it together and translate in binary code to let the micro controller to read it.  </p>
 
 <p>In order to be compiled every program in C needs:<br />
 - a <strong>File.c</strong>:				it contains the informations about the algorithms you want the micro has to do. <br />
@@ -50,29 +78,102 @@ and<br />
 
 <p>Keep all the files in the same folder can be a smart choice to start avoiding any sort of issue.  </p>
 
-<blockquote>
-  <p>NOTE: Now we will assume that you have correctly wrote the code (and it’s not trivial at all); you may try start learning C from here http://www.learn-c.org .  </p>
-</blockquote>
+<p><strong>NOTE</strong>: Now we will assume that you have correctly wrote the code (and it’s not trivial at all); you may try start learning C from here http://www.learn-c.org .  </p>
 
-<p>Now from the Terminal (or Prompt or Shell) go to the folder with your program files and digit  </p>
+<p>Now from the Terminal (or Prompt, or Shell) go to the folder with your program files and digit  </p>
 
 <blockquote>
-  <p>make program-usbtiny</p>
+  <p>make program-usbtiny  </p>
 </blockquote>
 
-<p>It will pick the main program and the dependencies specified in the .make file to merge them in a .hex file readable by the machine, and than will automatically flash it on the MC.  </p>
+<p>If it doesn’t wor try with  </p>
 
-<p>An easier way is to use an Arduino IDE and board as an ISP programmer; it may take more space due to its libraries, but its also more straightforward.
-Here is explained far better than I can.
-http://highlowtech.org/?p=1695<br />
-and here a series of videotutorial realy well explained about WinAVR
-https://www.youtube.com/watch?v=bEfjFJlrGxs<br />
-www.newbiehack.com</p>
+<blockquote>
+  <p>sudo make program-usbtiny  </p>
+</blockquote>
 
-<p>At the end of the day you have to remember many things, but just few really counts
-1. everything you may ever need search on Google
-1. you may just copy’n’paste code, or strictly follow a tutorial, but at the end you have to deeply understand what you’re doing in order to do it on your own without any support
-1.  </p>
+<p><strong>So what happen whe you push ‘Enter’?</strong><br />
+Actually avrdude reads the following string</p>
+
+<blockquote>
+  <p>sudo avrdude -p t44 -P usb -c usbtiny -U flash:w:$(PROJECT).c.hex  </p>
+</blockquote>
+
+<p>that it finds inside the Makefile; to work properly you have to change ‘PROJECT’ at the first line with the name of the file you want to compile and flash.<br />
+This string is quite long and you should rewrite everytime, almost the same, so with this function you con write a shorter one.  </p>
+
+<p>When the command enters Avrdude <em>compiles</em> the code and makes a file with .hex extention that contains informations and instructions in machine language. Than it ‘flashes’ it on the flash memory (the non volatile memory of the micro where data stores also if it has no power source).</p>
+
+<p>It will pick the main program and the dependencies specified in the .make file to merge them in a .hex file readable by the machine, and than will automatically flash it on the micro.  </p>
+
+<h4 id="adding-a-button">Adding a button</h4>
+<p>I started from the <a href="http://academy.cba.mit.edu/classes/embedded_programming/hello.arduino.328P.blink.c">code</a> provided by Neil and added a button to let the led blink when the button is pressed.</p>
+
+<pre><code>#include avrio.h
+#include utildelay.h
+#define input(directions, pin) (directions &amp;= (~pin))
+#define output(directions,pin) (directions = pin)  set port direction for output
+#define set(port,pin) (port = pin)  set port pin
+#define clear(port,pin) (port &amp;= (~pin))  clear port pin
+#define pin_test(pins,pin) (pins &amp; pin)  test for port pin
+#define bit_test(byte,bit) (byte &amp; (1  bit))  test for bit set
+#define led_delay() _delay_ms(100)  LED delay
+
+#define led_port PORTB		sistema per scrivere sul pin
+#define led_direction DDRB	sistema per inpostare se è input o output
+#define led_pin (1  PB2)	bitmask della portB, pin2
+#define but_direc DDRA		sistema per impostare la portA è input o output
+#define but_port PORTA		sistema per scrivere sui pin della porta A, od abilitare il pull up
+#define but_pin (1 PA7)	bitmask della portA, pin7
+#define but_read PINA		sistema pe' legge'
+
+int main(void) {
+
+	main
+
+	set clock divider to 1
+
+CLKPR = (1  CLKPCE);
+CLKPR = (0  CLKPS3)  (0  CLKPS2)  (0  CLKPS1)  (0  CLKPS0);
+
+	initialize LED pin
+
+clear(led_port, led_pin);
+digitalWrite(pin,LOW);
+output(led_direction, led_pin);
+pinMode(pin, OUTPUT);
+
+
+
+INIZIALIZE BUTTON
+set(but_port,but_pin);			//activate pull-up internal resistor
+input(but_direc, but_pin);		//set the button pin as an input
+
+while(1){				 main loop
+	if (pin_test(but_read,but_pin)==0) {	//verify a condition
+	
+		set(led_port, led_pin); 			//if true do this (put Vout on the led_pin)
+		led_delay();
+		clear(led_port, led_pin);			//if false do that (turn off the led_pin)
+		led_delay();
+	}
+}
+</code></pre>
+
+<p><strong>Download</strong>
+<a href="./files/03_11_emb_prog/button.7z">button</a>  </p>
+
+<h3 id="extras">Extras</h3>
+<p>An “easier”” way is to use an Arduino IDE and board as an ISP programmer; it may take more space due to its libraries, but its also more straightforward.  <br />
+Here is explained far better than I can.<br />
+http://highlowtech.org/?p=1695  <br />
+and here a series of videotutorial realy well explained about WinAVR<br />
+https://www.youtube.com/watch?v=bEfjFJlrGxs <br />
+www.newbiehack.com  </p>
+
+<p>At the end of the day you have to remember many things, but just few really counts<br />
+1. everything you may ever need search on Google<br />
+1. you may just copy’n’paste code, or strictly follow a tutorial, but at the end you have to deeply understand what you’re doing in order to do it on your own without any support   </p>
 
 <p>I’ve to say that has been very hard and frustrating to afford this assignment.
 It may seems simple and straightforward, and at the very end the toolchain is indeed, but becoming confident with boolean operations, registers, a debug and a lot of issues is not trivial at all. Obviously I’m still not as confident as I wish, but it will came with time and practice. The hardest part is the motivational one: not being able to keep in mind simple concepts, having troubles handling some simple logical relations but nonetheless being able to follow the process when explained exept being unable to repeat it autonomously has make me feel incompetent.
@@ -100,7 +201,83 @@ http://www.danielealberti.it</p>
 <p>Logica Programmabile<br />
 http://www.logicaprogrammabile.it/arduino-uno-bootloader-chip-atmega328/  </p>
 
+<h3 id="timer-interrupt">Timer Interrupt</h3>
+
+<p>Timers are a very useful tool to manage temporal events, such as measure the duration of something, like the time a led has to stay on or off. There is some hardware inside the micro that simply counts clock cycle, so if we know how muck cycle per second it makes we can count time (in seconds).<br />
+Inside an ATtiny44 there are 3 timers, 2 works at 8bit and so they count max 255 values (cycles), 1 works at 16bit and so it counts 65535 values (cycles). When they reach theyr maximum value they start over from zero, so we need a variable that increments each time the counter reach its max value.  </p>
+
+<p>In many cases we prefer to count time in seconds instead of cycles, so we have to make just some math.<br />
+To reduce clock frequency I used the maximum prescaler (its value can be 1, 8, 64, 256 or 1024).  </p>
+
+<pre><code>reduced frequency (cycles/sec.) = clock frequency / prescaler  
+</code></pre>
+
+<p>The clock frequency is set by the fuses; the prescaler is just a value you choose.  </p>
+
+<pre><code>16bit counter duration (sec.) = 16bit counter max value / reduced frequency  
+</code></pre>
+
+<p>so this way we know how many seconds it takes to reach the max value of the counter.
+Now the last division to know how much cycles are needed to count 1 second  </p>
+
+<pre><code>cycles per second (cycles) = 16bit counter max value (cycles) / 16bit counter duration (sec.)  
+</code></pre>
+
+<p>This value is very important because is the value we have to use to measure one unit of “human” time and we’re going to use it very soon.  </p>
+
+<p>To set the timer I’ve followed this <a href="http://fabacademy.org/archives/content/tutorials/09_Embedded_Programming/1sec/index.htm">tutorial</a> found on fabacademy website, but I changed some value like clock (1000000) and led pin (PA8) and added some code in the while(1) cycle.  </p>
+
+<pre><code>#include &lt;avr/io.h&gt;
+#include &lt;avr/interrupt.h&gt; // notice that we have swapped libraries, from delay to interrupt
+
+	ISR(TIM1_COMPA_vect) { // this function is called every time the timer reaches the threshold we set
+		PORTA ^= (1 &lt;&lt; PB2); // toggle the LED
+	}
+	
+	int main (void) {  
+	
+		DDRA |= (1 &lt;&lt; PB2); // set LED pin as output  
+		TCCR1B |= (1 &lt;&lt; WGM12); // configure timer1 for CTC mode  
+		TIMSK1 |= (1 &lt;&lt; OCIE1A); // enable the CTC interrupt  
+		
+		sei(); // enable global interrupts  
+		OCR1A   = 976; // set the CTC compare value  
+		TCCR1B |= ((1 &lt;&lt; CS10) | (1 &lt;&lt; CS12)); // start the timer at 20MHz/1024  
+		
+		while(1) { // main loop - do anything you like here!
+	
+		}  
+}
+</code></pre>
+
+<p>To set the timer follow the datasheets; the following images are taken from oscarliang.net and from the datasheet.  </p>
+
+<p><img src="http://blog.oscarliang.net/ctt/uploads/2013/05/tccr1a.png" alt="TCCR1A_register" />  </p>
+
+<p><img src="http://blog.oscarliang.net/ctt/uploads/2013/05/tccr1b.png" alt="CLK_ select_register" />  </p>
+
+<p><img src="http://blog.oscarliang.net/ctt/uploads/2013/05/clk_select_16bit.png" alt="TCCR1A_register" />  </p>
+
+<p>So now a led can blink (and any other event can occur) just when is triggered, without waiting and stopping the main program with the delay.  </p>
+
+<p>Here below some more reference I’ve used to understand how to set a clock<br />
+<a href="http://blog.oscarliang.net/arduino-timer-and-interrupt-tutorial/">OscarLiang.net blog</a><br />
+<a href="http://www.instructables.com/id/Arduino-Timer-Interrupts/?ALLSTEPS">Arduino Timer Interrupt</a> by amandaghassaei on Instructable  </p>
+
 <!---
+
+char 1 byte
+int 2 bytes
+short 2 bytes
+long 4 bytes
+long long 8 bytes
+float 4 bytes
+double 4 bytes
+
+But when in doubt, you can just use sizeof().
+
+Edit: You can also use the newer specifications such as int8_t, int16_t, etc.
+
 ### Microcontroller  
 
 I've used an ATtiny44.  

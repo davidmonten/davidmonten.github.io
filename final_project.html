@@ -84,13 +84,26 @@ The closer to my idea is the <a href="http://www.tokyoflash.com/en/watches/kisai
 <h3 id="project-planning">Project planning</h3>
 
 <p>The whole project consist in several modules; every module may be made in one ore more process. 
-I simply divided the processes by pertinence and developed one by one.  <br />
-The modules shares a common development path, so the development can be resumed in the following scheme.  </p>
+I simply divided the processes by pertinence and developed one by one.     </p>
 
-<p><img src="./img/00_final_project/planning_scheme.png" alt="planning_scheme" />  </p>
+<p>The schedule was not originally defined because at the first time the my final project was different and it has been discarded due to a too high complexity and too much cost.</p>
 
-<p>The numbers means the number of iteration per process. I won’t explain every single iteration but this scheme is a good way to keep an eye on the whole development process, like a map for a journey.<br />
-More details can be found at <a href="./05_13_applic_implic.html">Applications and Implications page</a></p>
+<p>Here the schedule  </p>
+
+<ul>
+  <li>Project planning			13.05.2015  </li>
+  <li>Electronic design			16.05.2015  </li>
+  <li>3D design					18.05.2015  </li>
+  <li>Elettronic production		18.05.2015  </li>
+  <li>3D milling				24.05.2015  </li>
+  <li>Lasercutting				24.05.2015 </li>
+  <li>Molding and casting		26.05.2015  </li>
+  <li>Input and output			01.06.2015</li>
+  <li>Embeeded programming		02.06.2015  </li>
+  <li>Interface design			05.06.2015  </li>
+</ul>
+
+<p>More details can be found at <a href="./05_13_applic_implic.html">Applications and Implications page</a></p>
 
 <h3 id="board">Board</h3>
 
@@ -126,7 +139,7 @@ On the back side there are two pads to power the board with external power sourc
 Before to mount the buttons on the side of the board I manually removed the copper on the edge, otherwise the button would be constantly “pressed”.  </p>
 
 <h3 id="frame">Frame</h3>
-<p>The frame has to be sturdy, reliable, simple. This part can be made in two different ways and I tried both: 3D print and casting.  </p>
+<p>The frame has to be sturdy, reliable, simple. This part can be made in two different ways and I tried both: 3D print and casting.  Due to its small size also tolerance and precision can’t be left behind.</p>
 
 <p>First I designed the shape with 3D software starting from the overall size of the board components.</p>
 
@@ -140,28 +153,46 @@ Before to mount the buttons on the side of the board I manually removed the copp
 
 <p><img src="./img/00_final_project/case_left_side.jpg" alt="case_left_side" />  </p>
 
-<p>I made it first with 3D printer to verify shapes and dimensions and fix tolerances to fit properly; after the first test I’ ve loosened the fit by 0.2mm.  </p>
+<p>I made it first with 3D printer to verify shapes and dimensions and fix tolerances to fit properly; the first test has revealed some major mistake that doesn’t allow at all the fit of the two parts. After the first test I’ ve loosened the fit by 0.2mm and continued with more test.  </p>
 
-<p><img src="./img/00_final_project/case_left_side.jpg" alt="case_3d_prints" />  </p>
+<p><img src="./img/00_final_project/first_failure.jpg" alt="first_failure" />  </p>
+
+<p><img src="./img/00_final_project/3dprint_test2.jpg" alt="3dprint_test2" />  </p>
 
 <p>The upper shell has to be transparent, or in any case has to let the light pass through. For this reason I 3D printed this piece in Taulman T-glasse, the only material 3d-pintable that lets light pass trough itself.<br />
 Otherwise I can make a double mold to cast a see-through resin.
-To do so I made two different master to make the mold, milled in wax and 3D printed.<br />
-The wax master needs much more attention because of the two shell and the long time needed to mill it. I first used a 3mm endmill to the rough finish and a 1.54 endmill for the fine finish.</p>
+To do so I made master milled from wax.<br />
+The wax master needs much more attention because of the two shell and the long time needed to mill it. I first used a 3mm endmill to the rough finish and a 1.54 endmill for the fine finish.  </p>
 
-<p><img src="./img/00_final_project/mold_01.png" alt="mold_01" />  </p>
+<p><img src="./img/00_final_project/mold_01.jpg" alt="mold_01" />  </p>
 
-<p><img src="./img/00_final_project/mold_02.jpg" alt="mold_02" />  </p>
+<p><img src="./img/00_final_project/machining_wax5.jpg" alt="machining_wax5" />  </p>
 
-<p><img src="./img/00_final_project/mold_03.jpg" alt="mold_03" />  </p>
+<p><img src="./img/00_final_project/making_silicone_molds.jpg" alt="making_silicone_molds" />  </p>
 
-<p><img src="./img/00_final_project/mold_04.jpg" alt="mold_04" />  </p>
+<p><img src="./img/00_final_project/hightemp_mold2.png" alt="hightemp_mold2" />  </p>
 
-<p>The lower shell doesn’t need to be transparent and so I decided to use a metal filled resin, but first I made a simple test to verify how a steel thread works on resin and how large the hole has to be. For an M3 screw a 2.4mm holes works well but a little bit tight while a 2.8mm holes can be threaded anyway, but it works smoother. I simply don’t know on the long run what’s the best but to avoid to overstress the resin matrix I’ll go with a 2.8mm and if the screw will loosen I’l put some teflon.  </p>
+<p><img src="./img/00_final_project/molds.jpg" alt="molds" />  </p>
 
-<p><img src="./img/00_final_project/whitemetal_thread_test.jpg" alt="whitemetal_thread_test" />  </p>
+<p>At the first attempt I’ve got some trouble with the scale, so I don’t mixed the correct amount of pasts. The rsult was that the silicone after 24hrs were still liquid, so I poured it into a jar to redo the mold and at the second attempt it has came out well.  </p>
 
-<p>The 3d-printed version of the lower shell has been made with different materials: with bronze filled PLA for a metallic warm finish and a good weight-feel, and carbon filled PLA for a light and strong structure.</p>
+<p><img src="./img/00_final_project/holes_test.jpg" alt="holes_test" /> </p>
+
+<p>Due to its shape the lower shell can be made in an open mold. Moreover the lower shell doesn’t need to be transparent and so I decided to use a metal filled resin, but first I made a simple test to verify how a steel thread works on resin and how large the hole has to be. For an M3 screw a 2.4mm holes works well but a little bit tight while a 2.8mm holes can be threaded anyway, but it works smoother. I simply don’t know on the long run what’s the best but to avoid to overstress the resin matrix I’ll go with a 2.8mm and if the screw will loosen I’l put some teflon.  </p>
+
+<p><img src="./img/00_final_project/holes_test.jpg" alt="holes_test" />  </p>
+
+<p>To mix filled resins it’s recommended to weigh the part A, than add the filler and than complete adding the part B to start the chemical reaction. If you want you can even control the weight of the object because the metal filler is far more heavy  than resin (from about 5 to about 7 times).</p>
+
+<p><img src="./img/00_final_project/metal_case_master.jpg" alt="metal_case_master" />  </p>
+
+<p><img src="./img/00_final_project/measuring_metalpoweder.jpg" alt="measuring_metalpoweder" />  </p>
+
+<p><img src="./img/00_final_project/holes_test.jpg" alt="holes_test" />  </p>
+
+<p><img src="./img/00_final_project/holes_test.jpg" alt="holes_test" />   </p>
+
+<p>I also produced 3d-printed version of the lower shell to compare the results. It has been made with different materials: with bronze filled PLA for a metallic warm finish and a good weight-feel, and carbon filled PLA for a light and strong structure in addition to simple PLA for test. </p>
 
 <p><strong>Add link to download files HERE: upper_shell, lower_shell, uppershell_mold_up, uppershell_mold_down, lowershell_mold</strong>  </p>
 

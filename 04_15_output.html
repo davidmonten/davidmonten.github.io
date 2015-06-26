@@ -60,7 +60,7 @@ pinD: OUT, Gnd   pinD: OUT, Vcc   pinD: IN         pinD: IN         pinD: IN
 pinE: IN         pinE: IN         pinE: OUT, Gnd   pinE: OUT, Vcc   pinE: OUT, Gnd
 </code></pre>
 
-<p>I designed the board with Eagle, but the routing was not straightforward, so the board looks a little bit a mess, but it works. I’d like to shrink the matrix board but in the upper right corner traces are too closer, so I sould try for a different routing to shrink it.  </p>
+<p>I designed the board with Eagle, but the routing was not straightforward, so the board looks a little bit a mess, but it works. I’d like to shrink the matrix board but in the upper right corner traces are too closer, so I’ll try for a different routing in the future to shrink it.  </p>
 
 <p><img src="./img/04_15_output/scheme.png" alt="scheme" /><br />
 <img src="./img/04_15_output/board.png" alt="board" />  </p>
@@ -74,7 +74,7 @@ Pay attention at the directions of the LEDs and the correspondence between trace
 
 <h3 id="the-code">The code</h3>
 
-<p>Starting from the Neil code I started making some customization.<br />
+<p>Starting from the Neil code I made some customization.<br />
 First of all I’ve changed the pins for the pinout because I’ve used different pins.
 Than ports and directions registers have been edited too.  </p>
 
@@ -230,6 +230,11 @@ led12
 
 <p>I tried also to verify the direction of the led14, but it’s ok.
 Right now I can’t explain this wire pattern.</p>
+
+<h4 id="solved">Solved</h4>
+
+<p>It has been solved during the final project debugging.<br />
+The leds were arranged indexed not properly (just the last two) and so the micro sets to ground all the other 4 pins, to the tension was divided between leds. Fixing the array coordinates it works properly.</p>
 
 <!---
 

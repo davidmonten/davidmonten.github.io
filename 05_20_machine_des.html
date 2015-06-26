@@ -33,13 +33,14 @@ The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab A
  document the group project and your individual contribution**  </p>
 </blockquote>
 
-<h3 id="what-are-we-making">What are we making</h3>
+<h3 id="what-are-we-making">What are we making?</h3>
 
-<p>We’ve built a machine to machining rings from modelling wax. It has 4 axes to work over the full surface of the ring.  </p>
+<p>We’ve built a machine to machining rings out of modelling wax. It has 4 axes to work all around the surface of the ring.<br />
+A ring is a small object and so the machine doesn’t need great spans for the movements; probably it need a very sturdi chassis to guarantee stiffness and precision in very fine jobs.<br />
+Moreover it needs to operate over a curve surface, so it needs a 4th axe to change dynamically the angle of the milling.<br />
+To work all around the ring it will be mounted on a chuck that respond at the axe Y, not linear but polar and periodical.  </p>
 
-<p><img src="" alt="sketch1" /><br />
-<img src="" alt="render1" /><br />
-<img src="" alt="picture1" />  </p>
+<p>You can find more info about the management of the movements of the axes at the firmware page.</p>
 
 <p><strong>X axe</strong><br />
 movement: linear<br />
@@ -65,14 +66,33 @@ transmission: belt<br />
 reduction ratio: 1:1 on GT2 Pulley 20 Teeth 8mm Bore  (www.robotdigg.com/product/23/GT2-Pulley-20-Teeth-8mm-Bore)<br />
 delta A: 60°</p>
 
-<p>I’ve managed the operations related with the production: nesting the file for lasercutting, set the cutting parameters, program the production.
-I’ve also designed the Z module over the base designed by Giacomo Falaschi.</p>
+<h3 id="my-tasks">My tasks</h3>
+<p>I’ve managed the operations related with the production: nesting the file for lasercutting, set the cutting parameters,assemble the machine, make considerations about how this model can be improved.  </p>
+
+<h3 id="materials-extra">Materials extra</h3>
+
+<p>We’ve added some materials to the machine kit provided by the organization.  </p>
+
+<ul>
+  <li>10 MDF sheets 500x700x5</li>
+  <li>M3 bolt and nuts</li>
+  <li>1 Dremel 300</li>
+  <li>1 Dremel remote pen</li>
+</ul>
+
+<p>MDF should not be the first choice to if you’re going to lasercut it, but it’s 40% cheaper than plywood.</p>
 
 <h3 id="nesting">Nesting</h3>
 
 <p>To optimize the operations and waste the minimum amount of material I’ve placed all the pieces on 500x700 layout.  </p>
 
-<h3 id="cutting">Cutting</h3>
+<p><img src="./img/05_20_mach_des/nesting.jpg" alt="nesting" />  </p>
+
+<p><a href="./files/05_20_mach_des/nesting.pdf">nesting</a>  </p>
+
+<p><em>The machine is actually undder development so on the nesting you can see just the structure; moving parts will came soon.</em></p>
+
+<h3 id="structure-cutting">Structure cutting</h3>
 
 <p>We’ve used a Fullspectrum 90W with about 500hr cutting on a 5mm MDF.  </p>
 
@@ -97,7 +117,7 @@ But it doesn’t work neither.  </p>
    Passes: 1<br />
 but probably the material was carbonized and so the laser simply can’t burn it more.  </p>
 
-<p><img src="" alt="cut_test_01" /> </p>
+<p><img src="./img/05_20_mach_des/cut_test_01.jpg" alt="cut_test_01" />  </p>
 
 <p>So I’ve cut other two pieces with the following settings
    Speed: 30%<br />
@@ -105,21 +125,52 @@ but probably the material was carbonized and so the laser simply can’t burn it
    Current: 100%
    Passes: 1  </p>
 
-<p>and  </p>
+<p><img src="./img/05_20_mach_des/cut_test_02.jpg" alt="cut_test_02" />  </p>
 
-<p>Speed: 30%<br />
-   Power: 100%<br />
-   Current: 100%
-   Passes: 1 </p>
+<p><img src="./img/05_20_mach_des/cut_test_03.jpg" alt="cut_test_03" />  </p>
 
-<p>…and it doesn’t works! So now the hypothesis is that the system of mirrors are a little uncentered, so a lot of energy dissipates somewhere. Trying to cut at </p>
+<p>…and it doesn’t works! As you can see in picture the cutting line is not clear and it seams that the beam is wider than usually is. So now the hypothesis is that the system of mirrors are a little uncentered, so a lot of energy dissipates somewhere.<br />
+Trying to cut at </p>
 
 <p>Speed: 30%<br />
    Power: 100%<br />
    Current: 100%
    Passes: 3 </p>
 
-<p>It works fine.</p>
+<p>It works fine.  </p>
+
+<p><img src="./img/05_20_mach_des/cut_test_03.jpg" alt="cut_test_03" />  </p>
+
+<h3 id="y-carriage-cutting">Y carriage cutting</h3>
+
+<p>Because the MDF is a terrible material to be lasercutted we decided to use a lot of 5mm plywood scraps to make the next part.
+First of all I made several cutting test to find the correct setting for the laser.</p>
+
+<p><img src="./img/05_20_mach_des/sq_test.jpg" alt="sq_test" />  </p>
+
+<p>I used the file cutting_test to cut the hole where the bush has to go in (the third parameter you find on the file is the number of passes, and, despite what you can read, I passed just once per cut).  </p>
+
+<p>All the scraps are bent along their longest dimension, so any fine tuning of the focus has revealed pointless.  </p>
+
+<p>I found a good setting with these parameters:  </p>
+
+<pre><code>speed 15%
+power 100%  
+current 100%  
+passes 1
+</code></pre>
+
+<p><img src="./img/05_20_mach_des/holes.jpg" alt="holes" />  </p>
+
+<p>and so I’m going to use them to cut all the pieces.  </p>
+
+<p><img src="./img/05_20_mach_des/Y_pieces.jpg" alt="Y_pieces" />  </p>
+
+<p><img src="./img/05_20_mach_des/Y_carriage_1.jpg" alt="Y_carriage_1" />  </p>
+
+<p>After some considerations about tilt movement, acording with Fiore and Giacomo, we widen the Y carriage tuning some kerf for a tighter fit.    </p>
+
+<p>The Z axe has been produced by Giacomo while I supported the production of the electronics: 1 Fabduino that drives 4 independent boards to drive the axes.</p>
 
 
      

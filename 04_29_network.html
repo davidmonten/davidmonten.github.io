@@ -31,6 +31,57 @@ The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab A
   design and build a wired &amp;/or wireless network connecting at least two processors **  </p>
 </blockquote>
 
+<p>I produced a <strong>bridge</strong> board from Neil’s files and designed a <strong>node</strong> with a Tiny44; they communicate via serial bus: the bridge send a byte to the network, every board receive it but just the correct board react doing something, in this case blinking a led.</p>
+
+<h3 id="fabrication-process">Fabrication process</h3>
+
+<p>I designed a multi purpose board using routing the pins of an AT tiny44 to use it in different applications, and with a led to visualize if it’s receiving or not.<br />
+As usual I milled, soldered, debugged and flashed them.</p>
+
+<p><img src="./img/04_29_network/node_mill.png" alt="node_mill" />  </p>
+
+<p><img src="./img/04_29_network/bridge_45.png" alt="bridge_45" />  </p>
+
+<p><img src="./img/04_29_network/both.png" alt="both" />  </p>
+
+<p>I flashed the two boards with the files you find below.</p>
+
+<p><strong>Download</strong>
+<a href="./files/04_29_network/network_boards.7z">Network boards</a><br />
+<a href="./files/04_29_network/bridge_code.7z">Bridge code</a><br />
+<a href="./files/04_29_network/node_code.7z">Node code</a>  </p>
+
+<p>Than I used a TTL 232R to send chars to the boards via serial port, but at first attempt it not only hasn’t work, but the two boards were very hot, so I immediately detached from the bus without checking for mistakes. </p>
+
+<p>Note the correct orientation of the connector  </p>
+
+<p><img src="./img/04_29_network/connector_position.png" alt="connector_position" />  </p>
+
+<p>So I re-flashed again the boards to verify if they still work, recheck the connections and repeat the serial communication.
+Now, after 5mins they are connected to the FTDI, the chip are just a little bit warm.</p>
+
+<p>So I open the Arduino IDE, and than the serial port console and digit the index of the board.
+because of this line<br />
+	#define bit_delay_time 100 // bit delay for 9600 with overhead<br />
+I started communicating at 9600 baud but than I tried to communicate at different baudrate:</p>
+
+<p>9600: any char - one simultaneous blink;</p>
+
+<p>So I tried to write a very long string (thousands of chars) and doing so both the leds stays on, apparently still, while the boards were receiving data.<br />
+Looking at the .c file I remembered that the value node id has to be changed in order to identify each board.</p>
+
+<pre><code>#define node_id '0'
+</code></pre>
+
+<p>I used 1 for the bridge and 2 for the node.<br />
+I also changed the led_delay value from 100ms to 500ms in order to visualize it easily.  </p>
+
+<p>So I reconnected the boards via FTDI, and sending via serial port the id of the board and as you can see first the two boards blink and than just the chosen one blinks. </p>
+
+<p><img src="./img/04_29_network/serial_connection.png" alt="serial_connection" />  </p>
+
+<iframe width="420" height="315" src="https://www.youtube.com/embed/08OlsP96hi4" frameborder="0" allowfullscreen=""></iframe>
+
 <!---
 
 AGGIUNGERE QUI ULTERIORI AVANZAMENTI

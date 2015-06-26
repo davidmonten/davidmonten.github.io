@@ -34,7 +34,8 @@ The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab A
 
 <h2 id="set-up">Set up</h2>
 
-<p>My final project is phisically composed by a set of devices that I’ll realize using different tools and techniques:  </p>
+<p>Originally my final project was a set of devices to simulate a solar system or a galaxy, but at the end it has changed because of its complexity.<br />
+Here you’ll find the experiment focused on the first project.  </p>
 
 <ul>
   <li>Planets: probably they will be represented as regular polihedrons; inside they have a printed case to embed eletronics easly, and a light structure of pillars to stand aside the external faces that can be customized. This module has some parameters like number of faces, diameter and so on, bounded togheter in precise relationships that I’ve to define by functions to allow the parametric generation af new and customizable modules.  </li>
@@ -81,7 +82,7 @@ To <a href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Primitive_Solids#
 
 <p><a href="./files/02_04_2D3D_CAD/strange_pyr_faceflipped.scad">strange_pyr_faceflipped</a></p>
 
-<p>This kind of aproach let you perfectly understand how meshes work, but it seems to not be proper to produce a parametric and generative model to allow game developers and players to easly self produce different models of planets.</p>
+<p>This kind of approach let you perfectly understand how meshes work, but it seems to not be proper to produce a parametric and generative model to allow game developers and players to easly self produce different models of planets.</p>
 
 <p>I tried also <a href="http://www.grasshopper3d.com/"><strong>Grasshopper</strong></a>, a free plugin for Rhinoceros. This tool is based on a visual programming GUI that let you manage complex data geometries faster. I’ve found <a href="http://www.giuliopiacentino.com/weaverbird/">Wavebird</a>, a topological modeler that contains many of the known subdivision and transformation operators. Instead of doing the work repeatedly, or sometimes using complicated scripts, this plug-in reconstructs the shape, subdivides any mesh, even made by polylines, and helps preparing for fabrication.   </p>
 
@@ -91,27 +92,85 @@ To <a href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Primitive_Solids#
 
 <p><img src="./img/01_28_prin&amp;prac/rh02.jpg" alt="rh02" />  </p>
 
-<p><a href="./files/02_04_2D_3D_CAD/planet_v1.gh">planet_v1</a></p>
+<p><a href="./files/02_04_2D3D_CAD/planet_v1.gh">planet_v1</a></p>
 
-<p>Polyhedra are just the base of the model and with this tool is fairy easy to manage theyr properties dinamically trough native sliders.
-I’ve setted four geometries: icosahedron, dodecahedron, double pyramid and antiprism; unexpectedly the dodecahedron has just edges and not the meshes as output.
+<p>Polyhedra are just the base of the model and with this tool is fairy easy to manage their properties dynamically trough native sliders.
+I’ve setted four geometries: icosahedron, dodecahedron, double pyramid and anti-prism; unexpectedly the dodecahedron has just edges and not the meshes as output.
 I think it depends by the shape of its faces: meshes can be triangular or quadrangular, but not pentagonal, so probably, due to a lack of informations, it’s impossible to compute the faces.  </p>
 
 <p>To correctly place the pillars over the faces I’ve to find relative planes and set the origin on the center of every faces. This step is not so intuitive as it can seems at first sight.<br />
 I’ve to remember that I’m working with polyhedra with <em>nf</em> number of <em>faces</em>, <em>np</em> number of different <em>polygons</em> and each of <em>ne</em> number of <em>edges</em>, so I’ve to set at least three basic parameters.<br />
 At this stage I prefer to manage single cases to produce a prototype, but in the concept</p>
 
-<p>The next step is to draw a sort of simple pillars to physically scale the planets phisically maintaining always the same structure and use difFerent material to customize every single planet.  </p>
+<p>The next step is to draw a sort of simple pillars to physically scale the planets physically maintaining always the same structure and use difFerent material to customize every single planet.  </p>
 
-<p>I started drawing on a triangle base to be compatible with the most common shape of faces, but it is not well suitable with other tipe of faces (i.e. squared or pentagonal). So probably the best choice is to start from a circle.</p>
+<p>I started drawing on a triangle base to be compatible with the most common shape of faces, but it is not well suitable with other type of faces (i.e. squared or pentagonal). So probably the best choice is to start from a circle.  </p>
+
+<p>I used this shape to start designing the “ship” and the inner structure of the planet.</p>
+
+<h4 id="sketch">Sketch</h4>
+
+<p>I know that the piece “spaceship” has to be very light, simple and not strictly representative in its shape. The idea was quite clear: a simple cube.</p>
+
+<p>So I’ve made some sketch to figure out how the joints may work together and then I started working on Grasshopper to build a tool that allow to set dimensions, material and tolerance and spits out the whole set to make a “cubic spaceship”.  </p>
+
+<p><img src="./img/02_04_2D3D_CAD/sketches/spship01.jpg" alt="spship01" />  </p>
+
+<h4 id="grasshopper">Grasshopper</h4>
+
+<p>The Grasshopper definition has some minor parts, like ‘base rectangle’ or ‘base slot’ and 4 main branches, one per piece, plus one more to parametrically define a puzzle joint to eventually add upgrades and accessories to the piece.</p>
+
+<p><img src="./img/02_11_cutting/screen/gh_def_LR.png" alt="gh_def_LR" />  </p>
+
+<ul>
+  <li>On the left side you can find all the parameters that defines the joints; grouped this way they allow to manage all the definition from just one site.  </li>
+</ul>
+
+<p><img src="./img/02_11_cutting/screen/gh_controlpanel.jpg" alt="gh_controlpanel" />  </p>
+
+<ul>
+  <li>
+    <p>At the center the definitions of the different pieces (piece 2 and 3 are the same).  </p>
+  </li>
+  <li>
+    <p>On the right the filter to show just one piece or the whole kit nested and ready to be cut.  </p>
+  </li>
+  <li>
+    <p>The independent group at the top defines the puzzle joint.  </p>
+  </li>
+</ul>
+
+<p><a href="./files/02_04_2D3D_CAD/spaceships_parametric_pressfit.gh">Parametric Spaceship</a></p>
+
+<p><a href="https://drive.google.com/?utm_source=it&amp;utm_medium=button&amp;utm_campaign=web&amp;utm_content=gotodrive&amp;usp=gtd&amp;ltmpl=drive&amp;pli=1#folders/0B0rUICZu8UH-UGEwTG9QTkJGVjQ">HD Grasshopper Definition Image</a> </p>
+
+<p>With Grasshopper I experimented also with 3D, designing the main pillar of the planet.<br />
+The structure should be made by a core with polyhedra shape to contain the electronic part, parametric pillars to scale up the planet and customizable outer panels to lasercut or mill with different materials to customize every planet. On the surfaces of the planets magnets provide to retain ships and electrical contacts “reads” the id of the “ship”.<br />
+Due to the strong bound between “ships” and planet’s surface and inner structure I started designing the pillar from the “ship” file, using boundary to let the system parts suits together.  </p>
+
+<p>The pillar has also some physical and productive issues that defines its shape: it has to be light and stiff and its “ceiling” (even if it has no orientation), has to be 3dprintable without support, so I designed a shape like this.  </p>
+
+<p><img src="./img/02_04_2D3D_CAD/pillar_ABC.jpg" alt="pillar" />  </p>
+
+<p>Top/bottom and central part are quite simple surfaces; instead the external structure maybe deserve some words.<br />
+To design this structure I passed through several steps:
+1. a continuous surface driven just by the edges and the mid-section made with the function “loft”<br />
+1. two different and mixed steps, each one with different ways, to subdivide the surface<br />
+1. the pipe function to control the diameter of the branches<br />
+1. some fine tuning to fix some bug and have a continuous solid structure</p>
+
+<p>This way I can modify its dimensions in a very precise way and also produce many models so I can try to print them to find the best one.
+See also the <a href="./02_21_3Dprint_scan.html">3D print page</a>  </p>
+
+<p><a href="./files/02_04_2D3D_CAD/pillar_morphology_02.gh">Pillar</a></p>
+
+<p><strong>Download</strong>
+<a href="./files/02_04_2D3D_CAD/strange_pyr_faceflipped.scad">strange_pyr_faceflipped</a><br />
+<a href="./files/02_04_2D3D_CAD/planet_v1.gh">planet_v1</a><br />
+<a href="./files/02_04_2D3D_CAD/SpaShi_CB_6.7mm_k0.1.7z">SpaShi_CB_6.7mm_k0.1</a><br />
+<a href="./files/02_04_2D3D_CAD/pillar_morphology_02.gh">Pillar</a></p>
 
 <!---
-
-**** GRASSHOPPER ****
-**** BLENDER ****
-**** INKSCAPE ****
-**** UNITY ****
-**** GRASSHOPPER ****
 
 AGGIUNGERE QUI ULTERIORI AVANZAMENTI
 

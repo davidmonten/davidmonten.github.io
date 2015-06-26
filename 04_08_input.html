@@ -31,13 +31,99 @@ The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab A
   measure something: add a sensor to a microcontroller board that you’ve designed and read it **  </p>
 </blockquote>
 
-<p>For this assignment I’ll make a board to measure static values of resistance. That way I can recognize elements of a set using a kind of “phisical IP”.  </p>
+<p>For this assignment I’m going to make a step response board starting from the hello.load.45 board provided by Neil.</p>
 
-<p>To do so I’ll use a voltage divider</p>
+<p><img src="http://academy.cba.mit.edu/classes/input_devices/step/hello.load.45.png" alt="voltage_divider" />  </p>
 
-<p><img src="./img/04_08_input/voltage_divider.jpg" alt="voltage_divider" />  </p>
+<h3 id="fabrication">Fabrication</h3>
+
+<p>I milled the board and soldered the components.  </p>
+
+<p><img src="./img/04_08_input/board.jpg" alt="board" />  </p>
+
+<p><img src="./img/04_08_input/solder_t45.jpg" alt="solder_t45" />  </p>
+
+<p>As usual:<br />
+- n1 ATtiny45: easy and cheap, it’s enough as pins and flash for many exercises<br />
+- n1 1uF capacitor to stabilize incoming current to the micro<br />
+- n1 10kOhm resistor as a pull up on the Reset pin, so it can be flashed<br />
+- ISP to flash it<br />
+- FTDI to serial communications and provide voltage  </p>
+
+<p><img src="./img/04_08_input/assembled.jpg" alt="assembled" />  </p>
+
+<p>For the specific purpose there are:<br />
+- an output line called ‘shield’ that provides power to the sensor and charge it like a capacitor<br />
+- an input line called ‘sense’ to read when the tension drops down<br />
+- a big resistance (1MOhm) to read a value; increasing the value of this resistance improves the sensitivity of the sensor<br />
+- a thin metal surface to use as sensor/human interface; increasing the surface improves the accuracy of the sensor  </p>
+
+<p>When I came to solder the pull-up 10k resistor I realize that there is not any, so I used a 49.9k resistor, but when I came to flash the board the avrdude gives me this error message:</p>
+
+<pre><code>avrdude: initialization failed, rc=-1
+     Double check connections and try again, or use -F to override this check.
+</code></pre>
+
+<p>When I checked the traces with the tester I noticed that a very tiny droplet of solder was between two ISP pins; once removed it works. It may always happen no matter how may cares you take: check and debugging is not an option, it’s a routine.  </p>
+
+<h3 id="flashing">Flashing</h3>
+
+<p>As usual, with make file  </p>
+
+<pre><code>sudo make program-usbtiny  
+</code></pre>
+
+<p>If you’re using a virtual machine always check first that the usb-programmer is connected.
+I used the .c file provided by Neil.</p>
+
+<h3 id="measuring">Measuring</h3>
+
+<p>I used a 15x15cm steel pad as a sensor. I connected the <em>shield</em> and the <em>sense</em> pins of the board to the pad: the first one(blue)charge it while the second one (white) read the drop of the voltage.  </p>
+
+<p><img src="./img/04_08_input/metal_plate.jpg" alt="metal_plate" />  </p>
+
+<p>I used the <a href="http://www.google.it/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;uact=8&amp;ved=0CCIQFjAAahUKEwik8tbF3I_GAhUl9HIKHerZDbo&amp;url=http%3A%2F%2Ffab.cba.mit.edu%2Fabout%2Ffab%2Fhello%2Fstep%2Fhello.step.45.py&amp;ei=qLt9VaT-NaXoywPqs7fQCw&amp;usg=AFQjCNENKNEFAEBkYRvyIBTMQNrA7d4xjw&amp;sig2=WPxZ0vCE3VUoWVSYI_lxvQ">hello.step.45.py</a> code to measure the behaviour of the sensor.  </p>
+
+<p>To know what serial port uses connect the board via FTDI and type in the terminal:</p>
+
+<pre><code>ls /dev/tty*  
+</code></pre>
+
+<p>and find what USB port is in use (usually USB0).<br />
+To launch the program open the terminal inside the folder that contain the file and type:</p>
+
+<pre><code>sudo python hello.step.45.py /dev/ttyUSB0  
+</code></pre>
+
+<p>to set what port use.  </p>
+
+<p>The readings are very inconstant at first attempt; detaching the power chord of the PC it turns perfectly steady measuring values, on a 0-1024scale from a max of 950~970 when it’s just in contact with the table, to 650~550 when I press the palm of my hand over it.  </p>
+
+<p>Instead of a metal plate I tried also use a common copper wire wrapped on a 100x8mm bolt as sensor, I wonder how may work a linear sensor instead of a surface.<br />
+When I came to make this test (two days later) the interface was still, none of the bars moved and no data was apparently being collected.<br />
+What may not work properly? What can I check?<br />
+- FTDI-USB adapter: both SO and virtual machine recognize and activate the FTDI device; Tx and Rx leds blinks when the board in connected.<br />
+- USB cable: I tried some, but nothing has changed.<br />
+- the board: I re-flashed the board and it flashes as usual, so I think it’s ok.<br />
+- sensor lines: I checked both ‘shield’ and ‘sense’, but the bars remain perfectly still<br />
+- Python application:  nothing has been changed in the code; anyway I downloaded the code once again, rechecked the serial   port and launched it; the bars remains still and to close the window I’ve to use ‘Ctrl+C’ from terminal instead of ‘q’.  </p>
+
+<p>As last try I used a different FTDI cable, a TTL-232R, and finally it works, but I don’t know why.  </p>
+
+<p><img src="./img/04_08_input/good_vs_bad.jpg" alt="good_vs_bad" />  </p>
+
+<p>Testing the wire wrapped around the bolt is seams it (obviously) works to, but it’s far less sensitive: when I keep it in my hand its gap between min and max is about 200; it’s a different geometry that can be used for different applications.<br />
+It’s interesting to notice that even with the line not connected to a sensor the app never reach the 1024 value and stops around 999~1001.</p>
+
+<p><img src="./img/04_08_input/wrapped_bolt.jpg" alt="wrapped_bolt" />  </p>
 
 <!---
+
+For this assignment I'll make a board to measure static values of resistance. That way I can recognize elements of a set using a kind of "phisical IP".  
+
+To do so I'll use a voltage divider
+
+![voltage_divider](./img/04_08_input/voltage_divider.jpg)
 
 AGGIUNGERE QUI ULTERIORI AVANZAMENTI
 

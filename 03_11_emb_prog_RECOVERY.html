@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Documentation produced by David Montenegro for Fab Academy 2015">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DM's Fab Academy 2015</title>
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,400italic,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/syntax.css">
+  <link rel="stylesheet" href="css/solo.css">
+
+</head>
+<body>
+  <div class="container">
+    <h2>David Montenegro</h2>
+    <h1><a href="./">FAB ACADEMY 2015</a></h1>
+    <div>
+      <p><a href="./final_project.html"><b>Final Project<b/></a> | <a href="./assignment.html"><b>Assignments<b/></a> | <a href="./download.html"><b>Download<b/></a> | <a href="./about.html"><b>About<b/></a> | <a href="./contacts.html"><b>Contact<b/></a></p>
+     </div>
+     <h2 id="embedded-programming">03_11 Embedded Programming</h2>
+
+<p>On wednesday 03.11.2015 we’ve got the <a href="https://vimeo.com/121906120">seventh online lesson</a> with Neil Gershenfeld.<br />
+The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab Academy account on Vimeo</a>.</p>
+
+<p>For this week the assignment was  </p>
+
+<blockquote>
+  <p>**
+  read a microcontroller data sheet
+  program your board to do something, with as many different programming languages and programming environments as possible **  </p>
+</blockquote>
+
+<p><em>This is one of the most important and complex classes, nothing impossible but surely it requires a little bit of effort more for me. Manage properly all the function of a micro controller will allow me to design interactions and program functions. To do so I could use some board like Arduino to make everything easy and fast; by doing so some process will stay behind a curtain.
+Program a micro controller means to know its structure, how it is build inside, how it communicate with the outer world and what I can or can not do with it.<br />
+At the end of this page what I’ll accomplish will be to blink a led, faster, slower, with a fade and other weird and pointless things…but that’s not the point. The real goal is to understand how a micro controller works to use it in my project and how to write code to give instructions to my micro controller.</em>  </p>
+
+<h3 id="how-it-works">How it works</h3>
+
+<p>When you <em>compile</em> a program you pick informations from different sources, merge it together and translate in binary code to let the micro controller to read it.  </p>
+
+<p>In order to be compiled every program in C needs:<br />
+- a <strong>File.c</strong>:				it contains the informations about the algorithms you want the micro has to do. <br />
+- some <strong>Dependencies</strong>:	“pieces” of program your File.c refers to; some of their functions will be embeeded in the compiled file<br />
+and<br />
+- a <strong>File.make</strong>:			it contains the “recepie” to “bake” the file that we want to compile, or the info to retrieve all the files (File.c and dependencies) to compile.  </p>
+
+<p>Keep all the files in the same folder can be a smart choice to start avoiding any sort of issue.  </p>
+
+<blockquote>
+  <p>NOTE: Now we will assume that you have correctly wrote the code (and it’s not trivial at all); you may try start learning C from here http://www.learn-c.org .  </p>
+</blockquote>
+
+<p>Now from the Terminal (or Prompt or Shell) go to the folder with your program files and digit  </p>
+
+<blockquote>
+  <p>make program-usbtiny</p>
+</blockquote>
+
+<p>It will pick the main program and the dependencies specified in the .make file to merge them in a .hex file readable by the machine, and than will automatically flash it on the MC.  </p>
+
+<p>An easier way is to use an Arduino IDE and board as an ISP programmer; it may take more space due to its libraries, but its also more straightforward.
+Here is explained far better than I can.
+http://highlowtech.org/?p=1695<br />
+and here a series of videotutorial realy well explained about WinAVR
+https://www.youtube.com/watch?v=bEfjFJlrGxs<br />
+www.newbiehack.com</p>
+
+<p>At the end of the day you have to remember many things, but just few really counts
+1. everything you may ever need search on Google
+1. you may just copy’n’paste code, or strictly follow a tutorial, but at the end you have to deeply understand what you’re doing in order to do it on your own without any support
+1.  </p>
+
+<p>I’ve to say that has been very hard and frustrating to afford this assignment.
+It may seems simple and straightforward, and at the very end the toolchain is indeed, but becoming confident with boolean operations, registers, a debug and a lot of issues is not trivial at all. Obviously I’m still not as confident as I wish, but it will came with time and practice. The hardest part is the motivational one: not being able to keep in mind simple concepts, having troubles handling some simple logical relations but nonetheless being able to follow the process when explained exept being unable to repeat it autonomously has make me feel incompetent.
+The truth I came along is that playing something for the first time with a hand tied behind my back (I tried just “the hard way”) is the fastest and surest way to lose sprint, enthusiasm and motivation, mostly if the output is “abstract”.</p>
+
+<p>Special thanksgiving to Carlo, Francesca and Giulio to help me with their time and explanation skills :)</p>
+
+<p>Some more resources in italian and in english I’ve found online  </p>
+
+<p>AVR Simulator IDE
+http://www.oshonsoft.com/avr.html  </p>
+
+<p>GUI Software for USBasp based USB AVR Programmers
+http://extremeelectronics.co.in/avr-tutorials/gui-software-for-usbasp-based-usb-avr-programmers/</p>
+
+<p>AVR8 Burn-O-Mat: a GUI for AVRdude
+http://avr8-burn-o-mat.aaabbb.de/avr8_burn_o_mat_avrdude_gui_en.php</p>
+
+<p>Leonardo Miliani’s blog<br />
+http://www.leonardomiliani.com  </p>
+
+<p>Daniele Alberti’s Blog<br />
+http://www.danielealberti.it</p>
+
+<p>Logica Programmabile<br />
+http://www.logicaprogrammabile.it/arduino-uno-bootloader-chip-atmega328/  </p>
+
+<h3 id="timer-interrupt">Timer Interrupt</h3>
+
+<p>Timers are a very useful tool to manage temporal events, such as measure the duration of something, like the time a led has to stay on or off. There is some hardware inside the micro that simply counts clock cycle, so if we know how muck cycle per second it makes we can count time (in seconds).<br />
+Inside an ATtiny44 there are 3 timers, 2 works at 8bit and so they count max 255 values (cycles), 1 works at 16bit and so it counts 65535 values (cycles). When they reach theyr maximum value they start over from zero, so we need a variable that increments each time the counter reach its max value.  </p>
+
+<p>In many cases we prefer to count time in seconds instead of cycles, so we have to make just some math.<br />
+To reduce clock frequency I used the maximum prescaler (its value can be 1, 8, 64, 256 or 1024).  </p>
+
+<pre><code>reduced frequency (cycles/sec.) = clock frequency / prescaler  
+</code></pre>
+
+<p>The clock frequency is set by the fuses; the prescaler is just a value you choose.  </p>
+
+<pre><code>16bit counter duration (sec.) = 16bit counter max value / reduced frequency  
+</code></pre>
+
+<p>so this way we know how many seconds it takes to reach the max value of the counter.
+Now the last division to know how much cycles are needed to count 1 second  </p>
+
+<pre><code>cycles per second (cycles) = 16bit counter max value (cycles) / 16bit counter duration (sec.)  
+</code></pre>
+
+<p>This value is very important because is the value we have to use to measure one unit of “human” time and we’re going to use it very soon.  </p>
+
+<p>To set the timer I’ve followed this <a href="http://fabacademy.org/archives/content/tutorials/09_Embedded_Programming/1sec/index.htm">tutorial</a> found on fabacademy website, but I changed some value like clock (1000000) and led pin (PA8) and added some code in the while(1) cycle.  </p>
+
+<pre><code>#include &lt;avr/io.h&gt;
+#include &lt;avr/interrupt.h&gt; // notice that we have swapped libraries, from delay to interrupt
+
+	ISR(TIM1_COMPA_vect) { // this function is called every time the timer reaches the threshold we set
+		PORTA ^= (1 &lt;&lt; PB2); // toggle the LED
+	}
+	
+	int main (void) {  
+	
+		DDRA |= (1 &lt;&lt; PB2); // set LED pin as output  
+		TCCR1B |= (1 &lt;&lt; WGM12); // configure timer1 for CTC mode  
+		TIMSK1 |= (1 &lt;&lt; OCIE1A); // enable the CTC interrupt  
+		
+		sei(); // enable global interrupts  
+		OCR1A   = 976; // set the CTC compare value  
+		TCCR1B |= ((1 &lt;&lt; CS10) | (1 &lt;&lt; CS12)); // start the timer at 20MHz/1024  
+		
+		while(1) { // main loop - do anything you like here!
+	
+		}  
+}
+</code></pre>
+
+<p>To set the timer follow the datasheets; the following images are taken from oscarliang.net and from the datasheet.  </p>
+
+<p><img src="http://blog.oscarliang.net/ctt/uploads/2013/05/tccr1a.png" alt="TCCR1A_register" />  </p>
+
+<p><img src="http://blog.oscarliang.net/ctt/uploads/2013/05/tccr1b.png" alt="CLK_ select_register" />  </p>
+
+<p><img src="http://blog.oscarliang.net/ctt/uploads/2013/05/clk_select_16bit.png" alt="TCCR1A_register" />  </p>
+
+<p>So now a led can blink (and any other event can occur) just when is triggered, without waiting and stopping the main program with the delay.  </p>
+
+<p>Here below some more reference I’ve used to understand how to set a clock<br />
+<a href="http://blog.oscarliang.net/arduino-timer-and-interrupt-tutorial/">OscarLiang.net blog</a><br />
+<a href="http://www.instructables.com/id/Arduino-Timer-Interrupts/?ALLSTEPS">Arduino Timer Interrupt</a> by amandaghassaei on Instructable  </p>
+
+<!---
+
+char 1 byte
+int 2 bytes
+short 2 bytes
+long 4 bytes
+long long 8 bytes
+float 4 bytes
+double 4 bytes
+
+But when in doubt, you can just use sizeof().
+
+Edit: You can also use the newer specifications such as int8_t, int16_t, etc.
+
+### Microcontroller  
+
+I've used an ATtiny44.  
+Here you can find the [datasheet](http://www.atmel.com/Images/doc8006.pdf), a detailed document about this device.  
+
+Its main parts are:
+**Memory**  
+there are three different kind of memory: flash, RAM and EEPROM; they are all subdivided in registers of 8 binary characters.  
+
+**Clock**
+It sets the amount of cycle per second; the built-in is works at 8MHz, but you can overide it with an external clock.  
+
+**Timers**
+It's a counter and it counts events; it's properly a timer when paired up with clock to have a time reference.  
+
+**Interrupts**
+They stop the program that is running to do something else, than the main program restarts from where it was stopped; is came in play, for example, when a button is pressed.   
+
+**Input/Output Ports**
+ATtiny44 has group of 8 pins due to its 8bit structure. Every pin can be setted as input, output or none setting to 1 or 0 or floating the relative pin in the proper register.  
+
+**Universal Serial Interface (USI)**
+It's the main way it communicates with other devices.  
+
+**Analog comparator**
+
+Analog to Digital Converter (ADC)
+-->
+
+<p><img src="./img/03_11_emb_prog/imagename.jpg" alt="imagename" /> </p>
+
+<!---
+
+AGGIUNGERE QUI ULTERIORI AVANZAMENTI
+
+-->
+
+
+     
+     
+
+</body>
+</html>

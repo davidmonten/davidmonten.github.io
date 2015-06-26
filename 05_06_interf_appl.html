@@ -21,7 +21,7 @@
      </div>
      <h2 id="interfaces-and-applications">Interfaces and applications</h2>
 
-<p>On wednesday 05.06.2015 we’ve got the <a href="link_to_vimeo_here">fourteenth online lesson</a> with Neil Gershenfeld.<br />
+<p>On wednesday 05.06.2015 we’ve got the <a href="https://vimeo.com/127057625">fourteenth online lesson</a> with Neil Gershenfeld.<br />
 The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab Academy account on Vimeo</a>.</p>
 
 <p>For this week the assignment was  </p>
@@ -30,6 +30,203 @@ The next lessons can be found on the <a href="http://vimeo.com/fabacademy">Fab A
   <p>**
    write an application that interfaces with an input &amp;/or output device**  </p>
 </blockquote>
+
+<p>For this assignment I designed a web application to configure a device that stores 3 values in memory.<br />
+To do so I started from a tutorial written by Fiore where he explain how to set up a []Python web-based serial console using webSockets](http://fabacademy.org/archives/2015/doc/WebSocketConsole.html).<br />
+The main advantage of use a web based is that it can be used from any devices has a web browser installed, so you can configure the target device from laptop, smartphone, tablet and so on.</p>
+
+<h3 id="how-it-works">How it works</h3>
+
+<p>It’s a linear system having on one side the target device, at the opposite side the source device that provides data. To manipulate data it uses a HTML webpage using Javascript.</p>
+
+<p><img src="http://fabacademy.org/archives/2015/doc/images/WebSocketSerialArchitecture.svg" alt="scheme" />  </p>
+
+<p>To work properly it needs some Python packages: PySerial, Multiprocessing and Tornado Webserver; using linux i installed writing</p>
+
+<pre><code>sudo pip install pyserial tornado multiprocessing  
+</code></pre>
+
+<ul>
+  <li>A simple HTML5 webpage will host our user interface, but also send and receive data using the websocket  </li>
+  <li>The Javascript code is contained in the main.js javascript below. The browser WebSocket object interact with the /ws endpoint  </li>
+  <li>The Tornado web server allows to serve webpages and also to communicate via websockets</li>
+</ul>
+
+<p>The key for having i/o on the serial port without blocking the webserver is creating two separate threads running in parallel and communicating via shared queues.  </p>
+
+<h3 id="what-ive-modified">What I’ve modified</h3>
+
+<p>I’ve taken just the output part of the webpage to provide three values to three constant, these three values are bounded by a mathematical equation<br />
+&gt; A + B = 86400 - C<br />
+where 8640 is the amount of seconds per day.<br />
+This bound is defined in the javascript file with the following lines  </p>
+
+<pre><code>var duty_val = 8;
+var leisure_val = 8;
+var needs_val = 8;
+
+//duty_val + leisure_val == 24 - needs_val;
+
+$("#duty_val").change(function(){
+	var val = $('#duty_val').val();
+	var diff = val - duty_val;
+	duty_val = val;
+	
+	leisure_val = leisure_val - (diff/2);
+	$("#leisure_val").val(leisure_val);
+	
+	needs_val = needs_val - (diff/2);
+	$("#needs_val").val(needs_val);
+	
+});
+
+$("#leisure_val").change(function(){
+	var val = $('#leisure_val').val();
+	var diff = val - leisure_val;
+	leisure_val = val;
+	
+	duty_val = duty_val - (diff/2);
+	$("#duty_val").val(duty_val);
+		
+	needs_val = needs_val - (diff/2);
+	$("#needs_val").val(needs_val);
+	
+});
+
+$("#needs_val").change(function(){
+	var val = $('#needs_val').val();
+	var diff = val - needs_val;
+	needs_val = val;
+	
+	duty_val = duty_val - (diff/2);
+	$("#duty_val").val(duty_val);
+	
+	leisure_val = leisure_val - (diff/2);
+	$("#leisure_val").val(leisure_val);
+});
+</code></pre>
+
+<p>In the HTML file I removed the input field and added tree number input. Because of the javascript they starts always with a 8 (hours) by default. I added some line of text and a background PNG too.  </p>
+
+<p><strong>Index.html</strong>
+			&lt;!DOCTYPE HTML&gt;
+	&lt;html&gt;
+	&lt;head&gt;
+		<style>
+		body { margin: 0px; padding: 20px; }
+		#sent { width: 500px; } 
+		#duty_val { width: 50px; }
+		#leisure_val { width: 50px; }
+		#needs_val { width: 50px; }
+		</style></p>
+
+<pre><code>	&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"&gt;&lt;/script&gt;
+	&lt;script type="text/javascript" src="static/main.js"&gt;&lt;/script&gt;
+	
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Set your time&lt;/h1&gt;
+&lt;h3&gt;and remember that you have just 24hrs!&lt;/h3&gt;
+&lt;br&gt;
+
+&lt;p&gt;DUTY&lt;/p&gt;
+&lt;form id="duty"&gt;
+	&lt;input type="number" id="duty_val" value=8&gt;
+
+	
+	//SLIDER
+	
+&lt;script&gt;
+	
+//function myFunction() {
+//  var x = document.createElement("INPUT");
+//  x.setAttribute("type", "range");
+//  document.body.appendChild(x);
+//}
+&lt;/script&gt;
+&lt;/form&gt;
+
+&lt;p&gt;LEISURE&lt;/p&gt;
+&lt;form id="leisure"&gt;
+	&lt;input type="number" id="leisure_val" value=8&gt;
+&lt;/form&gt;
+
+&lt;p&gt;NEEDS&lt;/p&gt;
+&lt;form id="needs"&gt;
+	&lt;input type="number" id="needs_val" value=8&gt;
+&lt;/form&gt;
+&lt;br&gt;
+&lt;button id="cmd_send"&gt;Send&lt;/button&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;  
+</code></pre>
+
+<p><strong>main.js</strong><br />
+		&lt;!DOCTYPE HTML&gt;
+	&lt;html&gt;
+	&lt;head&gt;
+		<style>
+		body { margin: 0px; padding: 20px; }
+		#sent { width: 500px; } 
+		#duty_val { width: 50px; }
+		#leisure_val { width: 50px; }
+		#needs_val { width: 50px; }
+		</style></p>
+
+<pre><code>	&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"&gt;&lt;/script&gt;
+	&lt;script type="text/javascript" src="static/main.js"&gt;&lt;/script&gt;
+	
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Set your time&lt;/h1&gt;
+&lt;h3&gt;and remember that you have just 24hrs!&lt;/h3&gt;
+&lt;br&gt;
+
+&lt;p&gt;DUTY&lt;/p&gt;
+&lt;form id="duty"&gt;
+	&lt;input type="number" id="duty_val" value=8&gt;
+
+	
+	//SLIDER
+	
+&lt;script&gt;
+	
+//function myFunction() {
+//  var x = document.createElement("INPUT");
+//  x.setAttribute("type", "range");
+//  document.body.appendChild(x);
+//}
+&lt;/script&gt;
+&lt;/form&gt;
+
+&lt;p&gt;LEISURE&lt;/p&gt;
+&lt;form id="leisure"&gt;
+	&lt;input type="number" id="leisure_val" value=8&gt;
+&lt;/form&gt;
+
+&lt;p&gt;NEEDS&lt;/p&gt;
+&lt;form id="needs"&gt;
+	&lt;input type="number" id="needs_val" value=8&gt;
+&lt;/form&gt;
+&lt;br&gt;
+&lt;button id="cmd_send"&gt;Send&lt;/button&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p><strong>Download</strong>
+<a href="./files/05_06_interf_appl/Lifetime_application.7z">Lifetime application</a>  </p>
+
+<h3 id="run">Run</h3>
+
+<p>First of all the device has to be connected via serial port (first timeI wonder why the server doesn’t run) than run the local server with Python.</p>
+
+<pre><code>python server.py  
+</code></pre>
+
+<p>now open the browser and go to localhost:8080 (or whatever port you want to use) and set the values you want to send to the device and click the Send button.</p>
 
      
      
