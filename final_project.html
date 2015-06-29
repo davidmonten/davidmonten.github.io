@@ -59,10 +59,17 @@ Does people will build it? and why? or why not? </p>
 <p>Online I’ve found different watches with fancy displays, but the most counts on hours and minutes base, just because they are watches, and they don’t need to be configured but just synchronized with the local area time.<br />
 The closer to my idea is the <a href="http://www.tokyoflash.com/en/watches/kisai/denshoku/">Kisai Denshoku</a> led watch because of its japan style minimalism, but even with a fancy visualization it still counts time as usual.  </p>
 
-<p>Last example of minimal watches is the <a href="http://www.uniquewatchguide.com/worlds-smallest-nixie-watch-the-kopriso-mi-esposita/">Nixie watch</a> using a <a href="http://en.wikipedia.org/wiki/Nixie_tube">nixie tube</a></p>
+<p>Last example of minimal watches is the <a href="http://www.uniquewatchguide.com/worlds-smallest-nixie-watch-the-kopriso-mi-esposita/">Nixie watch</a> using a <a href="http://en.wikipedia.org/wiki/Nixie_tube">nixie tube</a>  </p>
 
-<p>At the following link I’ve found an interesting website about data visualization
-<a href="http://flowingdata.com/">Flowing Data</a>  </p>
+<h3 id="how-will-it-be-evaluated">How will it be evaluated?</h3>
+
+<p>It has to meet 3/5 of these requirement:</p>
+
+<p>Step1: the board (led matrix and buttons) works				CHECKED<br />
+Step2: the code for the counters works						CHECKED<br />
+Step3: the configuration via FTDI works  					UNCHECHED<br />
+Step4: the configuration interface works					CHECKED<br />
+Step5: the parts of the case fits properly among them		CHECKED </p>
 
 <h3 id="for-this-project-the-following-processes-will-be-used">For this project the following processes will be used:</h3>
 
@@ -78,6 +85,52 @@ The closer to my idea is the <a href="http://www.tokyoflash.com/en/watches/kisai
   <li>Embeeded programming		    </li>
   <li>Interface design</li>
 </ul>
+
+<h3 id="materials-and-components-required">Materials and components required</h3>
+
+<p><strong>Electronics</strong>
+<a href="http://it.farnell.com/atmel/attiny44a-ssu/mcu-8bit-attiny-20mhz-soic-14/dp/1699397?CMP=GRHB-OCTOPART-1000082">Atmel ATtiny44</a><br />
+Quantity	1	
+Cost		1.05€  </p>
+
+<p><a href="http://www.digikey.it/product-detail/it/LTST-C230TBKT/160-1889-1-ND/3306146?WT.z_cid=ref_octopart_dkc_buynow&amp;site=it">Led Blue Clear 1206</a><br />
+Quantity	15<br />
+Cost		0.45€  </p>
+
+<p><a href="http://it.farnell.com/yageo/rc1206jr-130rl/thick-film-resistor-0-ohm-250mw/dp/1799535?CMP=GRHB-OCTOPART-1001215">Resistor 0kOhm 1206</a><br />
+Quantity	1<br />
+Cost 		0.004€  </p>
+
+<p><a href="http://it.farnell.com/yageo-phycomp/rc1206jr-0710kl/resistore-rc01-1206-10k/dp/9240640?CMP=GRHB-OCTOPART-1000774">Resistor 10kOhm 1206</a><br />
+Quantity	1<br />
+Cost		0.05€  </p>
+
+<p><a href="http://it.farnell.com/panasonic-electronic-components/erj8enf4990v/resistore-1206-499r-1-0-25w/dp/2057758?CMP=GRHB-OCTOPART-1000755">Resistor 499Ohm 1206</a><br />
+Quantity	5<br />
+Cost		0.03€  </p>
+
+<p><a href="http://it.farnell.com/avx/12063c105kat2a/condensatore-mlcc-x7r-1uf-25v/dp/1327717?CMP=GRHB-OCTOPART-1000089">Capacitor 1uF 1206</a><br />
+Quantity	1<br />
+Cost		0.14€  </p>
+
+<p><a href="http://it.farnell.com/te-connectivity-amp/826926-2/header-diritta-bifase/dp/1248140?CMP=GRHB-OCTOPART-1000056">FTDI pins</a><br />
+Quantity	1<br />
+Cost		0.14€  </p>
+
+<p><a href="http://it.farnell.com/te-connectivity-amp/826632-7/connettore-header-2-54mm-14-vie/dp/2308767?CMP=GRHB-OCTOPART-1000056">ISP pins</a><br />
+Quantity	1<br />
+Cost  		1.86€  </p>
+
+<p><strong>Enclosure</strong><br />
+<a href="http://www.prochima.it/pages/metal.htm">Frame</a>
+Quantity	20g<br />
+Cost  		3€ 
+Process		Casting  </p>
+
+<p><a href="http://www.wasproject.it/w/">Front</a>
+Quantity	5g<br />
+Cost  		0.50€ 
+Process		3D print  </p>
 
 <h2 id="projects-modules">Project’s modules</h2>
 
@@ -133,7 +186,8 @@ On the back side there are two pads to power the board with external power sourc
 
 <p><img src="./img/00_final_project/bottom.jpg" alt="bottom" />    </p>
 
-<p><a href="./files/00_final_proj/board.7z">Board.7z</a>  </p>
+<p><strong>Download</strong>
+<a href="./files/00_final_proj/board.7z">Board.7z</a>  </p>
 
 <p>When I first mounted the FTDI slot it was parallel with the board, but goes outside the silhouette  of the board so I decided to bend it, paying attention to not touch the traces nearby, and direct the slot the bottom of the frame.<br />
 Before to mount the buttons on the side of the board I manually removed the copper on the edge, otherwise the button would be constantly “pressed”.  </p>
@@ -153,14 +207,17 @@ Before to mount the buttons on the side of the board I manually removed the copp
 
 <p><img src="./img/00_final_project/case_left_side.jpg" alt="case_left_side" />  </p>
 
-<p>I made it first with 3D printer to verify shapes and dimensions and fix tolerances to fit properly; the first test has revealed some major mistake that doesn’t allow at all the fit of the two parts. After the first test I’ ve loosened the fit by 0.2mm and continued with more test.  </p>
+<p>I made it first with 3D printer to verify shapes and dimensions and fix tolerances to fit properly; the first test has revealed some major mistake that doesn’t allow at all the fit of the two parts. After the first test I’ve loosened the fit by 0.2mm and continued with more test.  </p>
 
-<p><img src="./img/00_final_project/first_failure.jpg" alt="first_failure" />  </p>
+<h4 id="upper-shell">Upper shell</h4>
+
+<p>The upper shell has to be transparent, or in any case has to let the light pass through. For this reason I 3D printed this piece in Taulman T-glasse, the only material 3d-pintable that lets light pass trough itself.  </p>
 
 <p><img src="./img/00_final_project/3dprint_test2.jpg" alt="3dprint_test2" />  </p>
 
-<p>The upper shell has to be transparent, or in any case has to let the light pass through. For this reason I 3D printed this piece in Taulman T-glasse, the only material 3d-pintable that lets light pass trough itself.<br />
-Otherwise I can make a double mold to cast a see-through resin.
+<p><img src="./img/00_final_project/tglasse.jpg" alt="tglasse" />  </p>
+
+<p>Otherwise I can make a double mold to cast a see-through resin.
 To do so I made master milled from wax.<br />
 The wax master needs much more attention because of the two shell and the long time needed to mill it. I first used a 3mm endmill to the rough finish and a 1.54 endmill for the fine finish.  </p>
 
@@ -174,85 +231,444 @@ The wax master needs much more attention because of the two shell and the long t
 
 <p><img src="./img/00_final_project/molds.jpg" alt="molds" />  </p>
 
-<p>At the first attempt I’ve got some trouble with the scale, so I don’t mixed the correct amount of pasts. The rsult was that the silicone after 24hrs were still liquid, so I poured it into a jar to redo the mold and at the second attempt it has came out well.  </p>
+<p>For the top shell I used a polyester resin used for inclusion of small objects (Prochima Cristal); it’s mix a 2% of catalyst in weight, and due to the small amount of material needed is quite difficult to correctly measure the catalyst. For this reason I approximate in excess, reducing the pot life.  </p>
+
+<p><img src="./img/00_final_project/cristal_mixing.jpg" alt="cristal_mixing" />  </p>
+
+<p>Mixing the resins is very important to do is as sowly as possible to avoid the inclusion of bubbles because we won’t have time for degas. This time is a trade off, because after mixing we have to pour it in a syringe while it’s still fluid enough to pass by a 2mm pipe.  </p>
+
+<p><img src="./img/00_final_project/filling_syringe.jpg" alt="filling_syringe" />  </p>
+
+<p><img src="./img/00_final_project/filling_mold2.jpg" alt="filling_mold2" />  </p>
+
+<p>The mold has several holes: the very tiny ones (less than 1mm) let the air flows outside from the wristband-holder while the other two, situated on the long side, lets the material came in and goes out to be sure all the spaces are filled.  </p>
+
+<p><img src="./img/00_final_project/filling_mold.jpg" alt="filling_mold" />  </p>
+
+<p>Note that all the holes are drilled on the silicone, and not milled and taken by the mold.<br />
+Once cured I opened the mold and this was the result  </p>
+
+<p><img src="./img/00_final_project/demold_cristal.jpg" alt="demold_cristal" />  </p>
+
+<p><img src="./img/00_final_project/cristal3.jpg" alt="cristal3" />  </p>
+
+<p><img src="./img/00_final_project/cover_detail5.jpg" alt="cover_detail5" />  </p>
+
+<p><img src="./img/00_final_project/cover.jpg" alt="cover" />  </p>
+
+<p><img src="./img/00_final_project/cover_detail3.jpg" alt="cover_detail3" />  </p>
+
+<p>As you can see my effort to obtain a sleek surface doesn’t receive a reward: on the surface there is a little bubble and seams that the flow of the resin itself has created a vacuum part in some way because there is an hollow right at the center, in front of the injection hole. By the way it’s a good starting point to for further attempt.  </p>
+
+<h4 id="lower-shell">Lower shell</h4>
+<p>Making the mold for the lower shell has encountered a major trouble: at the first attempt I’ve got some trouble with the scale, so I don’t mixed the correct amount of parts. The result was that the silicone after 24hrs were still liquid, so I poured it into a jar to redo the mold and at the second attempt it has came out well.  </p>
 
 <p><img src="./img/00_final_project/holes_test.jpg" alt="holes_test" /> </p>
 
 <p>Due to its shape the lower shell can be made in an open mold. Moreover the lower shell doesn’t need to be transparent and so I decided to use a metal filled resin, but first I made a simple test to verify how a steel thread works on resin and how large the hole has to be. For an M3 screw a 2.4mm holes works well but a little bit tight while a 2.8mm holes can be threaded anyway, but it works smoother. I simply don’t know on the long run what’s the best but to avoid to overstress the resin matrix I’ll go with a 2.8mm and if the screw will loosen I’l put some teflon.  </p>
 
-<p><img src="./img/00_final_project/holes_test.jpg" alt="holes_test" />  </p>
+<p><img src="./img/00_final_project/lower_mold.jpg" alt="lower_mold" />  </p>
 
-<p>To mix filled resins it’s recommended to weigh the part A, than add the filler and than complete adding the part B to start the chemical reaction. If you want you can even control the weight of the object because the metal filler is far more heavy  than resin (from about 5 to about 7 times).</p>
+<p>To mix filled resins it’s recommended to weigh the part A, than add the filler and than complete adding the part B to start the chemical reaction. If you want you can even control the weight of the object because the metal filler is far more heavy  than resin (from about 5 to about 7 times).  </p>
 
 <p><img src="./img/00_final_project/metal_case_master.jpg" alt="metal_case_master" />  </p>
 
 <p><img src="./img/00_final_project/measuring_metalpoweder.jpg" alt="measuring_metalpoweder" />  </p>
 
-<p><img src="./img/00_final_project/holes_test.jpg" alt="holes_test" />  </p>
+<p>The result just is a smooth matte surface; it has to be polished  with a metal sponge to let the metal grains “raise” showing a metal like surface. It’s mechanical properties are provided by the resin (as a matter of fact has a low Young module).</p>
 
-<p><img src="./img/00_final_project/holes_test.jpg" alt="holes_test" />   </p>
+<p><img src="./img/00_final_project/metal_unbrushed.jpg" alt="metal_unbrushed" />  </p>
 
-<p>I also produced 3d-printed version of the lower shell to compare the results. It has been made with different materials: with bronze filled PLA for a metallic warm finish and a good weight-feel, and carbon filled PLA for a light and strong structure in addition to simple PLA for test. </p>
+<p><img src="./img/00_final_project/metal_unmachined.jpg" alt="metal_unmachined" />   </p>
+
+<p>After the curing the resin has a slight shrinkage so the tight fitting with the board is not guaranteed any more; I removed about 1mm using a Dremel and engraved also a litle bite for the battery because I always tried the fitting without it.</p>
+
+<p><img src="./img/00_final_project/metal_machined.jpg" alt="metal_machined" />  </p>
+
+<p>I also produced 3d-printed version of the lower shell to compare the results. It has been made with different materials: with bronze filled PLA for a metallic warm finish and a good weight-feel, and carbon filled PLA for a light and strong structure in addition to simple PLA for test. It has no shrinkage and for few takes less than 1hr to be printed (1 piece).  </p>
+
+<p><img src="./img/00_final_project/3dprint_test2.jpg" alt="3dprint_test2" />  </p>
+
+<p><img src="./img/00_final_project/carbon_case3.jpg" alt="carbon_case3" />  </p>
+
+<p><img src="./img/00_final_project/brass_case4.jpg" alt="brass_case4" />  </p>
+
+<p><strong>Download</strong><br />
+<a href="./files/00_final_proj/case.7z">Case</a>  </p>
 
 <p><strong>Add link to download files HERE: upper_shell, lower_shell, uppershell_mold_up, uppershell_mold_down, lowershell_mold</strong>  </p>
 
 <h3 id="watchstrap">Watchstrap</h3>
-<ul>
-  <li>It’s lasercutted and assembled without any sort of glue or even sewing, but just using hinges.</li>
-</ul>
+
+<p>It has been realized in one piece of leather 1,5mm tick. The idea is very simple: avoid to use glue or sawing machine.<br />
+The design is very bold because of the size of the case, but it may shrink accordingly with the next versions of the case.  anyway, to maintain that constrains it can’t be shrunk behind some physical limit: every fold takes some millimeter and to make the hinge it needs some space so I wouldn’t make a more narrow watchstrap without reducing also the thickness of the lather.  </p>
+
+<p><img src="./img/00_final_project/watch_strap.jpg" alt="watch_strap" />  </p>
+
+<p>Here you can see how it has changed after the first cut.  </p>
+
+<p><img src="./img/00_final_project/2vers_comparison.png" alt="2vers_comparison" />  </p>
+
+<p>For a better output the logo has been converted in a single line instead of an outline version due to its tiny size.<br />
+But the most important change is the length of the arms (increased because the fold needs some millimeter) the distance between the horizontal fold and the two main cuts (in the first model there was not enough space to let the metal bar pass under the fold) and the regulation cuts (larger and wider to allow a more comfortable wearing).  </p>
+
+<p><img src="./img/00_final_project/leather2.jpg" alt="leather2" />  </p>
+
+<p><img src="./img/00_final_project/leather3.jpg" alt="leather3" />  </p>
+
+<p>On both ends (clasp and case) the watchstrap holds quite well.  </p>
+
+<p><img src="./img/00_final_project/carbon_watchstrap.jpg" alt="carbon_watchstrap" />  </p>
+
+<p><strong>Download</strong><br />
+<a href="./files/00_final_proj/wristband_01_02 v2.pdf">Watchstrap</a>  </p>
 
 <h3 id="code">Code</h3>
-<ul>
-  <li>Code to drive the led matrix  </li>
-  <li>Program of the device  </li>
-  <li>Configuration interface  </li>
-</ul>
 
-<h2 id="materials-and-components-required">Materials and components required</h2>
+<p><strong>Note</strong><br />
+<em>To favor the reading I’ll keep all the code on the downloadable file and occasionally I’ll quote some part. I prefer to explain how it works instead of show all the code on the page.</em>  </p>
 
-<p><strong>Electronics</strong>
-<a href="http://it.farnell.com/atmel/attiny44a-ssu/mcu-8bit-attiny-20mhz-soic-14/dp/1699397?CMP=GRHB-OCTOPART-1000082">Atmel ATtiny44</a><br />
-Quantity	1	
-Cost		1.05€  </p>
+<p>The functioning of the device is quite simple: there are 3 values expressed in hours that can be customized; their sum is  24 (controlled by a simple script and I’ll assume that they are all equal to 8 hours). Three timers to count the values that runs one by one to measure the time as a resource that runs out instead of a quantity in constant increase. Every value can be assigned to a set of programmed tasks (like work, leisure and needs). Every time we switch from one set to another we switch the counter too, so a different counter can start working. A 5x3 led matrix visualizes on the rows the three values expressed in percentage. The accuracy is 20% because of the number of leds; I’m not sure that using a more accurate output that can express more accurate values (e.i. a liquid crystal display or an oled display) improve accuracy would be meaningful: we actually don’t read the value as a number but as a visual information, so the resolution is not so crucial.<br />
+When a counter is working it’s showed so we can check the remaining time like a normal watch.  </p>
 
-<p><a href="http://www.digikey.it/product-detail/it/LTST-C230TBKT/160-1889-1-ND/3306146?WT.z_cid=ref_octopart_dkc_buynow&amp;site=it">Led Blue Clear 1206</a><br />
-Quantity	15<br />
-Cost		0.45€  </p>
+<p><img src="./img/00_final_project/scheme1.png" alt="scheme1" />  </p>
 
-<p><a href="http://it.farnell.com/yageo/rc1206jr-130rl/thick-film-resistor-0-ohm-250mw/dp/1799535?CMP=GRHB-OCTOPART-1001215">Resistor 0kOhm 1206</a><br />
-Quantity	1<br />
-Cost 		0.004€  </p>
+<p>The coding has been tough for me and develop the device with this basic set of functions is a challenging goal for me.  Nonetheless I’d like to update it with other functions, to recognize who is wearing the device via biometric sensors,  or visualize more information with the same essential hardware, or gather them and send to a database to analyze and visualize overtime.  </p>
 
-<p><a href="http://it.farnell.com/yageo-phycomp/rc1206jr-0710kl/resistore-rc01-1206-10k/dp/9240640?CMP=GRHB-OCTOPART-1000774">Resistor 10kOhm 1206</a><br />
-Quantity	1<br />
-Cost		0.05€  </p>
+<p>To do so I setted two internal timers: timer 0 at 8bit to manage the refresh frequency of the led matrix and timer1 at 16 bit to count time. Actually there is just one counter and the values of the main three counters are stored in global variables. In order to reduce the speed I set up a 1024 prescaler and a clock speed (from the fuses 0x5E) of 1MHz, so with this settings 1 second is 976,5625 clock’s cycles, so I can use shorter variables to store the time.  </p>
 
-<p><a href="http://it.farnell.com/panasonic-electronic-components/erj8enf4990v/resistore-1206-499r-1-0-25w/dp/2057758?CMP=GRHB-OCTOPART-1000755">Resistor 499Ohm 1206</a><br />
-Quantity	5<br />
-Cost		0.03€  </p>
+<pre><code>// clock timer
+TCCR1B |= ( 1&lt;&lt;WGM12);                  //CTC mode    // TCCR1B |= ( (1&lt;&lt;CS10) | (1 &lt;&lt; CS12) );  //1024 prescaler
+  TCCR1B |= ( (1&lt;&lt;CS10) );
 
-<p><a href="http://it.farnell.com/avx/12063c105kat2a/condensatore-mlcc-x7r-1uf-25v/dp/1327717?CMP=GRHB-OCTOPART-1000089">Capacitor 1uF 1206</a><br />
-Quantity	1<br />
-Cost		0.14€  </p>
+TIMSK1 |= (1&lt;&lt; OCIE1A);
 
-<p><a href="http://it.farnell.com/te-connectivity-amp/826926-2/header-diritta-bifase/dp/1248140?CMP=GRHB-OCTOPART-1000056">FTDI pins</a><br />
-Quantity	1<br />
-Cost		0.14€  </p>
+  
+// display frequency timer
+TCCR0B |= ( 1&lt;&lt;WGM02);          //overflow mode
+TCCR0B |= ( (1&lt;&lt;CS00) );        // No prescaler
 
-<p><a href="http://it.farnell.com/te-connectivity-amp/826632-7/connettore-header-2-54mm-14-vie/dp/2308767?CMP=GRHB-OCTOPART-1000056">ISP pins</a><br />
-Quantity	1<br />
-Cost  		1.86€  </p>
+TIMSK0 |= (1&lt;&lt; OCIE0A);
 
-<p><strong>Enclosure</strong><br />
-<a href="http://www.prochima.it/pages/metal.htm">Frame</a>
-Quantity	20g<br />
-Cost  		3€ 
-Process		Casting  </p>
+sei();
 
-<p><a href="http://www.wasproject.it/w/">Front</a>
-Quantity	5g<br />
-Cost  		0.50€ 
-Process		3D print  </p>
+OCR1A = 976;                    //clock cycles per second (1MHz / 1024 prescaler)
+
+OCR0A = 100;                    // Update frequency of display: 1Mhz / 100 = 10kHz
+</code></pre>
+
+<p>This code goes into the main, just before the <em>while(1)</em>.
+The function while(1) just cycles the <em>icounter</em> variable that defines which counter is currently working and so from which variable subtract time. The cycling is triggered pressing the double button connected on the PB7.  <br />
+The subtraction operation is made inside an interrupt routine that is triggered every time a second elapses. </p>
+
+<pre><code>ISR(TIM1_COMPA_vect) {
+if ( timeResid[icounter] != 0 ) {        // if the counter still has credits
+    timeResid[icounter] -= 2;            // so subtract two
+}
+</code></pre>
+
+<p>The time is counted in double units so to subtract 1 second from the timeResid variable (the variable that stores the residual amount of time for the specific counter) it subtracts 2 units; if one counter value runs to 0 the routine subtract 1 unit from the remaining two counters, so 1 second has been subtracted anyway.  </p>
+
+<pre><code>else {
+                                        // but if the time of the active counter has ran out
+                                        // subtract 1 credit to the other counters
+                                        // and if also an unactive counter has ran out of time
+                                        // subtract 2 credits to the last standing counter
+    
+    if (icounter == 0 ) {                
+        
+        if (timeResid[1] &gt; 0 &amp;&amp; timeResid[2] &gt; 0) {
+                
+                timeResid[1] --;
+                timeResid[2] --;
+          
+        }  else if (timeResid[2] &gt; 0) {
+                
+                timeResid[1] -= 2;                    
+          
+        } else if ( timeResid[1] &gt; 0) {
+                
+                timeResid[2] -= 2;                    
+          
+        } 
+    }
+        
+    if (icounter == 1 ) {
+        if (timeResid[0] &gt; 0 &amp;&amp; timeResid[2] &gt; 0) {
+                
+                timeResid[0] --;
+                timeResid[2] --;
+          
+        }  else if (timeResid[0] &gt; 0) {
+                
+                timeResid[0] -= 2;                    
+          
+        } else if ( timeResid[1] &gt; 0) {
+                
+                timeResid[2] -= 2;                    
+          
+        } 
+
+    }
+        
+    if (icounter == 2 ) {
+        if (timeResid[0] &gt; 0 &amp;&amp; timeResid[2] &gt; 0) {
+                
+                timeResid[0] --;
+                timeResid[2] --;
+          
+        }  else if (timeResid[0] &gt; 0) {
+                
+                timeResid[0] -= 2;                    
+          
+        } else if ( timeResid[1] &gt; 0) {
+                
+                timeResid[2] -= 2;                    
+          
+        } 
+    }
+}
+</code></pre>
+
+<p>When remain just one counter with positive value it obviously subtract 2 units from them and when also the last timer has run out of time it means that 24hrs are elapsed so it sets all the timeResid to max to start over.  </p>
+
+<pre><code>if (timeResid[0] == 0 &amp;&amp; timeResid[1] == 0 &amp;&amp; timeResid[2] == 0) {
+
+	timeResid[0] = timeResid[1] = timeResid[2] = 57600;
+}
+</code></pre>
+
+<p>The led matrix is driven with a charlieplexing, so it means that I can turn on just one led at time, so cycling them and using the persistence of vision I can apparently turn on several leds at time.<br />
+To turn on just one led I need to set the two pins reltive to the led’s anode and cathode  as OUT (3Vout and Ground) and all the others as IN in order to stay floating (an indefinite status).<br />
+So the first thing to do is to organize the led in an ordered structure, like a 2 dimention array, to retrive a single led using rows and columns as cartesian coordinates.  </p>
+
+<pre><code>int led[15][2]={
+    {0,1},
+    {1,0},
+    {0,2},
+    {2,0},
+    {0,3},
+    {3,0},
+    {0,4},
+    {4,0},
+    {1,2},
+    {2,1},
+    {1,3},
+    {3,1},
+    {1,4},
+    {4,1},
+    {2,3}
+};
+</code></pre>
+
+<p>Now I can clear all the pins  </p>
+
+<pre><code>// set all the pin as INPUT
+void clearAll(){
+
+	*ledDir(ledPin(A))  &amp;= (~ledPin(A)) ;	// set as INPUT the pin 'A'
+	*ledDir(ledPin(B))  &amp;= (~ledPin(B)) ;	// set as INPUT the pin 'B'
+	*ledDir(ledPin(C))  &amp;= (~ledPin(C)) ;	// set as INPUT the pin 'C'
+	*ledDir(ledPin(D))  &amp;= (~ledPin(D)) ;	// set as INPUT the pin 'D'
+	*ledDir(ledPin(E))  &amp;= (~ledPin(E)) ;	// set as INPUT the pin 'E'
+
+}
+</code></pre>
+
+<p>than I set THE led that has to turn on  using the index of the leds array to refer to it.</p>
+
+<pre><code>//function to turn on a led using it's index void setTheLed(unsigned short int ledNumber) {
+
+clearAll();
+
+unsigned short int from = ledPin(led[ledNumber][0]);
+unsigned short int to = ledPin(led[ledNumber][1]);
+
+*ledPort(from) |= from;      //set the pin  as HIGH
+*ledPort(to) &amp;= (~to);       //set the pin  as LOW
+
+*ledDir(from) |= from;		//set the port direction as OUT
+*ledDir(to) |= to;			//set the port direction as OUT
+</code></pre>
+
+<p>}</p>
+
+<p>Now the <em>main()</em> and the <em>while(1)</em> functions can run; they simply look at the PA7pin for the button and change the value of the <em>icounter</em> variable; in the meanwhile every second an interrupt is triggered and 1 second subtracted from the <em>timeResid[icounter]</em> and a series of leds shows this info blinking as fast that they seems steady.</p>
+
+<p><strong>Download</strong><br />
+<a href=".files/00_final_proj/code.7z">LifeTime_v.4</a></p>
+
+<h3 id="web-application">Web Application</h3>
+
+<p>I started from this tutorial
+http://fabacademy.org/archives/2015/doc/networking-esp8266.html</p>
+
+<p>It’s a linear system that uses a HTML webpage using Javascript tu manipulate data. It’s based on Python and it needs these packages: PySerial, Multiprocessing and Tornado Webserver.</p>
+
+<p><img src="http://fabacademy.org/archives/2015/doc/images/WebSocketSerialArchitecture.svg" alt="scheme" />  	</p>
+
+<p>I’ve taken just the output part of the webpage to provide three values to three constant, these three values are bounded by a mathematical equation<br />
+&gt; A + B = 86400 - C<br />
+where 8640 is the amount of seconds per day.<br />
+This bound is defined in the javascript file with the following lines  </p>
+
+<pre><code>var duty_val = 8;
+var leisure_val = 8;
+var needs_val = 8;
+
+//duty_val + leisure_val == 24 - needs_val;
+
+$("#duty_val").change(function(){
+	var val = $('#duty_val').val();
+	var diff = val - duty_val;
+	duty_val = val;
+	
+	leisure_val = leisure_val - (diff/2);
+	$("#leisure_val").val(leisure_val);
+	
+	needs_val = needs_val - (diff/2);
+	$("#needs_val").val(needs_val);
+	
+});
+
+$("#leisure_val").change(function(){
+	var val = $('#leisure_val').val();
+	var diff = val - leisure_val;
+	leisure_val = val;
+	
+	duty_val = duty_val - (diff/2);
+	$("#duty_val").val(duty_val);
+		
+	needs_val = needs_val - (diff/2);
+	$("#needs_val").val(needs_val);
+	
+});
+
+$("#needs_val").change(function(){
+	var val = $('#needs_val').val();
+	var diff = val - needs_val;
+	needs_val = val;
+	
+	duty_val = duty_val - (diff/2);
+	$("#duty_val").val(duty_val);
+	
+	leisure_val = leisure_val - (diff/2);
+	$("#leisure_val").val(leisure_val);
+});
+</code></pre>
+
+<p>In the HTML file I removed the input field and added tree number input. Because of the javascript they starts always with a 8 (hours) by default. I added some line of text and a background PNG too.  </p>
+
+<p><strong>Index.html</strong>
+			&lt;!DOCTYPE HTML&gt;
+	&lt;html&gt;
+	&lt;head&gt;
+		<style>
+		body { margin: 0px; padding: 20px; }
+		#sent { width: 500px; } 
+		#duty_val { width: 50px; }
+		#leisure_val { width: 50px; }
+		#needs_val { width: 50px; }
+		</style></p>
+
+<pre><code>	&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"&gt;&lt;/script&gt;
+	&lt;script type="text/javascript" src="static/main.js"&gt;&lt;/script&gt;
+	
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Set your time&lt;/h1&gt;
+&lt;h3&gt;and remember that you have just 24hrs!&lt;/h3&gt;
+&lt;br&gt;
+
+&lt;p&gt;DUTY&lt;/p&gt;
+&lt;form id="duty"&gt;
+	&lt;input type="number" id="duty_val" value=8&gt;
+
+	
+	//SLIDER
+	
+&lt;script&gt;
+	
+//function myFunction() {
+//  var x = document.createElement("INPUT");
+//  x.setAttribute("type", "range");
+//  document.body.appendChild(x);
+//}
+&lt;/script&gt;
+&lt;/form&gt;
+
+&lt;p&gt;LEISURE&lt;/p&gt;
+&lt;form id="leisure"&gt;
+	&lt;input type="number" id="leisure_val" value=8&gt;
+&lt;/form&gt;
+
+&lt;p&gt;NEEDS&lt;/p&gt;
+&lt;form id="needs"&gt;
+	&lt;input type="number" id="needs_val" value=8&gt;
+&lt;/form&gt;
+&lt;br&gt;
+&lt;button id="cmd_send"&gt;Send&lt;/button&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;  
+</code></pre>
+
+<p><strong>main.js</strong><br />
+		&lt;!DOCTYPE HTML&gt;
+	&lt;html&gt;
+	&lt;head&gt;
+		<style>
+		body { margin: 0px; padding: 20px; }
+		#sent { width: 500px; } 
+		#duty_val { width: 50px; }
+		#leisure_val { width: 50px; }
+		#needs_val { width: 50px; }
+		</style></p>
+
+<pre><code>	&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"&gt;&lt;/script&gt;
+	&lt;script type="text/javascript" src="static/main.js"&gt;&lt;/script&gt;
+	
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Set your time&lt;/h1&gt;
+&lt;h3&gt;and remember that you have just 24hrs!&lt;/h3&gt;
+&lt;br&gt;
+
+&lt;p&gt;DUTY&lt;/p&gt;
+&lt;form id="duty"&gt;
+	&lt;input type="number" id="duty_val" value=8&gt;
+
+	
+	//SLIDER
+	
+&lt;script&gt;
+	
+//function myFunction() {
+//  var x = document.createElement("INPUT");
+//  x.setAttribute("type", "range");
+//  document.body.appendChild(x);
+//}
+&lt;/script&gt;
+&lt;/form&gt;
+
+&lt;p&gt;LEISURE&lt;/p&gt;
+&lt;form id="leisure"&gt;
+	&lt;input type="number" id="leisure_val" value=8&gt;
+&lt;/form&gt;
+
+&lt;p&gt;NEEDS&lt;/p&gt;
+&lt;form id="needs"&gt;
+	&lt;input type="number" id="needs_val" value=8&gt;
+&lt;/form&gt;
+&lt;br&gt;
+&lt;button id="cmd_send"&gt;Send&lt;/button&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p><strong>Download</strong>
+<a href="./files/00_final_proj/Lifetime_application.7z">Lifetime application</a></p>
 
 <!---
 
@@ -260,6 +676,9 @@ Process		3D print  </p>
 QUELLO CHE SI TROVA ALL'INTERNO DI QUESTO COMMENTO è LA PRIMA PROPOSTA DEL PROGETO FINALE, UN PROGETTO TROPPO COMPLESSO PER ESSERE REALIZZATO IN TEMPO, CON GLI STRUMENTI E LE COMPETENZE FORNITE IN QUESTO CORSO.
 RESTA COMUNQUE UNA PROPOSTA VALIDA, MAGARI DA SVILUPPARE IN SEGUITO
 -------------------------------------------------------------------------
+At the following link I've found an interesting website about data visualization
+[Flowing Data](http://flowingdata.com/) 
+
 
 A wargame set in outerspace with an interactive and modular scenario.  
 
